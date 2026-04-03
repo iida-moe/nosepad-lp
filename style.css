@@ -93,12 +93,13 @@ h2.sec-title {
 }
 .header-nav__item:hover { color: var(--text); }
 .header-nav__item--cta {
-  background: var(--red); color: #fff;
+  background: #fff; color: var(--red);
   padding: 8px 20px; border-radius: 5px;
   font-size: 12px;
-  transition: background 0.2s;
+  border: 1.5px solid var(--red);
+  transition: background 0.2s, color 0.2s;
 }
-.header-nav__item--cta:hover { color: #fff; background: var(--red-soft); }
+.header-nav__item--cta:hover { color: #fff; background: var(--red); }
 .sp-only { display: none; }
 .pc-only { display: inline; }
 .header-back {
@@ -173,7 +174,7 @@ h2.sec-title {
   flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
-  padding-bottom: 4vh;
+  padding-bottom: 3vh;
 }
 
 /* 砂色背景 */
@@ -204,19 +205,19 @@ h2.sec-title {
   padding: 2vh 5vw;
 }
 .hero-logos-row a { display: flex; }
-.logo-phiten { height: clamp(60px, 10vh, 110px); width: auto; }
-.logo-aimegane { height: clamp(64px, 11vh, 120px); width: auto; }
+.logo-phiten { width: clamp(240px, 28vw, 420px); height: auto; }
+.logo-aimegane { width: clamp(200px, 22vw, 340px); height: auto; }
 .collab-x {
   font-size: clamp(18px, 2.5vw, 28px);
   color: var(--text-light);
   font-weight: 300;
 }
-.hero-logos-product {
-  font-size: 13px;
-  color: var(--text-mid);
-  letter-spacing: 0.18em;
-  font-weight: 500;
-  margin-top: 1.2vh;
+/* 商品名：h1の上 */
+.hero-product-name {
+  font-size: 12px;
+  color: var(--text-light);
+  letter-spacing: 0.16em;
+  margin-bottom: 8px;
 }
 
 /* 写真左＋テキスト右 */
@@ -261,7 +262,7 @@ h2.sec-title {
 /* 見出し */
 .hero h1 {
   font-family: 'Noto Serif JP', serif;
-  font-size: clamp(24px, 3vw, 36px);
+  font-size: clamp(20px, 2.2vw, 28px);
   font-weight: 600;
   line-height: 1.7;
   letter-spacing: 0.04em;
@@ -304,14 +305,14 @@ h2.sec-title {
 /* ボタン */
 .btn-main {
   display: inline-flex; align-items: center; justify-content: center;
-  background: var(--red); color: #fff;
-  font-size: 17px; font-weight: 500; letter-spacing: 0.06em;
-  padding: 16px 44px; border-radius: 6px;
-  border: none;
-  transition: background 0.2s;
+  background: #fff; color: var(--red);
+  font-size: 14px; font-weight: 500; letter-spacing: 0.06em;
+  padding: 12px 32px; border-radius: 6px;
+  border: 1.5px solid var(--red);
+  transition: background 0.2s, color 0.2s;
   margin-bottom: 10px;
 }
-.btn-main:hover { background: var(--red-soft); }
+.btn-main:hover { background: var(--red); color: #fff; }
 .btn-sub {
   display: inline-flex; align-items: center; justify-content: center;
   background: transparent; color: var(--text);
@@ -668,20 +669,20 @@ footer {
   .header-back { font-size: 14px; }
 
   /* Hero SP */
-  .hero { height: auto; min-height: calc(100vh - 64px); min-height: calc(100dvh - 64px); }
+  .hero { height: auto; min-height: 0; padding-bottom: 2vh; }
   .hero-bg-upper { height: 28%; }
-  .hero-logos { padding: 2vh 20px 1.5vh; }
-  .hero-logos-row { gap: 12px; padding: 1.5vh 4vw; }
-  .logo-phiten { height: clamp(32px, 8vw, 44px); }
-  .logo-aimegane { height: clamp(34px, 9vw, 48px); }
+  .hero-logos { padding: 2vh 20px 1vh; }
+  .hero-logos-row { gap: 14px; padding: 1.5vh 4vw; }
+  .logo-phiten { width: clamp(120px, 32vw, 180px); }
+  .logo-aimegane { width: clamp(120px, 32vw, 180px); }
   .collab-x { font-size: 14px; }
   .hero-logos-product { font-size: 10px; letter-spacing: 0.1em; }
   .hero-row {
     flex-direction: column; padding: 0 20px;
-    gap: 24px; align-items: center;
+    gap: 16px; align-items: center;
     max-width: none;
   }
-  .hero-visual { width: clamp(180px, 50vw, 240px); }
+  .hero-visual { width: clamp(200px, 56vw, 280px); }
   .hero-hook { font-size: 12px; text-align: center; }
   .hero-text { text-align: center; }
   .hero h1 { font-size: clamp(18px, 5vw, 22px); line-height: 1.6; margin-bottom: 10px; }
@@ -739,8 +740,8 @@ footer {
 @media (max-width: 400px) {
   .hero-logos { padding: 1.5vh 16px 1vh; }
   .hero-logos-row { gap: 8px; padding: 1.2vh 3vw; }
-  .logo-phiten { height: 28px; }
-  .logo-aimegane { height: 30px; }
+  .logo-phiten { width: clamp(100px, 28vw, 140px); }
+  .logo-aimegane { width: clamp(100px, 28vw, 140px); }
   .collab-x { font-size: 11px; }
   .hero-logos-product { font-size: 9px; }
   .hero-row { padding: 0 16px; gap: 16px; }
@@ -749,7 +750,7 @@ footer {
   .hero h1 { font-size: 16px; }
   .hero-benefit { font-size: 12px; }
   .price-num { font-size: 24px; }
-  h2.sec-title { font-size: 20px; }
+  h2.sec-title { font-size: clamp(20px, 5.5vw, 26px); }
   .buy-price { font-size: 36px; }
   .size-grid { gap: 8px; }
   .size-card { padding: 20px 6px 16px; }
