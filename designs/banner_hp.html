@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>HPバナー – 各サイズ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #888;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.label {
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  font-family: sans-serif;
+}
+
+/* ═══════════════════════════════
+   BANNER A: ワイドメインバナー 1200×400
+═══════════════════════════════ */
+.banner-a {
+  width: 1200px;
+  height: 400px;
+  background: #F4EFE4;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+.banner-a .left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 56px;
+  position: relative;
+  z-index: 1;
+}
+.banner-a .right {
+  width: 420px;
+  flex-shrink: 0;
+  background: #1A2C20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 右側の装飾円 */
+.banner-a .right::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.07);
+  top: -150px; left: -150px;
+}
+
+.banner-a .logo-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.banner-a .logo-block-label {
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  color: rgba(61,107,79,0.6);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.banner-a .logos {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.banner-a .logos img { height: 56px; width: auto; }
+.banner-a .logos .x { font-size: 18px; color: #C5B89A; font-weight: 300; }
+
+.banner-a h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+.banner-a h2 em { font-style: normal; color: #B8000A; }
+
+.banner-a .price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.banner-a .price-num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 44px;
+  font-weight: 600;
+  color: #B8000A;
+  line-height: 1;
+}
+.banner-a .price-unit { font-size: 14px; color: #999; }
+.banner-a .badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #B8000A;
+  border: 1px solid rgba(184,0,10,0.35);
+  background: #FBF0EE;
+  border-radius: 100px;
+  padding: 5px 14px;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+/* 右側 */
+.banner-a .right-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+.banner-a .img-circle {
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #EDE5D5;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+}
+.banner-a .img-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+.banner-a .right-text {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: rgba(240,248,242,0.5);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* 左側背景装飾 */
+.banner-a::before {
+  content: '';
+  position: absolute;
+  width: 350px; height: 350px;
+  border-radius: 50%;
+  border: 1px solid rgba(61,107,79,0.1);
+  top: -120px; left: 300px;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════
+   BANNER B: レクタングル 300×250
+═══════════════════════════════ */
+.banner-b {
+  width: 300px;
+  height: 250px;
+  background: #1A2C20;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 24px;
+}
+.banner-b::before {
+  content: '';
+  position: absolute;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.05);
+  top: -120px; right: -100px;
+}
+.banner-b .logos {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 4px;
+  position: relative; z-index: 1;
+}
+.banner-b .logos img { height: 34px; filter: brightness(0) invert(1) opacity(0.9); }
+.banner-b .logos .x { font-size: 13px; color: rgba(255,255,255,0.3); }
+.banner-b .collab-label-b {
+  font-size: 8px;
+  letter-spacing: 0.24em;
+  color: rgba(180,220,195,0.45);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  position: relative; z-index: 1;
+}
+.banner-b .img-circle {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #EDE5D5;
+  margin-bottom: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  position: relative; z-index: 1;
+}
+.banner-b .img-circle img { width: 100%; height: 100%; object-fit: cover; }
+.banner-b h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  color: #F4EFE4;
+  text-align: center;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+  position: relative; z-index: 1;
+}
+.banner-b h3 em { font-style: normal; color: #E06060; }
+.banner-b .price {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #E06060;
+  line-height: 1;
+  position: relative; z-index: 1;
+}
+.banner-b .price span { font-size: 12px; color: rgba(240,248,242,0.4); font-family: 'Noto Sans JP'; vertical-align: middle; margin-left: 4px; }
+
+/* ═══════════════════════════════
+   BANNER C: リーダーボード 728×90
+═══════════════════════════════ */
+.banner-c {
+  width: 728px;
+  height: 90px;
+  background: #1A2C20;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  gap: 0;
+}
+.banner-c::after {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.05);
+  top: -80px; left: 200px;
+}
+.banner-c .logos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: 24px;
+  flex-shrink: 0;
+  position: relative; z-index: 1;
+}
+.banner-c .logos img { height: 36px; filter: brightness(0) invert(1) opacity(0.9); }
+.banner-c .logos .x { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+.banner-c .divider {
+  width: 1px; height: 36px;
+  background: rgba(255,255,255,0.1);
+  margin-right: 24px;
+  flex-shrink: 0;
+}
+
+.banner-c .img-circle {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #EDE5D5;
+  margin-right: 20px;
+  flex-shrink: 0;
+  position: relative; z-index: 1;
+}
+.banner-c .img-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+.banner-c .text {
+  flex: 1;
+  position: relative; z-index: 1;
+}
+.banner-c .text p {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  color: #F4EFE4;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.banner-c .text p em { font-style: normal; color: #E06060; }
+.banner-c .text small {
+  font-size: 10px;
+  color: rgba(240,248,242,0.4);
+  letter-spacing: 0.14em;
+}
+
+.banner-c .price-area {
+  flex-shrink: 0;
+  text-align: right;
+  margin-right: 20px;
+  position: relative; z-index: 1;
+}
+.banner-c .price-area .num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #E06060;
+  line-height: 1;
+}
+.banner-c .price-area .unit {
+  font-size: 11px;
+  color: rgba(240,248,242,0.4);
+}
+
+.banner-c .btn {
+  background: #B8000A;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  padding: 10px 20px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: relative; z-index: 1;
+  font-weight: 500;
+}
+</style>
+</head>
+<body>
+
+<div>
+  <p class="label">▼ BANNER A — ワイドバナー（1200 × 400px）</p>
+  <div class="banner-a">
+    <div class="left">
+      <div class="logo-block">
+        <span class="logo-block-label">Collaboration Item</span>
+        <div class="logos">
+          <img src="../images/FA.svg" alt="phiten">
+          <span class="x">×</span>
+          <img src="../images/AI.svg" alt="アイメガネ">
+        </div>
+      </div>
+      <h2>
+        いつものメガネに、<br>
+        <em>ファイテンの技術</em>を。
+      </h2>
+      <div class="price-row">
+        <span class="price-num">¥990</span>
+        <span class="price-unit">（税込）</span>
+        <span class="badge">チタンパウダー 5% 配合</span>
+      </div>
+    </div>
+    <div class="right">
+      <div class="right-inner">
+        <div class="img-circle">
+          <img src="../images/maruM.jpg" alt="ノーズパッド">
+        </div>
+        <p class="right-text">Micro Titanium Ball<br>Nose Pad</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <p class="label">▼ BANNER B — レクタングル（300 × 250px）</p>
+  <div class="banner-b">
+    <div class="logos">
+      <img src="../images/FA.svg" alt="phiten">
+      <span class="x">×</span>
+      <img src="../images/AI.svg" alt="アイメガネ">
+    </div>
+    <p class="collab-label-b">Collaboration Item</p>
+    <div class="img-circle">
+      <img src="../images/maruM.jpg" alt="ノーズパッド">
+    </div>
+    <h3>いつものメガネに、<br><em>ファイテンの技術</em>を。</h3>
+    <p class="price">¥990<span>（税込）</span></p>
+  </div>
+</div>
+
+<div>
+  <p class="label">▼ BANNER C — リーダーボード（728 × 90px）</p>
+  <div class="banner-c">
+    <div class="logos">
+      <img src="../images/FA.svg" alt="phiten">
+      <span class="x">×</span>
+      <img src="../images/AI.svg" alt="アイメガネ">
+    </div>
+    <div class="divider"></div>
+    <div class="img-circle">
+      <img src="../images/maruM.jpg" alt="ノーズパッド">
+    </div>
+    <div class="text">
+      <p>いつものメガネに、<em>ファイテンの技術</em>を。</p>
+      <small>ミクロチタンボール ノーズパッド　S / M / L</small>
+    </div>
+    <div class="price-area">
+      <div class="num">¥990</div>
+      <div class="unit">税込</div>
+    </div>
+    <span class="btn">店舗を探す →</span>
+  </div>
+</div>
+
+</body>
+</html>

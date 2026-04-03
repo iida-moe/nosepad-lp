@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ストーリー シンプル改善版 1080×1920</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; }
+
+.canvas {
+  width: 1080px;
+  height: 1920px;
+  background: #FDFAF5;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Noto Sans JP', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 外枠ボーダー */
+.frame {
+  position: absolute;
+  top: 32px; left: 32px; right: 32px; bottom: 32px;
+  border: 2px solid rgba(61,107,79,0.2);
+  border-radius: 24px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* 上部グリーン帯 */
+.top-band {
+  width: 100%;
+  background: #3D6B4F;
+  padding: 72px 80px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  position: relative;
+  z-index: 2;
+}
+
+.new-label {
+  font-size: 22px;
+  letter-spacing: 0.36em;
+  color: rgba(244,239,228,0.5);
+  text-transform: uppercase;
+}
+
+.top-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 56px;
+  font-weight: 600;
+  color: #F4EFE4;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* ロゴエリア */
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-top: 8px;
+}
+.logo-row img { height: 50px; filter: brightness(0) invert(1) opacity(0.9); }
+.logo-row .times {
+  font-size: 38px;
+  color: rgba(255,255,255,0.35);
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* 仕切り線 */
+.divider {
+  width: 60px; height: 1px;
+  background: rgba(255,255,255,0.2);
+  margin: 0 auto;
+}
+
+/* 中央：パッドエリア */
+.pad-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  position: relative;
+  z-index: 2;
+  padding: 0 80px;
+}
+
+/* 背景装飾円 */
+.pad-area::before {
+  content: '';
+  position: absolute;
+  width: 760px; height: 760px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(61,107,79,0.04) 0%, transparent 65%);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  pointer-events: none;
+}
+
+.pad-outer {
+  width: 620px; height: 620px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.1);
+  border: 2.5px solid #9B001B;
+  position: relative;
+}
+.pad-circle {
+  width: 554px; height: 554px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #EDE5D5;
+}
+.pad-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+/* 円周テキスト */
+.pad-outer svg {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 620px; height: 620px;
+}
+
+/* パッド下のキャッチ */
+.catch {
+  text-align: center;
+}
+.catch .catch-main {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 48px; font-weight: 600;
+  color: #222; line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+.catch .catch-sub {
+  font-size: 26px;
+  color: rgba(61,107,79,0.55);
+  letter-spacing: 0.05em;
+  margin-top: 8px;
+}
+
+/* 下部：価格＋CTA */
+.bottom-area {
+  width: 100%;
+  background: #F4EFE4;
+  border-top: 1px solid rgba(61,107,79,0.1);
+  padding: 52px 80px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.price-block {
+  text-align: center;
+}
+.price-label {
+  font-size: 20px; letter-spacing: 0.26em;
+  color: rgba(61,107,79,0.4); text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.price {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 120px; font-weight: 600;
+  color: #222; line-height: 1;
+  letter-spacing: -0.01em;
+}
+.price-note {
+  font-size: 26px; color: #999;
+  letter-spacing: 0.12em; margin-top: 8px;
+}
+
+.size-row {
+  display: flex; gap: 16px;
+}
+.size-pill {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 28px; color: rgba(61,107,79,0.55);
+  border: 1px solid rgba(61,107,79,0.25);
+  border-radius: 100px; padding: 8px 32px;
+  letter-spacing: 0.08em;
+}
+
+.cta-box {
+  width: 100%;
+  background: #3D6B4F;
+  border-radius: 12px;
+  padding: 34px 44px;
+  text-align: center;
+}
+.cta-main {
+  font-size: 34px; font-weight: 500;
+  color: #F4EFE4; letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+.cta-sub {
+  font-size: 22px; color: rgba(244,239,228,0.5);
+  letter-spacing: 0.1em;
+}
+
+.footer {
+  font-size: 18px; color: #bbb;
+  letter-spacing: 0.1em;
+}
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="frame"></div>
+
+  <!-- 上部グリーン帯 -->
+  <div class="top-band">
+    <p class="new-label">New Item</p>
+    <h1 class="top-title">新商品のお知らせ</h1>
+    <div class="divider"></div>
+    <div class="logo-row">
+      <img src="../images/AI.svg" alt="アイメガネ">
+      <span class="times">×</span>
+      <img src="../images/FA.svg" alt="phiten">
+    </div>
+  </div>
+
+  <!-- パッドエリア -->
+  <div class="pad-area">
+    <div class="pad-outer">
+      <div class="pad-circle">
+        <img src="../images/maruM.jpg" alt="ノーズパッド">
+      </div>
+      <svg viewBox="0 0 620 620">
+        <defs>
+          <path id="cp" d="M310,310 m-258,0 a258,258 0 1,1 516,0 a258,258 0 1,1 -516,0"/>
+        </defs>
+        <text font-family="'Noto Serif JP',serif" font-size="36" fill="#9B001B" letter-spacing="13" font-weight="600">
+          <textPath href="#cp" startOffset="5%">鼻あて替えてみませんか？</textPath>
+        </text>
+      </svg>
+    </div>
+    <div class="catch">
+      <p class="catch-main">いつものメガネに<br>ファイテンの技術を</p>
+      <p class="catch-sub">ミクロチタンボール ノーズパッド</p>
+    </div>
+  </div>
+
+  <!-- 価格＋CTA -->
+  <div class="bottom-area">
+    <div class="price-block">
+      <p class="price-label">Price</p>
+      <div class="price">¥990</div>
+      <p class="price-note">税込 / 全3サイズ</p>
+    </div>
+    <div class="size-row">
+      <span class="size-pill">S</span>
+      <span class="size-pill">M</span>
+      <span class="size-pill">L</span>
+    </div>
+    <div class="cta-box">
+      <p class="cta-main">アイメガネ全店にてお取り扱い中</p>
+      <p class="cta-sub">詳細はプロフィールリンクへ →</p>
+    </div>
+    <p class="footer">本庄南大通り店を除く</p>
+  </div>
+
+</div>
+</body>
+</html>

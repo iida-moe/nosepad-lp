@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>コラボストーリー 1080×1920</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; }
+
+.canvas {
+  width: 1080px;
+  height: 1920px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Noto Sans JP', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ══ 上：サンドベージュ ══ */
+.upper {
+  background: #F4EFE4;
+  flex: 1.15;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 右上グリーン三角 */
+.upper::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 460px; height: 460px;
+  background: #3D6B4F;
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+  z-index: 0;
+}
+
+/* 背景装飾円 */
+.upper::before {
+  content: '';
+  position: absolute;
+  width: 900px; height: 900px;
+  border-radius: 50%;
+  border: 1px solid rgba(61,107,79,0.06);
+  bottom: -360px; left: -280px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── コラボロゴエリア ── */
+.collab-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: 100px;
+  margin-bottom: 56px;
+  position: relative; z-index: 2;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.logo-row img { height: 60px; width: auto; }
+.logo-row .times {
+  font-size: 44px;
+  color: #C5B89A;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.collab-label {
+  font-size: 20px;
+  letter-spacing: 0.36em;
+  color: rgba(61,107,79,0.48);
+  text-transform: uppercase;
+}
+
+/* ── NEW ITEM バッジ ── */
+.badge {
+  position: absolute;
+  top: 80px; right: 80px;
+  z-index: 4;
+}
+.badge-inner {
+  width: 130px; height: 130px;
+  border-radius: 50%;
+  background: rgba(61,107,79,0.92);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 5px;
+  border: 1.5px solid rgba(255,255,255,0.2);
+}
+.badge-new {
+  font-size: 15px; letter-spacing: 0.24em;
+  color: rgba(244,239,228,0.7); text-transform: uppercase;
+}
+.badge-item {
+  font-size: 12px; letter-spacing: 0.2em;
+  color: rgba(244,239,228,0.48); text-transform: uppercase;
+}
+
+/* ── パッド ── */
+.pad-wrap {
+  position: relative; z-index: 2;
+  margin-bottom: 0;
+}
+.pad-outer {
+  width: 620px; height: 620px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 32px 110px rgba(0,0,0,0.1);
+  border: 3px solid #9B001B;
+  position: relative;
+}
+.pad-circle {
+  width: 550px; height: 550px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #EDE5D5;
+}
+.pad-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+/* 円周テキスト */
+.pad-outer svg {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 620px; height: 620px;
+}
+
+/* ── 下：グリーン ══ */
+.lower {
+  background: #3D6B4F;
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 56px 90px 64px;
+  position: relative; overflow: hidden;
+  text-align: center;
+}
+.lower::before {
+  content: ''; position: absolute;
+  width: 700px; height: 700px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.05);
+  bottom: -260px; right: -180px; pointer-events: none;
+}
+.lower::after {
+  content: ''; position: absolute;
+  width: 400px; height: 400px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.04);
+  top: -120px; left: -80px; pointer-events: none;
+}
+
+.product-name {
+  font-size: 20px; letter-spacing: 0.3em;
+  color: rgba(244,239,228,0.35);
+  text-transform: uppercase; margin-bottom: 18px;
+  position: relative; z-index: 1;
+}
+
+.headline {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 64px; font-weight: 600;
+  color: #F4EFE4; line-height: 1.55;
+  letter-spacing: 0.03em; margin-bottom: 14px;
+  position: relative; z-index: 1;
+}
+.headline .sub {
+  font-size: 52px; opacity: 0.7; display: block; margin-bottom: 4px;
+}
+
+.desc {
+  font-size: 24px; color: rgba(244,239,228,0.5);
+  line-height: 1.9; letter-spacing: 0.03em;
+  margin-bottom: 36px;
+  position: relative; z-index: 1;
+  border-left: 3px solid rgba(255,255,255,0.14);
+  padding-left: 22px; text-align: left;
+}
+
+.rule {
+  width: 72px; height: 1px;
+  background: rgba(255,255,255,0.14);
+  margin: 0 auto 32px;
+  position: relative; z-index: 1;
+}
+
+.price-row {
+  display: flex; align-items: baseline;
+  gap: 14px; justify-content: center;
+  margin-bottom: 10px;
+  position: relative; z-index: 1;
+}
+.price {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 120px; font-weight: 600;
+  color: #FFFFFF; line-height: 1;
+}
+.price-yen { font-size: 68px; }
+.price-note { font-size: 26px; color: rgba(244,239,228,0.36); }
+
+.size-row {
+  display: flex; gap: 14px; justify-content: center;
+  margin-bottom: 36px; position: relative; z-index: 1;
+}
+.size-pill {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 26px; color: rgba(244,239,228,0.5);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 100px; padding: 6px 28px; letter-spacing: 0.08em;
+}
+
+.cta {
+  width: 100%;
+  background: #fff;
+  border-radius: 10px; padding: 30px 44px;
+  text-align: center;
+  position: relative; z-index: 1;
+  margin-bottom: 18px;
+}
+.cta-main {
+  font-size: 32px; font-weight: 500;
+  color: #3D6B4F; letter-spacing: 0.06em; margin-bottom: 8px;
+}
+.cta-sub { font-size: 20px; color: rgba(61,107,79,0.48); letter-spacing: 0.1em; }
+
+.footer-note {
+  font-size: 18px; color: rgba(244,239,228,0.22);
+  letter-spacing: 0.1em; line-height: 1.8;
+  position: relative; z-index: 1;
+}
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="upper">
+    <!-- コラボヘッダー -->
+    <div class="collab-header">
+      <div class="logo-row">
+        <img src="../images/AI.svg" alt="アイメガネ">
+        <span class="times">×</span>
+        <img src="../images/FA.svg" alt="phiten">
+      </div>
+      <p class="collab-label">Collaboration Item</p>
+    </div>
+
+    <!-- NEW バッジ -->
+    <div class="badge">
+      <div class="badge-inner">
+        <span class="badge-new">NEW</span>
+        <span class="badge-item">ITEM</span>
+      </div>
+    </div>
+
+    <!-- パッド -->
+    <div class="pad-wrap">
+      <div class="pad-outer">
+        <div class="pad-circle">
+          <img src="../images/maruM.jpg" alt="ノーズパッド">
+        </div>
+        <svg viewBox="0 0 620 620">
+          <defs>
+            <path id="cp" d="M310,310 m-258,0 a258,258 0 1,1 516,0 a258,258 0 1,1 -516,0"/>
+          </defs>
+          <text font-family="'Noto Serif JP',serif" font-size="38" fill="#9B001B" letter-spacing="14" font-weight="600">
+            <textPath href="#cp" startOffset="5%">鼻あて替えてみませんか？</textPath>
+          </text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="lower">
+    <p class="product-name">Micro Titanium Ball Nose Pad</p>
+    <h1 class="headline">
+      <span class="sub">いつものメガネに</span>
+      ファイテンの技術を
+    </h1>
+    <p class="desc">
+      ファイテン独自の「ミクロチタンボール」を<br>ソフト樹脂に5%配合。鼻あてを替えるだけで、<br>ファイテンの技術を日常のメガネに。
+    </p>
+    <div class="rule"></div>
+    <div class="price-row">
+      <span class="price"><span class="price-yen">¥</span>990</span>
+      <span class="price-note">円（税込）</span>
+    </div>
+    <div class="size-row">
+      <span class="size-pill">S</span>
+      <span class="size-pill">M</span>
+      <span class="size-pill">L</span>
+    </div>
+    <div class="cta">
+      <p class="cta-main">アイメガネ全店にてお取り扱い中</p>
+      <p class="cta-sub">詳細はプロフィールリンクへ →</p>
+    </div>
+    <p class="footer-note">本庄南大通り店を除く</p>
+  </div>
+
+</div>
+</body>
+</html>

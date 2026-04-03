@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/m-iida/Desktop/nosepad_lp -type f \\\\\\(-name *final* -o -name *決定* \\\\\\))"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\m-iida\\Desktop\\nosepad_lp"
+    ]
+  }
+}

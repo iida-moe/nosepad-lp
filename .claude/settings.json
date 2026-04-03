@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:camp.auone.jp)",
+      "WebFetch(domain:www.nikoand.jp)",
+      "Bash(curl -s -L \"https://www.nikoand.jp/edit/cotton_nishimura/\")",
+      "Bash(curl -s -L \"https://www.nikoand.jp/edit/cotton_nishimura/assets/css/cotton_nishimura_isyou_yohou.css?v1\")",
+      "WebFetch(domain:online-soudan.jeki.co.jp)",
+      "Bash(tr '}' '\\\\n')",
+      "Bash(ls -la *pdf*)",
+      "Bash(python -c \"import os; [print\\(repr\\(f\\)\\) for f in os.listdir\\(''.''\\) if ''pdf'' in f.lower\\(\\) or ''PDX'' in f]\")",
+      "Bash(identify \"c:/Users/m-iida/Desktop/gw-fair-lp/logo.gif\")",
+      "Bash(python3 -c \"from PIL import Image; img=Image.open\\(''c:/Users/m-iida/Desktop/gw-fair-lp/logo.gif''\\); print\\(img.size\\)\")"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\m-iida\\Desktop\\nosepad_lp",
+      "C:\\Users\\m-iida\\Desktop\\zeal-lp",
+      "c:\\Users\\m-iida\\Desktop"
+    ]
+  }
+}

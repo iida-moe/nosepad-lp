@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>A5 POP 別案 3パターン</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #888;
+  padding: 48px;
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.pop-label {
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  font-family: sans-serif;
+}
+.pop-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ══════════════════════════════════════
+   共通サイズ
+══════════════════════════════════════ */
+.pop {
+  width: 148mm;
+  height: 210mm;
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* ══════════════════════════════════════
+   A案：商品主役・大きな画像・明快CTA
+══════════════════════════════════════ */
+.pop-a {
+  background: #FDFAF5;
+  display: flex;
+  flex-direction: column;
+}
+
+.pop-a .logo-bar {
+  background: #1A2C20;
+  padding: 14px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.pop-a .logo-bar .logos {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.pop-a .logo-bar img { height: 40px; filter: brightness(0) invert(1) opacity(0.9); }
+.pop-a .logo-bar .x { font-size: 14px; color: rgba(255,255,255,0.3); }
+.pop-a .logo-bar .sub {
+  font-size: 7px;
+  letter-spacing: 0.3em;
+  color: rgba(180,220,195,0.5);
+  text-transform: uppercase;
+}
+
+.pop-a .img-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F4EFE4;
+  position: relative;
+}
+.pop-a .img-area::before {
+  content: '';
+  position: absolute;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  border: 1px solid rgba(61,107,79,0.12);
+}
+.pop-a .img-area::after {
+  content: '';
+  position: absolute;
+  width: 170px; height: 170px;
+  border-radius: 50%;
+  border: 1px solid rgba(61,107,79,0.08);
+}
+.pop-a .product-circle {
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #EDE5D5;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.14);
+  position: relative;
+  z-index: 1;
+}
+.pop-a .product-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+.pop-a .info {
+  padding: 18px 28px 0;
+  text-align: center;
+}
+.pop-a .info .product-name {
+  font-size: 8px;
+  letter-spacing: 0.24em;
+  color: #3D6B4F;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.pop-a .info .headline {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+}
+.pop-a .info .headline em { font-style: normal; color: #B8000A; }
+.pop-a .price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.pop-a .price-num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 34px;
+  font-weight: 600;
+  color: #B8000A;
+}
+.pop-a .price-unit { font-size: 11px; color: #999; }
+
+.pop-a .cta {
+  background: #1A2C20;
+  margin: 0 28px 18px;
+  border-radius: 6px;
+  padding: 14px 16px;
+  text-align: center;
+}
+.pop-a .cta .cta-main {
+  font-size: 13px;
+  font-weight: 500;
+  color: #F4EFE4;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+.pop-a .cta .cta-sub {
+  font-size: 9px;
+  color: rgba(240,248,242,0.45);
+  letter-spacing: 0.1em;
+}
+
+.pop-a .footer {
+  padding: 0 28px 16px;
+  text-align: center;
+}
+.pop-a .footer p {
+  font-size: 7.5px;
+  color: #bbb;
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+}
+
+
+/* ══════════════════════════════════════
+   B案：二分割 上：ブランド暗め / 下：CTA
+══════════════════════════════════════ */
+.pop-b {
+  display: flex;
+  flex-direction: column;
+}
+
+.pop-b .upper {
+  background: #1A2C20;
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  gap: 20px;
+  padding: 28px 28px 24px;
+}
+.pop-b .upper::before {
+  content: '';
+  position: absolute;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.05);
+  top: -140px; right: -120px;
+}
+.pop-b .upper::after {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.04);
+  bottom: -60px; left: -60px;
+}
+
+.pop-b .upper .logos {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  position: relative; z-index: 1;
+}
+.pop-b .upper img { height: 42px; filter: brightness(0) invert(1) opacity(0.9); }
+.pop-b .upper .x { font-size: 15px; color: rgba(255,255,255,0.3); }
+
+.pop-b .upper .divider-line {
+  width: 1px; height: 20px;
+  background: rgba(255,255,255,0.1);
+  position: relative; z-index: 1;
+}
+
+.pop-b .product-circle-b {
+  width: 150px; height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #EDE5D5;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+  position: relative; z-index: 1;
+}
+.pop-b .product-circle-b img { width: 100%; height: 100%; object-fit: cover; }
+
+.pop-b .upper .product-name-b {
+  font-size: 8px;
+  letter-spacing: 0.28em;
+  color: rgba(180,220,195,0.5);
+  text-transform: uppercase;
+  position: relative; z-index: 1;
+}
+
+.pop-b .lower {
+  background: #F4EFE4;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 32px;
+  gap: 0;
+}
+
+.pop-b .headline-b {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.65;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin-bottom: 14px;
+}
+.pop-b .headline-b em { font-style: normal; color: #B8000A; }
+
+.pop-b .price-b {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 38px;
+  font-weight: 600;
+  color: #B8000A;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.pop-b .price-note-b {
+  font-size: 11px;
+  color: #aaa;
+  margin-bottom: 20px;
+  letter-spacing: 0.08em;
+}
+
+.pop-b .cta-b {
+  width: 100%;
+  border: 1.5px solid #1A2C20;
+  border-radius: 6px;
+  padding: 14px 12px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.pop-b .cta-b .cta-b-main {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A2C20;
+  letter-spacing: 0.06em;
+  margin-bottom: 3px;
+}
+.pop-b .cta-b .cta-b-sub {
+  font-size: 9px;
+  color: rgba(26,44,32,0.45);
+  letter-spacing: 0.1em;
+}
+
+.pop-b .footer-b {
+  font-size: 7.5px;
+  color: #bbb;
+  letter-spacing: 0.1em;
+  text-align: center;
+  line-height: 1.7;
+}
+
+
+/* ══════════════════════════════════════
+   C案：縦の視線誘導・余白重視・モノライン
+══════════════════════════════════════ */
+.pop-c {
+  background: #F4EFE4;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.pop-c .top-accent {
+  height: 5px;
+  background: linear-gradient(to right, #1A2C20, #3D6B4F);
+}
+
+.pop-c .body-c {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 32px 0;
+}
+
+.pop-c .logos-c {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.pop-c .logos-c img { height: 38px; }
+.pop-c .logos-c .x { font-size: 13px; color: #C5B89A; }
+
+.pop-c .eyebrow-c {
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  color: #3D6B4F;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.pop-c .headline-c {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
+  margin-bottom: 20px;
+}
+.pop-c .headline-c em { font-style: normal; color: #B8000A; }
+
+.pop-c .rule { width: 100%; height: 1px; background: #DDD5C5; margin-bottom: 20px; }
+
+.pop-c .product-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.pop-c .product-circle-c {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #EDE5D5;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+.pop-c .product-circle-c img { width: 100%; height: 100%; object-fit: cover; }
+
+.pop-c .product-detail {
+  flex: 1;
+}
+.pop-c .product-detail .name-c {
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: #3D6B4F;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.pop-c .product-detail .price-c {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 38px;
+  font-weight: 600;
+  color: #B8000A;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.pop-c .product-detail .price-note-c {
+  font-size: 10px;
+  color: #aaa;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.pop-c .size-row-c {
+  display: flex;
+  gap: 6px;
+}
+.pop-c .size-pill-c {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 11px;
+  color: #3D6B4F;
+  border: 1px solid rgba(61,107,79,0.4);
+  border-radius: 100px;
+  padding: 3px 10px;
+  letter-spacing: 0.06em;
+}
+
+.pop-c .rule2 { width: 100%; height: 1px; background: #DDD5C5; margin-bottom: 0; }
+
+.pop-c .cta-c {
+  background: #1A2C20;
+  margin: 0 -32px;
+  padding: 20px 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+  position: relative;
+}
+.pop-c .cta-c .arrow {
+  font-size: 20px;
+  color: rgba(180,220,195,0.4);
+  margin-bottom: 4px;
+  line-height: 1;
+}
+.pop-c .cta-c .cta-c-main {
+  font-size: 15px;
+  font-weight: 500;
+  color: #F4EFE4;
+  letter-spacing: 0.08em;
+}
+.pop-c .cta-c .cta-c-sub {
+  font-size: 9px;
+  color: rgba(240,248,242,0.4);
+  letter-spacing: 0.12em;
+  line-height: 1.8;
+}
+</style>
+</head>
+<body>
+
+<!-- A案 -->
+<div class="pop-wrap">
+  <p class="pop-label">▼ A案 — 商品主役・明快CTA</p>
+  <div class="pop pop-a">
+    <div class="logo-bar">
+      <div class="logos">
+        <img src="../images/FA.svg" alt="phiten">
+        <span class="x">×</span>
+        <img src="../images/AI.svg" alt="アイメガネ">
+      </div>
+      <span class="sub">Collaboration Item</span>
+    </div>
+
+    <div class="img-area">
+      <div class="product-circle">
+        <img src="../images/maruM.jpg" alt="ノーズパッド">
+      </div>
+    </div>
+
+    <div class="info">
+      <p class="product-name">Micro Titanium Ball Nose Pad</p>
+      <h1 class="headline">いつものメガネに、<br><em>ファイテンの技術</em>を。</h1>
+      <div class="price-row">
+        <span class="price-num">¥990</span>
+        <span class="price-unit">（税込）</span>
+      </div>
+    </div>
+
+    <div class="cta">
+      <p class="cta-main">ご試着・ご購入はスタッフへ</p>
+      <p class="cta-sub">サイズ選びもお気軽にご相談ください</p>
+    </div>
+
+    <div class="footer">
+      <p>S · M · L サイズ対応　/　アイメガネ全店にてお取り扱い中</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- B案 -->
+<div class="pop-wrap">
+  <p class="pop-label">▼ B案 — 上：ブランド暗め / 下：CTA明るめ</p>
+  <div class="pop pop-b">
+    <div class="upper">
+      <div class="logos">
+        <img src="../images/FA.svg" alt="phiten">
+        <span class="x">×</span>
+        <img src="../images/AI.svg" alt="アイメガネ">
+      </div>
+      <div class="divider-line"></div>
+      <div class="product-circle-b">
+        <img src="../images/maruM.jpg" alt="ノーズパッド">
+      </div>
+      <p class="product-name-b">Micro Titanium Ball Nose Pad</p>
+    </div>
+
+    <div class="lower">
+      <h2 class="headline-b">いつものメガネに、<br><em>ファイテンの技術</em>を。</h2>
+      <div class="price-b">¥990</div>
+      <p class="price-note-b">税込 / S · M · L</p>
+
+      <div class="cta-b">
+        <p class="cta-b-main">ご試着・ご購入はスタッフへ</p>
+        <p class="cta-b-sub">サイズ選びもお気軽にご相談ください</p>
+      </div>
+
+      <p class="footer-b">アイメガネ全店（本庄南大通り店を除く）にてお取り扱い中</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- C案 -->
+<div class="pop-wrap">
+  <p class="pop-label">▼ C案 — 縦の視線誘導・余白重視</p>
+  <div class="pop pop-c">
+    <div class="top-accent"></div>
+    <div class="body-c">
+      <div class="logos-c">
+        <img src="../images/FA.svg" alt="phiten">
+        <span class="x">×</span>
+        <img src="../images/AI.svg" alt="アイメガネ">
+      </div>
+
+      <p class="eyebrow-c">Collaboration Nose Pad</p>
+      <h1 class="headline-c">いつものメガネに、<br><em>ファイテンの技術</em>を。</h1>
+
+      <div class="rule"></div>
+
+      <div class="product-row">
+        <div class="product-circle-c">
+          <img src="../images/maruM.jpg" alt="ノーズパッド">
+        </div>
+        <div class="product-detail">
+          <p class="name-c">Nose Pad</p>
+          <div class="price-c">¥990</div>
+          <p class="price-note-c">税込 / 全サイズ共通</p>
+          <div class="size-row-c">
+            <span class="size-pill-c">S</span>
+            <span class="size-pill-c">M</span>
+            <span class="size-pill-c">L</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rule2"></div>
+    </div>
+
+    <div class="cta-c">
+      <p class="arrow">↓</p>
+      <p class="cta-c-main">ご試着・ご購入はスタッフへ</p>
+      <p class="cta-c-sub">見本はこちらをご参考ください<br>サイズ選びもお気軽にご相談ください</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

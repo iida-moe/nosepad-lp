@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>グリーントーン比較</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #777;
+  padding: 40px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+h2.section-title {
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  font-family: sans-serif;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.row {
+  display: flex;
+  gap: 36px;
+  margin-bottom: 60px;
+  align-items: flex-start;
+}
+.col { display: flex; flex-direction: column; }
+.col-label {
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  font-family: sans-serif;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.swatch {
+  display: inline-block;
+  width: 14px; height: 14px;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.3);
+  flex-shrink: 0;
+}
+
+.pop {
+  width: 148mm;
+  height: 210mm;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ══════════════════════════════
+   A案 共通スタイル
+══════════════════════════════ */
+.pop-a .logo-bar {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.pop-a .logo-bar .logos { display: flex; align-items: center; gap: 18px; }
+.pop-a .logo-bar .logos img { height: 42px; filter: brightness(0) invert(1) opacity(0.92); }
+.pop-a .logo-bar .x { font-size: 14px; color: rgba(255,255,255,0.35); }
+.pop-a .logo-bar .sub { font-size: 7px; letter-spacing: 0.3em; color: rgba(255,255,255,0.4); text-transform: uppercase; }
+
+.pop-a .img-area {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  background: #F4EFE4;
+  position: relative;
+}
+.pop-a .img-area::before {
+  content: ''; position: absolute;
+  width: 210px; height: 210px; border-radius: 50%;
+  border: 1px solid rgba(61,107,79,0.12);
+}
+.pop-a .img-area::after {
+  content: ''; position: absolute;
+  width: 160px; height: 160px; border-radius: 50%;
+  border: 1px solid rgba(61,107,79,0.07);
+}
+.pop-a .product-circle {
+  width: 140px; height: 140px; border-radius: 50%;
+  overflow: hidden; background: #EDE5D5;
+  box-shadow: 0 10px 36px rgba(0,0,0,0.13);
+  position: relative; z-index: 1;
+}
+.pop-a .product-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+.pop-a .info {
+  background: #F4EFE4;
+  padding: 16px 28px 0;
+  text-align: center;
+}
+.pop-a .info .product-name { font-size: 8px; letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 8px; }
+.pop-a .info .headline { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 600; color: #111; line-height: 1.65; letter-spacing: 0.03em; margin-bottom: 10px; }
+.pop-a .info .headline em { font-style: normal; color: #B8000A; }
+.pop-a .price-row { display: flex; align-items: baseline; gap: 6px; justify-content: center; margin-bottom: 14px; }
+.pop-a .price-num { font-family: 'Noto Serif JP', serif; font-size: 32px; font-weight: 600; color: #B8000A; }
+.pop-a .price-unit { font-size: 11px; color: #999; }
+
+.pop-a .cta {
+  margin: 0 28px 14px;
+  border-radius: 6px;
+  padding: 13px 12px;
+  text-align: center;
+}
+.pop-a .cta .cta-main { font-size: 13px; font-weight: 500; letter-spacing: 0.06em; margin-bottom: 3px; }
+.pop-a .cta .cta-sub { font-size: 9px; letter-spacing: 0.1em; opacity: 0.6; }
+
+.pop-a .footer-bar {
+  padding: 10px 28px 14px;
+  text-align: center;
+}
+.pop-a .footer-bar p { font-size: 7.5px; color: #bbb; letter-spacing: 0.1em; line-height: 1.7; }
+
+/* A案カラー差し替え */
+.pop-a.g1 .logo-bar { background: #3D6B4F; }
+.pop-a.g1 .info .product-name { color: #3D6B4F; }
+.pop-a.g1 .cta { background: #3D6B4F; }
+.pop-a.g1 .cta .cta-main { color: #F4EFE4; }
+
+.pop-a.g2 .logo-bar { background: #6B8C7A; }
+.pop-a.g2 .info .product-name { color: #6B8C7A; }
+.pop-a.g2 .cta { background: #6B8C7A; }
+.pop-a.g2 .cta .cta-main { color: #F4EFE4; }
+
+.pop-a.g3 .logo-bar { background: #8FA898; }
+.pop-a.g3 .logo-bar .logos img { filter: brightness(0) invert(1) opacity(0.85); }
+.pop-a.g3 .info .product-name { color: #8FA898; }
+.pop-a.g3 .cta { background: #8FA898; }
+.pop-a.g3 .cta .cta-main { color: #fff; }
+
+
+/* ══════════════════════════════
+   B-1案 共通スタイル（上サンド・下グリーン）
+══════════════════════════════ */
+.pop-b .upper {
+  background: #F4EFE4;
+  flex: 1.1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 24px 28px 20px;
+  gap: 16px;
+  position: relative; overflow: hidden;
+}
+.pop-b .upper::before {
+  content: ''; position: absolute;
+  width: 280px; height: 280px; border-radius: 50%;
+  border: 1px solid rgba(61,107,79,0.1);
+  top: -90px; right: -90px;
+}
+.pop-b .upper .logos { display: flex; align-items: center; gap: 18px; position: relative; z-index: 1; }
+.pop-b .upper img { height: 42px; }
+.pop-b .upper .x { font-size: 15px; color: #C5B89A; }
+.pop-b .upper .collab-label { font-size: 7.5px; letter-spacing: 0.28em; color: rgba(61,107,79,0.5); text-transform: uppercase; position: relative; z-index: 1; }
+.pop-b .upper .sep { width: 1px; height: 18px; background: #DDD5C5; position: relative; z-index: 1; }
+.pop-b .product-circle { width: 140px; height: 140px; border-radius: 50%; overflow: hidden; background: #EDE5D5; box-shadow: 0 10px 32px rgba(0,0,0,0.1); position: relative; z-index: 1; }
+.pop-b .product-circle img { width: 100%; height: 100%; object-fit: cover; }
+.pop-b .upper .product-name { font-size: 7.5px; letter-spacing: 0.24em; color: rgba(61,107,79,0.5); text-transform: uppercase; position: relative; z-index: 1; }
+
+.pop-b .lower {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 22px 32px;
+  position: relative; overflow: hidden;
+}
+.pop-b .lower::before {
+  content: ''; position: absolute;
+  width: 240px; height: 240px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.06);
+  bottom: -70px; right: -70px;
+}
+.pop-b .headline { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 600; color: #F4EFE4; line-height: 1.65; text-align: center; letter-spacing: 0.03em; margin-bottom: 12px; position: relative; z-index: 1; }
+.pop-b .headline em { font-style: normal; }
+.pop-b .price { font-family: 'Noto Serif JP', serif; font-size: 36px; font-weight: 600; line-height: 1; margin-bottom: 4px; position: relative; z-index: 1; }
+.pop-b .price-note { font-size: 10px; color: rgba(240,248,242,0.35); margin-bottom: 18px; letter-spacing: 0.08em; position: relative; z-index: 1; }
+.pop-b .cta { width: 100%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; padding: 13px 12px; text-align: center; margin-bottom: 10px; position: relative; z-index: 1; }
+.pop-b .cta .cta-main { font-size: 13px; font-weight: 500; color: #F4EFE4; letter-spacing: 0.06em; margin-bottom: 3px; }
+.pop-b .cta .cta-sub { font-size: 9px; color: rgba(240,248,242,0.4); letter-spacing: 0.1em; }
+.pop-b .footer-b { font-size: 7.5px; color: rgba(240,248,242,0.3); letter-spacing: 0.1em; text-align: center; line-height: 1.7; position: relative; z-index: 1; }
+
+/* B案カラー差し替え */
+.pop-b.g1 .lower { background: #3D6B4F; }
+.pop-b.g1 .headline em { color: #F4A0A0; }
+.pop-b.g1 .price { color: #F4A0A0; }
+
+.pop-b.g2 .lower { background: #6B8C7A; }
+.pop-b.g2 .headline em { color: #F4C0C0; }
+.pop-b.g2 .price { color: #F4C0C0; }
+
+.pop-b.g3 .lower { background: #8FA898; }
+.pop-b.g3 .headline { color: #111; }
+.pop-b.g3 .headline em { color: #B8000A; }
+.pop-b.g3 .price { color: #B8000A; }
+.pop-b.g3 .price-note { color: rgba(0,0,0,0.3); }
+.pop-b.g3 .cta { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.12); }
+.pop-b.g3 .cta .cta-main { color: #111; }
+.pop-b.g3 .cta .cta-sub { color: rgba(0,0,0,0.4); }
+.pop-b.g3 .footer-b { color: rgba(0,0,0,0.3); }
+</style>
+</head>
+<body>
+
+<!-- A案 グリーン比較 -->
+<h2 class="section-title">A案 — グリーントーン比較</h2>
+<div class="row">
+
+  <div class="col">
+    <div class="col-label">
+      <span class="swatch" style="background:#3D6B4F"></span>
+      ミディアムグリーン　#3D6B4F
+    </div>
+    <div class="pop pop-a g1">
+      <div class="logo-bar">
+        <div class="logos"><img src="../images/FA.svg" alt="phiten"><span class="x">×</span><img src="../images/AI.svg" alt="アイメガネ"></div>
+        <span class="sub">Collaboration Item</span>
+      </div>
+      <div class="img-area">
+        <div class="product-circle"><img src="../images/maruM.jpg" alt="ノーズパッド"></div>
+      </div>
+      <div class="info">
+        <p class="product-name">Micro Titanium Ball Nose Pad</p>
+        <h1 class="headline">いつものメガネに、<br><em>ファイテンの技術</em>を。</h1>
+        <div class="price-row"><span class="price-num">¥990</span><span class="price-unit">（税込）</span></div>
+      </div>
+      <div class="cta">
+        <p class="cta-main">ご試着・ご購入はスタッフへ</p>
+        <p class="cta-sub">サイズ選びもお気軽にご相談ください</p>
+      </div>
+      <div class="footer-bar"><p>S · M · L サイズ対応　/　アイメガネ全店にてお取り扱い中</p></div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-label">
+      <span class="swatch" style="background:#6B8C7A"></span>
+      セージグリーン　#6B8C7A
+    </div>
+    <div class="pop pop-a g2">
+      <div class="logo-bar">
+        <div class="logos"><img src="../images/FA.svg" alt="phiten"><span class="x">×</span><img src="../images/AI.svg" alt="アイメガネ"></div>
+        <span class="sub">Collaboration Item</span>
+      </div>
+      <div class="img-area">
+        <div class="product-circle"><img src="../images/maruM.jpg" alt="ノーズパッド"></div>
+      </div>
+      <div class="info">
+        <p class="product-name">Micro Titanium Ball Nose Pad</p>
+        <h1 class="headline">いつものメガネに、<br><em>ファイテンの技術</em>を。</h1>
+        <div class="price-row"><span class="price-num">¥990</span><span class="price-unit">（税込）</span></div>
+      </div>
+      <div class="cta">
+        <p class="cta-main">ご試着・ご購入はスタッフへ</p>
+        <p class="cta-sub">サイズ選びもお気軽にご相談ください</p>
+      </div>
+      <div class="footer-bar"><p>S · M · L サイズ対応　/　アイメガネ全店にてお取り扱い中</p></div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-label">
+      <span class="swatch" style="background:#8FA898"></span>
+      ダストグリーン　#8FA898
+    </div>
+    <div class="pop pop-a g3">
+      <div class="logo-bar">
+        <div class="logos"><img src="../images/FA.svg" alt="phiten"><span class="x">×</span><img src="../images/AI.svg" alt="アイメガネ"></div>
+        <span class="sub">Collaboration Item</span>
+      </div>
+      <div class="img-area">
+        <div class="product-circle"><img src="../images/maruM.jpg" alt="ノーズパッド"></div>
+      </div>
+      <div class="info">
+        <p class="product-name">Micro Titanium Ball Nose Pad</p>
+        <h1 class="headline">いつものメガネに、<br><em>ファイテンの技術</em>を。</h1>
+        <div class="price-row"><span class="price-num">¥990</span><span class="price-unit">（税込）</span></div>
+      </div>
+      <div class="cta">
+        <p class="cta-main">ご試着・ご購入はスタッフへ</p>
+        <p class="cta-sub">サイズ選びもお気軽にご相談ください</p>
+      </div>
+      <div class="footer-bar"><p>S · M · L サイズ対応　/　アイメガネ全店にてお取り扱い中</p></div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- B-1案 グリーン比較 -->
+<h2 class="section-title">B-1案 — グリーントーン比較（上：サンド / 下：グリーン）</h2>
+<div class="row">
+
+  <div class="col">
+    <div class="col-label">
+      <span class="swatch" style="background:#3D6B4F"></span>
+      ミディアムグリーン　#3D6B4F
+    </div>
+    <div class="pop pop-b g1">
+      <div class="upper">
+        <div class="logos"><img src="../images/FA.svg" alt="phiten"><span class="x">×</span><img src="../images/AI.svg" alt="アイメガネ"></div>
+        <p class="collab-label">Collaboration Item</p>
+        <div class="sep"></div>
+        <div class="product-circle"><img src="../images/maruM.jpg" alt="ノーズパッド"></div>
+        <p class="product-name">Micro Titanium Ball Nose Pad</p>
+      </div>
+      <div class="lower">
+        <h2 class="headline">いつものメガネに、<br><em>ファイテンの技術</em>を。</h2>
+        <div class="price">¥990</div>
+        <p class="price-note">税込 / S · M · L</p>
+        <div class="cta">
+          <p class="cta-main">ご試着・ご購入はスタッフへ</p>
+          <p class="cta-sub">サイズ選びもお気軽にご相談ください</p>
+        </div>
+        <p class="footer-b">アイメガネ全店（本庄南大通り店を除く）にてお取り扱い中</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-label">
+      <span class="swatch" style="background:#6B8C7A"></span>
+      セージグリーン　#6B8C7A
+    </div>
+    <div class="pop pop-b g2">
+      <div class="upper">
+        <div class="logos"><img src="../images/FA.svg" alt="phiten"><span class="x">×</span><img src="../images/AI.svg" alt="アイメガネ"></div>
+        <p class="collab-label">Collaboration Item</p>
+        <div class="sep"></div>
+        <div class="product-circle"><img src="../images/maruM.jpg" alt="ノーズパッド"></div>
+        <p class="product-name">Micro Titanium Ball Nose Pad</p>
+      </div>
+      <div class="lower">
+        <h2 class="headline">いつものメガネに、<br><em>ファイテンの技術</em>を。</h2>
+        <div class="price">¥990</div>
+        <p class="price-note">税込 / S · M · L</p>
+        <div class="cta">
+          <p class="cta-main">ご試着・ご購入はスタッフへ</p>
+          <p class="cta-sub">サイズ選びもお気軽にご相談ください</p>
+        </div>
+        <p class="footer-b">アイメガネ全店（本庄南大通り店を除く）にてお取り扱い中</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-label">
+      <span class="swatch" style="background:#8FA898"></span>
+      ダストグリーン　#8FA898
+    </div>
+    <div class="pop pop-b g3">
+      <div class="upper">
+        <div class="logos"><img src="../images/FA.svg" alt="phiten"><span class="x">×</span><img src="../images/AI.svg" alt="アイメガネ"></div>
+        <p class="collab-label">Collaboration Item</p>
+        <div class="sep"></div>
+        <div class="product-circle"><img src="../images/maruM.jpg" alt="ノーズパッド"></div>
+        <p class="product-name">Micro Titanium Ball Nose Pad</p>
+      </div>
+      <div class="lower">
+        <h2 class="headline">いつものメガネに、<br><em>ファイテンの技術</em>を。</h2>
+        <div class="price">¥990</div>
+        <p class="price-note">税込 / S · M · L</p>
+        <div class="cta">
+          <p class="cta-main">ご試着・ご購入はスタッフへ</p>
+          <p class="cta-sub">サイズ選びもお気軽にご相談ください</p>
+        </div>
+        <p class="footer-b">アイメガネ全店（本庄南大通り店を除く）にてお取り扱い中</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

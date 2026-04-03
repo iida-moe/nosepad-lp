@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Instagramストーリー SNS最適化 1080×1920</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; }
+
+.canvas {
+  width: 1080px;
+  height: 1920px;
+  background: #F4EFE4;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Noto Sans JP', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── セクション1：ロゴ＋タグ ── */
+.sec-top {
+  padding: 100px 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative; z-index: 2;
+}
+.logo-area {
+  display: flex; align-items: center; gap: 28px;
+}
+.logo-area img { height: 56px; }
+.logo-area .x { font-size: 24px; color: #C5B89A; }
+.collab-tag {
+  font-size: 17px; letter-spacing: 0.34em;
+  color: rgba(61,107,79,0.45); text-transform: uppercase;
+}
+
+/* ── セクション2：パッド ── */
+.sec-pad {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* 背景の大きな円 */
+.sec-pad::before {
+  content: '';
+  position: absolute;
+  width: 900px; height: 900px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(61,107,79,0.05) 0%, transparent 65%);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+}
+
+.pad-outer {
+  width: 680px; height: 680px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 36px 110px rgba(0,0,0,0.1);
+  border: 3px solid #9B001B;
+  position: relative;
+  z-index: 2;
+}
+.pad-circle {
+  width: 602px; height: 602px;
+  border-radius: 50%;
+  overflow: hidden; background: #EDE5D5;
+}
+.pad-circle img { width: 100%; height: 100%; object-fit: cover; }
+.pad-outer svg {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 680px; height: 680px;
+}
+
+/* メガネ補足 */
+.glasses-wrap {
+  position: absolute;
+  bottom: 20px; right: 50px;
+  z-index: 3;
+}
+.glasses-outer {
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 12px 44px rgba(0,0,0,0.1);
+}
+.glasses-circle { width: 194px; height: 194px; border-radius: 50%; overflow: hidden; }
+.glasses-circle img { width: 100%; height: 100%; object-fit: cover; }
+.glasses-note { font-size: 17px; color: rgba(61,107,79,0.38); letter-spacing: 0.1em; text-align: center; margin-top: 8px; }
+
+/* 指示ライン */
+.arrow-svg {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; z-index: 1;
+}
+
+/* ── セクション3：グリーン下部 ── */
+.sec-bottom {
+  background: #3D6B4F;
+  padding: 64px 90px 80px;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  gap: 0;
+}
+.sec-bottom::before {
+  content: ''; position: absolute;
+  width: 700px; height: 700px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.05);
+  top: -260px; right: -200px;
+}
+
+.eyebrow {
+  font-size: 20px; letter-spacing: 0.28em;
+  color: rgba(244,239,228,0.38);
+  text-transform: uppercase; margin-bottom: 16px;
+  position: relative; z-index: 1;
+}
+.headline {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 68px; font-weight: 600;
+  color: #F4EFE4; line-height: 1.5;
+  letter-spacing: 0.02em; margin-bottom: 40px;
+  position: relative; z-index: 1;
+}
+.headline .sub { font-size: 56px; opacity: 0.68; display: block; margin-bottom: 4px; }
+
+.price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative; z-index: 1;
+}
+.price {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 130px; font-weight: 600;
+  color: #fff; line-height: 1;
+  letter-spacing: -0.01em;
+}
+.price-sub {
+  font-size: 26px; color: rgba(244,239,228,0.38);
+  letter-spacing: 0.12em; margin-top: 8px;
+}
+
+.rule { width: 60px; height: 1px; background: rgba(255,255,255,0.15); margin: 0 auto 36px; position: relative; z-index: 1; }
+
+.cta-box {
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 34px 40px;
+  position: relative; z-index: 1;
+  margin-bottom: 24px;
+}
+.cta-main {
+  font-size: 32px; font-weight: 500;
+  color: #3D6B4F; letter-spacing: 0.06em; margin-bottom: 8px;
+}
+.cta-arrow {
+  font-size: 20px; color: rgba(61,107,79,0.45); letter-spacing: 0.12em;
+}
+
+.store-note {
+  font-size: 18px; color: rgba(244,239,228,0.25);
+  letter-spacing: 0.1em; line-height: 1.8;
+  position: relative; z-index: 1;
+}
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="sec-top">
+    <div class="logo-area">
+      <img src="../images/AI.svg" alt="アイメガネ">
+      <span class="x">×</span>
+      <img src="../images/FA.svg" alt="phiten">
+    </div>
+    <p class="collab-tag">Collaboration Item</p>
+  </div>
+
+  <div class="sec-pad">
+    <div class="pad-outer">
+      <div class="pad-circle">
+        <img src="../images/maruM.jpg" alt="ノーズパッド">
+      </div>
+      <svg viewBox="0 0 680 680">
+        <defs>
+          <path id="cp2" d="M340,340 m-282,0 a282,282 0 1,1 564,0 a282,282 0 1,1 -564,0"/>
+        </defs>
+        <text font-family="'Noto Serif JP',serif" font-size="38" fill="#9B001B" letter-spacing="14" font-weight="600">
+          <textPath href="#cp2" startOffset="5%">鼻あて替えてみませんか？</textPath>
+        </text>
+      </svg>
+    </div>
+
+    <svg class="arrow-svg" viewBox="0 0 1080 900" preserveAspectRatio="none">
+      <line x1="876" y1="570" x2="970" y2="630" stroke="#9B001B" stroke-width="2.5" opacity="0.4"/>
+      <circle cx="876" cy="570" r="6" fill="#9B001B" opacity="0.45"/>
+    </svg>
+
+    <div class="glasses-wrap">
+      <div class="glasses-outer">
+        <div class="glasses-circle">
+          <img src="../images/unnamed1.jpg" alt="装着イメージ">
+        </div>
+      </div>
+      <p class="glasses-note">※装着はイメージです</p>
+    </div>
+  </div>
+
+  <div class="sec-bottom">
+    <p class="eyebrow">Nose Pad</p>
+    <h1 class="headline">
+      <span class="sub">いつものメガネに</span>
+      ファイテンの技術を
+    </h1>
+    <div class="price-block">
+      <div class="price">¥990</div>
+      <p class="price-sub">円（税込）/ S · M · L</p>
+    </div>
+    <div class="rule"></div>
+    <div class="cta-box">
+      <p class="cta-main">アイメガネ全店にてお取り扱い中</p>
+      <p class="cta-arrow">詳細はプロフィールリンクへ →</p>
+    </div>
+    <p class="store-note">本庄南大通り店を除く</p>
+  </div>
+
+</div>
+</body>
+</html>
