@@ -13,6 +13,7 @@
 <meta property="og:site_name"   content="アイメガネ">
 <meta name="twitter:card"       content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>/* font-display swap for faster perceived load */</style>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -76,7 +77,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
         <span class="price-num">¥990</span>
         <span class="price-unit">（税込） S・M・L</span>
       </div>
-      <a href="#buy" class="btn-main">購入する</a>
+      <a href="#buy" class="btn-main btn-main--filled">購入する →</a>
       <p class="hero-sub-note">アイメガネ全店（本庄南大通り店を除く）にてお取り扱い中</p>
     </div>
   </div>
@@ -88,6 +89,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
   <div class="container">
     <div class="reveal">
       <span class="section-tag">お悩み</span>
+      <p class="section-hook">毎日かけるメガネだからこそ──</p>
       <h2 class="sec-title">こんなこと、ありませんか？</h2>
     </div>
     <div class="problem-grid reveal">
@@ -110,6 +112,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
     </div>
     <div class="problem-lead reveal">
       <p>小さなパーツひとつで、<br><strong>メガネの印象が変わります。</strong></p>
+      <a href="#about" class="problem-cta">その答えがここに ↓</a>
     </div>
   </div>
 </section>
@@ -129,7 +132,10 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
         <span class="section-tag">製品について</span>
        <h2 class="sec-title about-title">小さなパッドに<br>ファイテンの技術を</h2>
         <p>ファイテン社の独自技術「ミクロチタンボール」をソフト樹脂パッドに<strong>採用</strong>したメガネ用ノーズパッドです。</p>
-        <p>メガネはそのまま。鼻あてだけ替える。それだけで、ファイテンの技術を日常使いのメガネに取り入れられます。</p>
+        <div class="about-highlight">
+          <p class="about-highlight-text">メガネはそのまま。<br>鼻あてだけ替える。それだけ。</p>
+        </div>
+        <p>ファイテンの技術を日常使いのメガネに取り入れられます。</p>
         <div class="titanium-box">
           <div class="titanium-box-label">TECHNOLOGY</div>
           <div class="titanium-box-title">ミクロチタンボールとは</div>
@@ -156,6 +162,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
         <div class="size-mm">13.0 × 7.2 mm</div>
       </div>
       <div class="size-card popular">
+        <span class="popular-label">迷ったらコレ</span>
         <div class="size-visual-wrap"><img class="size-img" src="images/m2.png" alt="Mサイズ"></div>
         <div class="size-letter">M</div>
         <div class="size-mm">14.5 × 7.4 mm</div>
@@ -227,6 +234,16 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
         </button>
         <div class="faq-a">パッドは消耗品です。経年変化により変色・劣化することがあります。1年を目安に定期的な交換をおすすめします。</div>
       </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-left">
+            <span class="faq-q-label">Q</span>
+            <span class="faq-q-text">金属アレルギーでも使えますか？</span>
+          </span>
+          <span class="faq-icon">＋</span>
+        </button>
+        <div class="faq-a">パッドはソフト樹脂製ですので、金属が直接肌に触れることはありません。ご心配な場合は店舗スタッフにご相談ください。</div>
+      </div>
     </div>
   </div>
 </section>
@@ -240,16 +257,20 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
       <h2 class="sec-title">いつものメガネに<br>小さなこだわりを</h2>
     </div>
     <div class="buy-box reveal">
+      <div class="buy-product-img">
+        <img src="images/maruM.jpg" alt="ミクロチタンボール ノーズパッド">
+      </div>
       <p class="buy-product-name">ミクロチタンボール ノーズパッド</p>
       <div class="buy-price">¥990</div>
+      <p class="buy-price-compare">コーヒー1杯分で、毎日のメガネがアップデート。</p>
       <div class="buy-price-note">税込 / S・M・L 全サイズ共通</div>
       <hr class="buy-divider">
       <div class="buy-btns">
         <a href="https://www.aimegane.com/shop/" class="btn-buy-main" target="_blank" rel="noopener">お近くの店舗を探す →</a>
       </div>
+      <p class="buy-store-reason">店舗ではサイズの確認・取り付けまでスタッフが対応します。</p>
       <p class="buy-footer-note">
-        アイメガネ全店（本庄南大通り店を除く）にてお取り扱いしています。<br>
-        サイズや取り付け方法のご不明点は、店舗スタッフへお気軽にご相談ください。
+        アイメガネ全店（本庄南大通り店を除く）にてお取り扱いしています。
       </p>
     </div>
   </div>
@@ -273,7 +294,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
 
 <!-- Floating CTA -->
 <div class="floating-cta" id="floatingCta">
-  <a href="#buy" class="floating-cta__btn">店舗で購入する</a>
+  <a href="#buy" class="floating-cta__btn"><span class="floating-price">¥990</span> 店舗で購入する</a>
 </div>
 
 <script>

@@ -214,10 +214,11 @@ h2.sec-title {
 }
 /* 商品名：h1の上 */
 .hero-product-name {
-  font-size: 12px;
-  color: var(--text-light);
+  font-size: 13px;
+  color: var(--text-mid);
   letter-spacing: 0.16em;
   margin-bottom: 8px;
+  font-weight: 500;
 }
 
 /* 写真左＋テキスト右 */
@@ -296,7 +297,7 @@ h2.sec-title {
   font-family: 'Noto Serif JP', serif;
   font-size: clamp(36px, 4vw, 48px);
   font-weight: 600;
-  color: var(--text);
+  color: var(--red);
   letter-spacing: -0.01em;
   line-height: 1;
 }
@@ -313,6 +314,11 @@ h2.sec-title {
   margin-bottom: 10px;
 }
 .btn-main:hover { background: var(--red); color: #fff; }
+.btn-main--filled {
+  background: var(--red); color: #fff; border: none;
+  padding: 14px 36px; font-size: 15px;
+}
+.btn-main--filled:hover { background: var(--red-soft); color: #fff; }
 .btn-sub {
   display: inline-flex; align-items: center; justify-content: center;
   background: transparent; color: var(--text);
@@ -384,6 +390,26 @@ h2.sec-title {
   color: var(--red);
 }
 
+/* 共感フック */
+.section-hook {
+  font-size: 14px;
+  color: var(--text-light);
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+/* Problem → About 導線 */
+.problem-cta {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--red);
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.problem-cta:hover { opacity: 0.7; }
+
 /* ─── ABOUT ──────────────────────────────────────── */
 .about {
   background: var(--sand);
@@ -436,6 +462,23 @@ h2.sec-title {
 .titanium-box-title { font-family: 'Noto Serif JP', serif; font-size: 16px; color: var(--text); margin-bottom: 8px; }
 .titanium-box-desc  { font-size: 13px; color: var(--text-mid); line-height: 1.9; }
 
+/* About ハイライトボックス */
+.about-highlight {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+}
+.about-highlight-text {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+
 .about-collab-note {
   font-size: 12px;
   color: var(--text-light);
@@ -454,8 +497,9 @@ h2.sec-title {
   border-radius: 10px; padding: 32px 16px 28px;
   position: relative; transition: border-color 0.2s;
 }
-.size-card.popular { border-color: var(--border); }
-.size-card:hover { border-color: var(--text-light); }
+.size-card.popular { border-color: var(--red); border-width: 1.5px; }
+.size-card:hover { border-color: var(--text-light); box-shadow: 0 6px 20px rgba(0,0,0,0.08); transform: translateY(-4px); }
+.size-card { transition: border-color 0.2s, box-shadow 0.3s, transform 0.3s; }
 .popular-label {
   position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
   background: var(--red); color: #fff; font-size: 10px;
@@ -530,7 +574,7 @@ h2.sec-title {
 .faq-icon { font-size: 18px; color: rgba(255,255,255,0.3); flex-shrink: 0; transition: transform 0.3s ease; line-height: 1; }
 .faq-item.open .faq-icon { transform: rotate(45deg); }
 .faq-a {
-  font-size: 14px; color: rgba(245,240,232,0.6); line-height: 1.95;
+  font-size: 14px; color: rgba(245,240,232,0.75); line-height: 1.95;
   padding: 0 24px 0 66px;
   max-height: 0; overflow: hidden;
   transition: max-height 0.4s ease, padding 0.3s ease;
@@ -546,7 +590,29 @@ h2.sec-title {
   box-shadow: 0 4px 24px rgba(0,0,0,0.04);
   position: relative;
 }
+/* 購入セクション商品画像 */
+.buy-product-img {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+.buy-product-img img { width: 100%; height: 100%; object-fit: cover; }
 .buy-product-name { font-size: 12px; color: var(--text-light); letter-spacing: 0.14em; margin-bottom: 12px; position: relative; }
+.buy-price-compare {
+  font-size: 13px;
+  color: var(--text-mid);
+  margin-bottom: 6px;
+  letter-spacing: 0.03em;
+}
+.buy-store-reason {
+  font-size: 12px;
+  color: var(--green);
+  margin-top: 12px;
+  letter-spacing: 0.03em;
+  font-weight: 500;
+}
 .buy-price {
   font-family: 'Noto Serif JP', serif; font-size: 60px; font-weight: 600;
   color: var(--red); line-height: 1.05; margin-bottom: 6px; position: relative;
@@ -615,6 +681,12 @@ h2.sec-title {
 }
 .floating-cta__btn:hover {
   background: var(--red-soft);
+}
+.floating-price {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 600;
+  font-size: 16px;
+  margin-right: 4px;
 }
 
 /* ─── FOOTER ─────────────────────────────────────── */
@@ -701,6 +773,7 @@ footer {
     border: none; padding: 14px; font-size: 16px;
   }
   .btn-main:hover { background: var(--red-soft); color: #fff; }
+  .btn-main--filled { padding: 14px; font-size: 16px; }
   .hero-sub-note { font-size: 9px; text-align: center; }
 
   /* Problem SP */
@@ -717,6 +790,7 @@ footer {
 
   /* Size SP */
   .size { padding: 56px 20px 48px; }
+  .size-card:hover { transform: none; box-shadow: none; }
   .size-grid { grid-template-columns: repeat(3, 1fr); max-width: 100%; gap: 12px; }
   .size-card { padding: 24px 10px 20px; }
   .size-visual-wrap { height: 80px; margin-bottom: 12px; }
