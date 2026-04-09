@@ -175,8 +175,9 @@ h2.sec-title {
   justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding-bottom: 2vh;
-  min-height: calc(100vh - 64px);
+  padding-bottom: 0;
+  height: calc(100vh - 64px);
+  min-height: 600px;
 }
 
 /* 砂色背景 */
@@ -242,7 +243,7 @@ h2.sec-title {
 
 /* 商品写真 */
 .hero-visual {
-  width: clamp(300px, 48vh, 460px);
+  width: clamp(300px, 52vh, 500px);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
