@@ -196,7 +196,7 @@ h2.sec-title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5vh 6vw 1vh;
+  padding: 1vh 6vw 0.5vh;
 }
 .hero-logos-row {
   display: flex;
@@ -205,7 +205,7 @@ h2.sec-title {
   gap: 3vw;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: 1.5vh 5vw;
+  padding: 1vh 5vw;
 }
 .hero-logos-row a { display: flex; }
 .logo-phiten { height: 7vw; min-height: 55px; max-height: 90px; width: auto; }
@@ -260,7 +260,7 @@ h2.sec-title {
 
 /* 商品写真 */
 .hero-visual {
-  width: clamp(300px, 52vh, 500px);
+  width: clamp(260px, 42vh, 400px);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
@@ -316,7 +316,7 @@ h2.sec-title {
   align-items: center;
   justify-content: center;
   gap: 32px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   flex-wrap: wrap;
   width: 100%;
 }
@@ -370,7 +370,7 @@ h2.sec-title {
 .btn-main:hover { background: var(--red); color: #fff; }
 .btn-main--filled {
   background: var(--red); color: #fff; border: none;
-  padding: 14px 36px; font-size: 15px;
+  padding: 12px 28px; font-size: 14px;
 }
 .btn-main--filled:hover { background: var(--red-soft); color: #fff; }
 .btn-sub {
@@ -394,7 +394,7 @@ h2.sec-title {
 /* スクロール誘導 */
 .hero-scroll-hint {
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
