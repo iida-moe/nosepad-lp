@@ -415,44 +415,12 @@ h2.sec-title {
 
 /* ─── SECTION DIVIDERS ──────────────────────────── */
 .section-divider {
-  position: relative;
-  height: 80px;
-  max-width: 1200px;
+  max-width: 600px;
   margin: 0 auto;
-  overflow: hidden;
+  border: none;
+  border-top: 1px solid var(--border);
+  opacity: 0.6;
 }
-.section-divider::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-}
-/* warm-white → sand (Hero → Problem) */
-.section-divider--to-sand::before {
-  background: var(--warm-white);
-  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
-}
-.section-divider--to-sand { background: var(--sand); }
-
-/* sand → warm-white (Problem → About) */
-.section-divider--to-white::before {
-  background: var(--sand);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 30%);
-}
-.section-divider--to-white { background: var(--warm-white); }
-
-/* sand → green-dark (Size → FAQ) */
-.section-divider--to-dark::before {
-  background: var(--sand);
-  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
-}
-.section-divider--to-dark { background: var(--green-dark); }
-
-/* green-dark → sand */
-.section-divider--to-sand-from-dark::before {
-  background: var(--green-dark);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 30%);
-}
-.section-divider--to-sand-from-dark { background: var(--sand); }
 
 /* ─── PROBLEM ────────────────────────────────────── */
 .problem {
@@ -964,7 +932,7 @@ footer {
   .faq-a { padding-left: 46px; font-size: 13px; }
 
   /* Section Dividers SP */
-  .section-divider { height: 36px; }
+  .section-divider { max-width: 80%; }
 
   /* Buy SP */
   .buy { padding: 56px 20px 48px; }
