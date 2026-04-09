@@ -239,7 +239,16 @@ h2.sec-title {
 .hero-text {
   flex: 1;
   min-width: 0;
+  text-align: left;
+}
+.hero-price-row,
+.hero-cta-group {
   text-align: center;
+}
+.hero-cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* 商品写真 */
