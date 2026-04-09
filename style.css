@@ -421,7 +421,7 @@ h2.sec-title {
 /* ─── PROBLEM ────────────────────────────────────── */
 .problem {
   background: var(--sand);
-  padding: 72px 40px 64px;
+  padding: 80px 40px 72px;
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
@@ -434,12 +434,18 @@ h2.sec-title {
   margin: 0 auto 40px;
 }
 .problem-card {
-  border-radius: 10px;
+  border-radius: 14px;
   overflow: hidden;
   background: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.problem-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.10);
 }
 .problem-card-img {
-  height: 200px;
+  height: 220px;
   overflow: hidden;
 }
 .problem-card-img img {
@@ -448,17 +454,23 @@ h2.sec-title {
   object-fit: cover;
 }
 .problem-card-body {
-  padding: 18px 20px;
+  padding: 22px 24px;
 }
 .problem-text {
   font-size: 15px;
   color: var(--text-mid);
-  line-height: 1.7;
+  line-height: 1.8;
+  text-align: center;
 }
 .problem-text strong {
   color: var(--text);
   font-weight: 600;
 }
+.problem-title {
+  font-size: clamp(22px, 3vw, 30px);
+  margin-bottom: 32px;
+}
+
 .problem-lead {
   font-family: 'Noto Serif JP', serif;
   font-size: clamp(15px, 2vw, 18px);
