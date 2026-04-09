@@ -324,8 +324,13 @@ h2.sec-title {
   flex-direction: column;
   align-items: center;
 }
+.hero-price-block .price-num {
+  display: block;
+}
 .hero-price-block .price-unit {
-  margin-top: 2px;
+  display: block;
+  margin-top: -2px;
+  text-align: center;
 }
 .hero-price-row .btn-main {
   margin-bottom: 0;
