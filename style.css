@@ -217,12 +217,16 @@ h2.sec-title {
 }
 /* 商品名：h1の上 */
 .hero-product-name {
-  font-size: 13px;
-  color: var(--text-mid);
-  letter-spacing: 0.16em;
-  margin-bottom: 12px;
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 0.22em;
+  margin-bottom: 14px;
   font-weight: 500;
   text-align: left;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  display: inline-block;
 }
 
 /* 写真左＋テキスト右 */
@@ -275,14 +279,27 @@ h2.sec-title {
 }
 
 /* 見出し */
+/* FVリード文（1行目） */
+.hero-lead {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 400;
+  color: var(--text-mid);
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+/* FV見出し（2行目） */
 .hero h1 {
   font-family: 'Noto Serif JP', serif;
-  font-size: clamp(18px, 2vw, 26px);
+  font-size: clamp(22px, 2.4vw, 32px);
   font-weight: 600;
-  line-height: 1.7;
+  line-height: 1.5;
   letter-spacing: 0.03em;
   color: var(--text);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   white-space: nowrap;
   text-align: left;
 }
@@ -883,7 +900,8 @@ footer {
   .hero-visual { width: clamp(220px, 64vw, 300px); }
   .hero-product-name { font-size: 10px; margin-bottom: 4px; }
   .hero-text { text-align: center; }
-  .hero h1 { font-size: clamp(18px, 5vw, 22px); line-height: 1.6; margin-bottom: 8px; white-space: normal; }
+  .hero-lead { font-size: clamp(13px, 3.5vw, 15px); text-align: center; }
+  .hero h1 { font-size: clamp(18px, 5vw, 24px); line-height: 1.5; margin-bottom: 12px; white-space: normal; text-align: center; }
   .hero-price-row { justify-content: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
   .hero-cta-group { flex-direction: column; align-items: center; gap: 10px; }
   .hero-cta-group .btn-main { width: 100%; }
@@ -958,6 +976,7 @@ footer {
   .hero-row { padding: 0 16px; gap: 16px; }
   .hero-visual { width: 160px; }
   .hero-hook { font-size: 11px; }
+  .hero-lead { font-size: 12px; }
   .hero h1 { font-size: 16px; }
   .hero-benefit { font-size: 12px; }
   .price-num { font-size: 24px; }
@@ -971,6 +990,7 @@ footer {
 /* 大型スマホ（iPhone Pro Max等） */
 @media (min-width: 401px) and (max-width: 480px) {
   .hero-visual { width: 200px; }
+  .hero-lead { font-size: 13px; }
   .hero h1 { font-size: 20px; }
   .price-num { font-size: 28px; }
 }
