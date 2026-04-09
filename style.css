@@ -227,6 +227,8 @@ h2.sec-title {
   padding-bottom: 10px;
   border-bottom: 1px solid var(--border);
   display: inline-block;
+  position: relative;
+  top: -5px;
 }
 
 /* 写真左＋テキスト右 */
