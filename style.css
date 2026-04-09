@@ -416,7 +416,7 @@ h2.sec-title {
 /* ─── SECTION DIVIDERS ──────────────────────────── */
 .section-divider {
   position: relative;
-  height: 60px;
+  height: 80px;
   max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
@@ -426,23 +426,23 @@ h2.sec-title {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
 }
-/* warm-white → sand */
+/* warm-white → sand (Hero → Problem) */
 .section-divider--to-sand::before {
   background: var(--warm-white);
   clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
 }
 .section-divider--to-sand { background: var(--sand); }
 
-/* sand → warm-white */
+/* sand → warm-white (Problem → About) */
 .section-divider--to-white::before {
   background: var(--sand);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 30%);
 }
 .section-divider--to-white { background: var(--warm-white); }
 
-/* warm-white → green-dark */
+/* sand → green-dark (Size → FAQ) */
 .section-divider--to-dark::before {
-  background: var(--warm-white);
+  background: var(--sand);
   clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
 }
 .section-divider--to-dark { background: var(--green-dark); }
@@ -456,7 +456,7 @@ h2.sec-title {
 
 /* ─── PROBLEM ────────────────────────────────────── */
 .problem {
-  background: var(--warm-white);
+  background: var(--sand);
   padding: 96px 40px 80px;
   text-align: center;
   max-width: 1200px;
@@ -533,7 +533,7 @@ h2.sec-title {
 
 /* ─── ABOUT ──────────────────────────────────────── */
 .about {
-  background: var(--sand);
+  background: var(--warm-white);
   padding: 80px 40px;
   display: flex;
   align-items: center;
@@ -608,7 +608,7 @@ h2.sec-title {
 }
 
 /* ─── SIZE ───────────────────────────────────────── */
-.size { background: var(--warm-white); padding: 96px 40px 88px; text-align: center; max-width: 1200px; margin: 0 auto; }
+.size { background: var(--sand); padding: 96px 40px 88px; text-align: center; max-width: 1200px; margin: 0 auto; }
 .size-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 20px; max-width: 560px; margin: 0 auto 36px;
