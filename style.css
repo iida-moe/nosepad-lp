@@ -598,7 +598,7 @@ h2.sec-title {
   gap: 20px; max-width: 560px; margin: 0 auto 36px;
 }
 .size-card {
-  background: var(--sand); border: 1.5px solid rgba(184,0,10,0.15);
+  background: var(--warm-white); border: 1.5px solid rgba(184,0,10,0.15);
   border-radius: 10px; padding: 32px 16px 28px;
   position: relative; transition: border-color 0.2s;
 }
@@ -625,7 +625,7 @@ h2.sec-title {
 
 .size-guide {
   max-width: 520px; margin: 0 auto;
-  background: var(--sand); border: 1px solid var(--border);
+  background: var(--warm-white); border: 1px solid var(--border);
   border-radius: 12px; padding: 32px 36px;
 }
 .size-guide-title { font-size: 10px; font-weight: 500; letter-spacing: 0.24em; color: var(--green); margin-bottom: 20px; text-transform: uppercase; }
