@@ -527,7 +527,7 @@ h2.sec-title {
 .about .container { padding-top: 32px; padding-bottom: 32px; width: 100%; }
 .about-inner {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 80px; align-items: center;
+  gap: 60px; align-items: start;
 }
 .about-img { position: relative; }
 .about-img-photo {
@@ -579,10 +579,17 @@ h2.sec-title {
 }
 
 .about-collab-note {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-light);
-  margin-top: 20px;
+  margin-top: 16px;
   letter-spacing: 0.03em;
+}
+
+.about-tech {
+  margin-top: 48px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ─── SIZE ───────────────────────────────────────── */
