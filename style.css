@@ -172,9 +172,11 @@ h2.sec-title {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding-bottom: 3vh;
+  padding-bottom: 2vh;
+  min-height: calc(100vh - 64px);
 }
 
 /* 砂色背景 */
@@ -193,7 +195,7 @@ h2.sec-title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2vh 6vw 1.5vh;
+  padding: 1.5vh 6vw 1vh;
 }
 .hero-logos-row {
   display: flex;
@@ -202,11 +204,11 @@ h2.sec-title {
   gap: 3vw;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: 2vh 5vw;
+  padding: 1.5vh 5vw;
 }
 .hero-logos-row a { display: flex; }
-.logo-phiten { height: 8vw; min-height: 65px; max-height: 110px; width: auto; }
-.logo-aimegane { height: 8vw; min-height: 65px; max-height: 110px; width: auto; }
+.logo-phiten { height: 7vw; min-height: 55px; max-height: 90px; width: auto; }
+.logo-aimegane { height: 7vw; min-height: 55px; max-height: 90px; width: auto; }
 .collab-x {
   font-size: clamp(18px, 2.5vw, 28px);
   color: var(--text-light);
@@ -225,7 +227,7 @@ h2.sec-title {
 .hero-row {
   position: relative;
   z-index: 1;
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 40px;
   display: flex;
@@ -263,10 +265,10 @@ h2.sec-title {
 /* 見出し */
 .hero h1 {
   font-family: 'Noto Serif JP', serif;
-  font-size: clamp(14px, 1.55vw, 20px);
+  font-size: clamp(18px, 2vw, 26px);
   font-weight: 600;
   line-height: 1.7;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   color: var(--text);
   margin-bottom: 12px;
   white-space: nowrap;
@@ -281,7 +283,7 @@ h2.sec-title {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 .hero-cta {
   font-size: 14px;
