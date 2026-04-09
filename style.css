@@ -336,6 +336,47 @@ h2.sec-title {
   font-size: 12px; color: var(--text-light); letter-spacing: 0.04em;
 }
 
+/* ─── SECTION DIVIDERS ──────────────────────────── */
+.section-divider {
+  position: relative;
+  height: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+/* warm-white → sand */
+.section-divider--to-sand::before {
+  background: var(--warm-white);
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
+}
+.section-divider--to-sand { background: var(--sand); }
+
+/* sand → warm-white */
+.section-divider--to-white::before {
+  background: var(--sand);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 30%);
+}
+.section-divider--to-white { background: var(--warm-white); }
+
+/* warm-white → green-dark */
+.section-divider--to-dark::before {
+  background: var(--warm-white);
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
+}
+.section-divider--to-dark { background: var(--green-dark); }
+
+/* green-dark → sand */
+.section-divider--to-sand-from-dark::before {
+  background: var(--green-dark);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 30%);
+}
+.section-divider--to-sand-from-dark { background: var(--sand); }
+
 /* ─── PROBLEM ────────────────────────────────────── */
 .problem {
   background: var(--warm-white);
@@ -595,26 +636,36 @@ h2.sec-title {
 }
 /* 購入セクション商品画像 */
 .buy-product-img {
-  width: 100px; height: 100px;
+  width: 140px; height: 140px;
   border-radius: 50%;
   overflow: hidden;
-  margin: 0 auto 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  margin: 0 auto 20px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
 }
 .buy-product-img img { width: 100%; height: 100%; object-fit: cover; }
 .buy-product-name { font-size: 12px; color: var(--text-light); letter-spacing: 0.14em; margin-bottom: 12px; position: relative; }
 .buy-price-compare {
+  display: inline-block;
   font-size: 13px;
-  color: var(--text-mid);
-  margin-bottom: 6px;
-  letter-spacing: 0.03em;
-}
-.buy-store-reason {
-  font-size: 12px;
-  color: var(--green);
-  margin-top: 12px;
+  color: var(--red);
+  background: var(--red-pale);
+  border: 1px solid rgba(184,0,10,0.15);
+  border-radius: 100px;
+  padding: 6px 18px;
+  margin-bottom: 8px;
   letter-spacing: 0.03em;
   font-weight: 500;
+}
+.buy-store-reason {
+  font-size: 13px;
+  color: var(--green);
+  margin-top: 16px;
+  padding: 10px 16px;
+  background: var(--green-pale);
+  border-radius: 8px;
+  letter-spacing: 0.03em;
+  font-weight: 500;
+  line-height: 1.6;
 }
 .buy-price {
   font-family: 'Noto Serif JP', serif; font-size: 60px; font-weight: 600;
@@ -809,10 +860,14 @@ footer {
   .faq-q-left { gap: 10px; }
   .faq-a { padding-left: 46px; font-size: 13px; }
 
+  /* Section Dividers SP */
+  .section-divider { height: 36px; }
+
   /* Buy SP */
   .buy { padding: 56px 20px 48px; }
   .buy-box { padding: 36px 20px; }
   .buy-price { font-size: 44px; }
+  .buy-product-img { width: 110px; height: 110px; }
 
   /* Floating CTA SP */
   .floating-cta { bottom: 16px; right: 16px; left: 16px; }
