@@ -168,7 +168,7 @@ h2.sec-title {
 /* ─── HERO ───────────────────────────────────────── */
 .hero {
   position: relative;
-  background: var(--warm-white);
+  background: var(--sand);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -180,13 +180,9 @@ h2.sec-title {
   min-height: 600px;
 }
 
-/* 砂色背景 */
+/* 砂色背景（hero全体がsandなので不要） */
 .hero-bg-upper {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 45%;
-  background: var(--sand);
-  z-index: 0;
+  display: none;
 }
 
 /* ロゴ */
