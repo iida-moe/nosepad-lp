@@ -51,13 +51,13 @@
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/AI.svg" alt="アイメガネ">
       </div>
      <h1>
-        ファイテンの技術で、<br>
-        <em>リカバリーメガネ</em>に<br class="sp-only">アップデート。
+        リラックス＆リカバリーをサポートする<br>
+        ファイテンの技術をノーズパッドに採用。
       </h1>
       <div class="hero-price-row">
         <span class="price-num">¥990</span>
         <span class="price-unit">（税込）</span>
-        <span class="price-badge">チタンパウダー5%配合</span>
+        <span class="price-badge">チタンパウダー採用</span>
       </div>
       <div class="hero-btns">
         <a href="#buy" class="btn-main">購入する →</a>
@@ -145,13 +145,14 @@
       <div class="about-text reveal reveal-d1">
         <span class="section-tag">製品について</span>
        <h2 class="sec-title about-title">小さなパッドに<br>ファイテンの技術を</h2>
-        <p>ファイテン社の独自技術「ミクロチタンボール」をソフト樹脂パッドに<strong>5%配合</strong>したメガネ用ノーズパッドです。</p>
+        <p>ファイテン社の独自技術「ミクロチタンボール」をソフト樹脂パッドに<strong>採用</strong>したメガネ用ノーズパッドです。</p>
         <p>メガネはそのまま。鼻あてだけ替える。それだけで、ファイテンの技術を日常使いのメガネに取り入れられます。</p>
         <div class="titanium-box">
           <div class="titanium-box-label">TECHNOLOGY</div>
           <div class="titanium-box-title">ミクロチタンボールとは</div>
-          <div class="titanium-box-desc">アクアチタンを生成する際にできた、ミクロサイズの球体状のチタン。ノーズパッドに採用することで、カラダをリラックス状態へとサポートします。</div>
+          <div class="titanium-box-desc">ファイテン社の水溶化メタル技術により誕生したものです。この技術を用いた商品を身に着けることで、カラダのリラックスとリカバリーをサポートします。</div>
         </div>
+        <p class="about-collab-note">＊本製品はファイテン社の独自技術を取り入れたコラボレーション商品です。</p>
       </div>
     </div>
   </div>

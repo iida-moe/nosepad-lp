@@ -5,35 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>メガネ用ノーズパッド | ファイテン×アイメガネ ミクロチタンボール</title>
 <meta name="description" content="ファイテン独自のミクロチタンボール配合。いつものメガネに取り付けるだけ。選べるS・M・Lサイズ、¥990（税込）。アイメガネ各店舗にてお取り扱い中。">
-<meta property="og:type"        content="product">
-<meta property="og:title"       content="メガネ用ノーズパッド | ファイテン×アイメガネ ミクロチタンボール">
-<meta property="og:description" content="ファイテン独自のミクロチタンボール配合。いつものメガネに取り付けるだけ。¥990（税込）">
-<meta property="og:image"       content="https://www.aimegane.com/nosepad/images/unnamed1.jpg">
-<meta property="og:url"         content="https://www.aimegane.com/nosepad/">
-<meta property="og:site_name"   content="アイメガネ">
-<meta name="twitter:card"       content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="wordpress/nosepad.css">
 </head>
 <body>
-
-<!-- PASSWORD GATE -->
-<div id="pw-gate" style="position:fixed;inset:0;z-index:9999;background:#FDFAF5;display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Noto Sans JP',sans-serif;">
-  <p style="font-size:14px;color:#555;margin-bottom:16px;">パスワードを入力してください</p>
-  <input id="pw-input" type="password" placeholder="パスワード" style="font-size:16px;padding:12px 20px;border:2px solid #ddd;border-radius:8px;width:280px;text-align:center;">
-  <button onclick="checkPw()" style="margin-top:12px;padding:10px 32px;background:#B8000A;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;">確認</button>
-  <p id="pw-err" style="color:#c00;font-size:12px;margin-top:8px;display:none;">パスワードが違います</p>
-</div>
-<script>
-function checkPw(){var p=document.getElementById('pw-input').value;if(p==='nosepad2026'){sessionStorage.setItem('np-auth','1');document.getElementById('pw-gate').style.display='none';}else{document.getElementById('pw-err').style.display='block';}}
-if(sessionStorage.getItem('np-auth')==='1'||location.protocol==='file:'||location.hostname==='localhost'||location.hostname==='127.0.0.1'){document.getElementById('pw-gate').style.display='none';}
-document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')checkPw();});
-</script>
 
 <!-- STICKY HEADER -->
 <header class="global-header">
   <div class="header-inner">
-   <a href="https://www.aimegane.com" class="header-back"><img src="images/AI.svg" alt="アイメガネ" class="header-logo-img"></a>
+   <a href="https://www.aimegane.com" class="header-back">← アイメガネ</a>
    <nav class="header-nav">
      <a href="#about" class="header-nav__item">製品について</a>
      <a href="#size" class="header-nav__item">サイズ</a>
@@ -55,30 +35,44 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-upper"></div>
+  <div class="hero-inner">
 
-  <div class="hero-logos">
-    <div class="hero-logos-row">
-      <a href="https://www.phiten.com/" target="_blank" rel="noopener"><img src="images/FA.svg" alt="phiten" class="logo-phiten"></a>
-      <span class="collab-x">×</span>
-      <img src="images/AI.svg" alt="アイメガネ" class="logo-aimegane">
-    </div>
-  </div>
-
-  <div class="hero-row">
-    <div class="hero-visual">
-      <img src="images/maruM.jpg" alt="ミクロチタンボール ノーズパッド">
-    </div>
     <div class="hero-text">
-      <p class="hero-product-name">ミクロチタンボール ノーズパッド</p>
-      <h1>いつものメガネが、<br><em>リカバリーメガネ</em>になる。</h1>
+      <div class="hero-collab">
+       <a href="https://www.phiten.com/" target="_blank" rel="noopener"><img src="wordpress/images/FA.svg" alt="phiten"></a>
+        <span class="collab-x">×</span>
+        <img src="wordpress/images/AI.svg" alt="アイメガネ">
+      </div>
+     <h1>
+        リラックス＆リカバリーをサポートする<br>
+        ファイテンの技術をノーズパッドに採用。
+      </h1>
       <div class="hero-price-row">
         <span class="price-num">¥990</span>
-        <span class="price-unit">（税込） S・M・L</span>
+        <span class="price-unit">（税込）</span>
+        <span class="price-badge">チタンパウダー採用</span>
       </div>
-      <a href="#buy" class="btn-main">購入する</a>
-      <p class="hero-sub-note">アイメガネ全店（本庄南大通り店を除く）にてお取り扱い中</p>
+      <div class="hero-btns">
+        <a href="#buy" class="btn-main">購入する →</a>
+        <a href="#about" class="btn-sub">詳しく見る</a>
+      </div>
+      <p class="hero-sub-note">アイメガネ全店（本庄南大通り店を除く）にてお取り扱いしています</p>
     </div>
+
+    <div class="hero-img-wrap">
+      <div class="hero-img-stack">
+        <img class="hero-img-glasses" src="wordpress/images/unnamed1.jpg" alt="メガネ">
+        <div class="hero-circle-badge">
+          <div class="hero-circle-line-pointer"></div>
+          <div class="hero-circle-ring">
+            <p class="hero-bubble-label">本品</p>
+            <img src="wordpress/images/maruM.jpg" alt="ノーズパッド">
+          </div>
+        </div>
+      </div>
+      <p class="hero-img-note">※ノーズパッド装着イメージ</p>
+    </div>
+
   </div>
 </section>
 
@@ -88,28 +82,42 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
   <div class="container">
     <div class="reveal">
       <span class="section-tag">お悩み</span>
-      <h2 class="sec-title">こんなこと、ありませんか？</h2>
+      <h2 class="sec-title">メガネをかけていると<br>こんなこと、ありませんか？</h2>
     </div>
     <div class="problem-grid reveal">
-      <div class="problem-card problem-card--wide">
-        <div class="problem-card-img">
-          <img src="images/woman-tired.jpg" alt="メガネ疲れ">
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="13" cy="13" r="8"/>
+            <line x1="19" y1="19" x2="27" y2="27"/>
+          </svg>
         </div>
-        <div class="problem-card-body">
-          <p class="problem-text"><strong>鼻あての黄ばみ</strong>、<br>気になっていませんか？</p>
-        </div>
+        <p class="problem-text">メガネの細部にも<br><strong>こだわりたい</strong></p>
       </div>
       <div class="problem-card">
-        <div class="problem-card-img">
-          <img src="images/nosepad-close.png" alt="ノーズパッド">
+        <div class="problem-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="18" r="5"/>
+            <circle cx="23" cy="18" r="5"/>
+            <path d="M14 18 h4"/>
+            <path d="M4 18 C3 14 5 12 7 11.5"/>
+            <path d="M28 18 C29 14 27 12 25 11.5"/>
+          </svg>
         </div>
-        <div class="problem-card-body">
-          <p class="problem-text">小さなパーツだからこそ、<br><strong>こだわりたい。</strong></p>
+        <p class="problem-text">鼻あてが黄ばんで<br><strong>見た目が気になる</strong></p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4 h10 l14 14 -10 10 -14 -14 Z"/>
+            <circle cx="11" cy="11" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
         </div>
+        <p class="problem-text">好きなブランドの<br><strong>アイテムを取り入れたい</strong></p>
       </div>
     </div>
     <div class="problem-lead reveal">
-      <p>小さなパーツひとつで、<br><strong>メガネの印象が変わります。</strong></p>
+      <p>小さなパーツひとつで、<strong>メガネの印象が変わります。</strong></p>
     </div>
   </div>
 </section>
@@ -120,21 +128,24 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
   <div class="container">
     <div class="about-inner">
       <div class="about-img reveal">
-        <div class="about-img-photo">
-          <img src="images/unnamed1.jpg" alt="ノーズパッド装着イメージ">
+        <div class="about-img-circle">
+          <img src="wordpress/images/maruM.jpg" alt="ノーズパッド">
         </div>
-        <p class="about-img-caption">※ノーズパッド装着イメージ</p>
+        <div class="about-phiten-logo">
+          <img src="wordpress/images/FA.svg" alt="phiten">
+        </div>
       </div>
       <div class="about-text reveal reveal-d1">
         <span class="section-tag">製品について</span>
        <h2 class="sec-title about-title">小さなパッドに<br>ファイテンの技術を</h2>
-        <p>ファイテン社の独自技術「ミクロチタンボール」をソフト樹脂パッドに<strong>5%配合</strong>したメガネ用ノーズパッドです。</p>
+        <p>ファイテン社の独自技術「ミクロチタンボール」をソフト樹脂パッドに<strong>採用</strong>したメガネ用ノーズパッドです。</p>
         <p>メガネはそのまま。鼻あてだけ替える。それだけで、ファイテンの技術を日常使いのメガネに取り入れられます。</p>
         <div class="titanium-box">
           <div class="titanium-box-label">TECHNOLOGY</div>
           <div class="titanium-box-title">ミクロチタンボールとは</div>
-          <div class="titanium-box-desc">アクアチタンを生成する際にできた、ミクロサイズの球体状のチタン。ノーズパッドに採用することで、カラダをリラックス状態へとサポートします。</div>
+          <div class="titanium-box-desc">ファイテン社の水溶化メタル技術により誕生したものです。この技術を用いた商品を身に着けることで、カラダのリラックスとリカバリーをサポートします。</div>
         </div>
+        <p class="about-collab-note">＊本製品はファイテン社の独自技術を取り入れたコラボレーション商品です。</p>
       </div>
     </div>
   </div>
@@ -150,17 +161,17 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
     </div>
     <div class="size-grid reveal">
       <div class="size-card">
-        <div class="size-visual-wrap"><img class="size-img" src="images/s1.png" alt="Sサイズ"></div>
+        <div class="size-visual-wrap"><img class="size-img" src="wordpress/images/s1.png" alt="Sサイズ"></div>
         <div class="size-letter">S</div>
         <div class="size-mm">13.0 × 7.2 mm</div>
       </div>
       <div class="size-card popular">
-        <div class="size-visual-wrap"><img class="size-img" src="images/m2.png" alt="Mサイズ"></div>
+        <div class="size-visual-wrap"><img class="size-img" src="wordpress/images/m2.png" alt="Mサイズ"></div>
         <div class="size-letter">M</div>
         <div class="size-mm">14.5 × 7.4 mm</div>
       </div>
       <div class="size-card">
-        <div class="size-visual-wrap"><img class="size-img" src="images/l3.png" alt="Lサイズ"></div>
+        <div class="size-visual-wrap"><img class="size-img" src="wordpress/images/l3.png" alt="Lサイズ"></div>
         <div class="size-letter">L</div>
         <div class="size-mm">16.8 × 8.0 mm</div>
       </div>
@@ -259,7 +270,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="images/AI.svg" alt="アイメガネ" class="footer-logo">
+      <img src="wordpress/images/AI.svg" alt="アイメガネ" class="footer-logo">
     </div>
     <nav class="footer-links">
       <a href="https://www.aimegane.com/shop/" target="_blank" rel="noopener">店舗一覧</a>
@@ -294,7 +305,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
   }
 })();
 
-/* Floating CTA: ヒーローを過ぎたら表示 */
+/* Floating CTA: ヒーローを過ぎたら表示、buyセクションで非表示 */
 (function() {
   var fcta = document.getElementById('floatingCta');
   var hero = document.querySelector('.hero');
