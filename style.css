@@ -226,7 +226,7 @@ h2.sec-title {
   text-transform: uppercase;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--border);
-  display: inline-block;
+  display: block;
   position: relative;
   top: -5px;
 }
@@ -370,7 +370,7 @@ h2.sec-title {
 .btn-main:hover { background: var(--red); color: #fff; }
 .btn-main--filled {
   background: var(--red); color: #fff; border: none;
-  padding: 12px 28px; font-size: 14px;
+  padding: 12px 28px; font-size: 14px; border-radius: 50px;
 }
 .btn-main--filled:hover { background: var(--red-soft); color: #fff; }
 .btn-sub {
