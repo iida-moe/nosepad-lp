@@ -239,6 +239,7 @@ h2.sec-title {
 .hero-text {
   flex: 1;
   min-width: 0;
+  text-align: center;
 }
 
 /* 商品写真 */
@@ -283,6 +284,7 @@ h2.sec-title {
 .hero-price-row {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 14px;
   margin-bottom: 28px;
   flex-wrap: wrap;
