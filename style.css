@@ -263,7 +263,7 @@ h2.sec-title {
 /* 見出し */
 .hero h1 {
   font-family: 'Noto Serif JP', serif;
-  font-size: clamp(16px, 1.7vw, 22px);
+  font-size: clamp(14px, 1.55vw, 20px);
   font-weight: 600;
   line-height: 1.7;
   letter-spacing: 0.02em;
