@@ -167,7 +167,7 @@ h2.sec-title {
 /* ─── HERO ───────────────────────────────────────── */
 .hero {
   position: relative;
-  background: var(--sand);
+  background: linear-gradient(180deg, #FAF5EC 0%, var(--sand) 60%, #EDE5D3 100%);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -178,6 +178,31 @@ h2.sec-title {
   height: calc(100vh - 64px);
   min-height: 600px;
 }
+/* 背景の装飾ドット（控えめに奥行き） */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: -5%;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,0,10,0.035) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  left: -8%;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(42,123,142,0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
 
 /* 砂色背景（hero全体がsandなので不要） */
 .hero-bg-upper {
@@ -187,64 +212,74 @@ h2.sec-title {
 /* ロゴ */
 .hero-logos {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 6vw;
+  justify-content: center;
+  padding: 32px 0 20px;
+  width: 100%;
 }
 .hero-logos-row {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 3vw;
-  border-bottom: 1px solid var(--border);
-  padding: 1.5vh 5vw;
+  border-bottom: none;
+  padding: 0 5vw;
 }
 .hero-logos-row a { display: flex; }
-.logo-phiten { height: 7vw; min-height: 55px; max-height: 90px; width: auto; }
-.logo-aimegane { height: 7vw; min-height: 55px; max-height: 90px; width: auto; }
+/* ファイテンロゴ: アイソレーションエリア C-03準拠 (上下0.2A, 左0.3A, 右0.4A) */
+/* ロゴ高さAを変数化し、padding をAに対する比率で正確に計算 */
+.logo-phiten {
+  --logo-h: clamp(44px, 5vw, 70px);
+  height: var(--logo-h);
+  width: auto;
+  padding: calc(var(--logo-h) * 0.2) calc(var(--logo-h) * 0.4)
+           calc(var(--logo-h) * 0.2) calc(var(--logo-h) * 0.3);
+  box-sizing: content-box;
+}
+.logo-aimegane { height: 7.5vw; min-height: 64px; max-height: 100px; width: auto; }
 .collab-x {
-  font-size: clamp(18px, 2.5vw, 28px);
-  color: var(--text-light);
+  font-size: clamp(30px, 3.6vw, 46px);
+  color: var(--text-mid);
   font-weight: 300;
 }
-/* 商品名：h1の上 */
+/* 商品名：価格の上のラベル */
 .hero-product-name {
   font-size: 11px;
   color: var(--green);
   letter-spacing: 0.22em;
-  margin-bottom: 14px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   font-weight: 500;
   text-align: left;
   text-transform: uppercase;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
   display: block;
-  position: relative;
-  top: -5px;
 }
 
 /* 写真左＋テキスト右 */
 .hero-row {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 32px;
   display: flex;
-  align-items: center;
-  gap: 3vw;
+  align-items: flex-start;
+  gap: 4vw;
+  flex: 1;
 }
 
 .hero-text {
   flex: 1;
   min-width: 0;
   text-align: left;
+  padding-top: 20px;
 }
 .hero-price-row,
 .hero-cta-group {
-  text-align: center;
+  text-align: left;
 }
 .hero-cta-group {
   display: flex;
@@ -252,18 +287,86 @@ h2.sec-title {
   align-items: center;
 }
 
-/* 商品写真 */
-.hero-visual {
-  width: clamp(260px, 42vh, 400px);
+/* ─── FVビジュアル構成（2つの丸が斜めに重なる） ─── */
+.hero-visual-compose {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(300px, 36vw, 420px);
+  padding: 0 0 30px;
+}
+.hero-catch {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(16px, 1.7vw, 20px);
+  font-weight: 500;
+  color: var(--red);
+  margin-bottom: 16px;
+  letter-spacing: 0.1em;
+  text-align: left;
+  position: relative;
+  display: inline-block;
+  padding: 0 32px;
+}
+.hero-catch::before,
+.hero-catch::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 1px;
+  background: var(--red);
+  opacity: 0.6;
+}
+.hero-catch::before { left: 0; }
+.hero-catch::after { right: 0; }
+.hero-circles {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 0.95;
+  transform: rotate(-4deg);
+}
+/* 大きい丸：商品写真 */
+.hero-circle-main {
+  width: 72%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
+  border: 2px solid var(--red);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.10);
   background: #fff;
-  flex-shrink: 0;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
 }
-.hero-visual img {
+.hero-circle-main img {
   width: 100%; height: 100%; object-fit: cover;
+  transform: rotate(4deg);
+}
+/* 小さい丸：装着イメージ（重ねる） */
+.hero-circle-sub {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 46%;
+  text-align: center;
+  z-index: 2;
+}
+.hero-circle-sub img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+  transform: rotate(4deg);
+}
+.hero-circle-sub-caption {
+  font-size: 11px;
+  color: var(--text-mid);
+  margin-top: 8px;
+  letter-spacing: 0.04em;
+  transform: rotate(4deg);
+  font-weight: 500;
 }
 
 /* フック（共感コピー） */
@@ -278,26 +381,26 @@ h2.sec-title {
 /* FVリード文（1行目） */
 .hero-lead {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(14px, 1.4vw, 17px);
+  font-size: clamp(15px, 1.5vw, 18px);
   font-weight: 400;
   color: var(--text-mid);
   letter-spacing: 0.06em;
   line-height: 1.6;
-  margin-bottom: 4px;
+  margin-bottom: 14px;
   text-align: left;
 }
 
 /* FV見出し（2行目） */
 .hero h1 {
   font-family: 'Noto Serif JP', serif;
-  font-size: clamp(22px, 2.4vw, 32px);
+  font-size: clamp(22px, 2.3vw, 32px);
   font-weight: 600;
   line-height: 1.5;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   color: var(--text);
-  margin-bottom: 24px;
-  white-space: nowrap;
+  margin-bottom: 36px;
   text-align: left;
+  white-space: nowrap;
 }
 .hero h1 em {
   font-style: normal;
@@ -308,24 +411,25 @@ h2.sec-title {
 .hero-price-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 32px;
-  margin-bottom: 8px;
+  justify-content: flex-start;
+  gap: 24px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
   width: 100%;
 }
 .hero-price-block {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 .hero-price-block .price-num {
   display: block;
+  line-height: 1;
 }
 .hero-price-block .price-unit {
   display: block;
-  margin-top: -2px;
-  text-align: center;
+  margin-top: 2px;
+  text-align: left;
 }
 .hero-price-row .btn-main {
   margin-bottom: 0;
@@ -343,13 +447,13 @@ h2.sec-title {
 .hero-cta:hover { opacity: 0.7; }
 .price-num {
   font-family: 'Noto Serif JP', serif;
-  font-size: clamp(36px, 4vw, 48px);
+  font-size: clamp(36px, 3.8vw, 48px);
   font-weight: 600;
   color: var(--red);
   letter-spacing: -0.01em;
   line-height: 1;
 }
-.price-unit { font-size: 14px; color: var(--text-light); }
+.price-unit { font-size: 13px; color: var(--text-light); letter-spacing: 0.06em; }
 
 /* ボタン */
 .btn-main {
@@ -364,9 +468,16 @@ h2.sec-title {
 .btn-main:hover { background: var(--red); color: #fff; }
 .btn-main--filled {
   background: var(--red); color: #fff; border: none;
-  padding: 12px 28px; font-size: 14px; border-radius: 50px;
+  padding: 16px 38px; font-size: 15px; border-radius: 50px;
+  letter-spacing: 0.1em; font-weight: 600;
+  box-shadow: 0 6px 18px rgba(184,0,10,0.25);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
-.btn-main--filled:hover { background: var(--red-soft); color: #fff; }
+.btn-main--filled:hover {
+  background: var(--red-soft); color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(184,0,10,0.32);
+}
 .btn-sub {
   display: inline-flex; align-items: center; justify-content: center;
   background: transparent; color: var(--text);
@@ -382,7 +493,7 @@ h2.sec-title {
 }
 .hero-sub-note {
   font-size: 12px; color: var(--text-light); letter-spacing: 0.04em;
-  text-align: center;
+  text-align: left;
 }
 
 /* スクロール誘導（非表示） */
@@ -400,7 +511,7 @@ h2.sec-title {
 /* ─── PROBLEM ────────────────────────────────────── */
 .problem {
   background: var(--sand);
-  padding: 80px 40px 72px;
+  padding: 80px 40px 80px;
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
@@ -417,11 +528,6 @@ h2.sec-title {
   overflow: hidden;
   background: #fff;
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.problem-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.10);
 }
 .problem-card-img {
   height: 220px;
@@ -433,35 +539,40 @@ h2.sec-title {
   object-fit: cover;
 }
 .problem-card-body {
-  padding: 22px 24px;
+  padding: 28px 24px;
 }
 .problem-text {
   font-size: 15px;
   color: var(--text-mid);
-  line-height: 1.8;
+  line-height: 1.9;
   text-align: center;
 }
 .problem-text strong {
-  color: var(--text);
+  color: var(--red);
   font-weight: 600;
 }
 .problem-title {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(22px, 2.6vw, 28px);
-  font-weight: 700;
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(24px, 2.8vw, 32px);
+  font-weight: 600;
   color: var(--text);
-  margin-bottom: 32px;
-  letter-spacing: 0.04em;
+  margin-bottom: 40px;
+  letter-spacing: 0.06em;
+  position: relative;
+  z-index: 1;
 }
 
 .problem-lead {
   font-family: 'Noto Serif JP', serif;
-  font-size: clamp(15px, 2vw, 18px);
-  color: var(--text-mid);
+  font-size: clamp(17px, 2.2vw, 22px);
+  color: var(--text);
   line-height: 1.8;
-  letter-spacing: 0.04em;
-  max-width: 600px;
-  margin: 0 auto;
+  letter-spacing: 0.06em;
+  max-width: 640px;
+  margin: 48px auto 0;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
 }
 .problem-lead strong {
   color: var(--red);
@@ -614,7 +725,7 @@ h2.sec-title {
 .sg-size { font-family: 'Noto Serif JP', serif; font-size: 20px; color: var(--red); width: 22px; flex-shrink: 0; }
 .sg-arrow { color: var(--border); flex-shrink: 0; }
 .sg-desc  { color: var(--text-mid); line-height: 1.65; word-break: keep-all; overflow-wrap: anywhere; }
-.size-guide-note { font-size: 12px; color: var(--text-light); border-top: 1px solid var(--border); padding-top: 18px; }
+.size-guide-note { font-size: 13px; color: var(--text-mid); border-top: 1px solid var(--border); padding-top: 18px; }
 
 /* ─── FAQ ────────────────────────────────────────── */
 .faq {
@@ -669,6 +780,7 @@ h2.sec-title {
 
 /* ─── BUY ────────────────────────────────────────── */
 .buy { background: var(--sand); padding: 96px 40px 88px; text-align: center; max-width: 1200px; margin: 0 auto; }
+.buy h2.sec-title { font-size: clamp(22px, 2.8vw, 30px); }
 .buy-box {
   max-width: 480px; margin: 0 auto;
   background: var(--warm-white); border: 1px solid var(--border);
@@ -734,17 +846,17 @@ h2.sec-title {
   transition: border-color 0.2s, transform 0.15s;
 }
 .btn-buy-sub:hover { border-color: var(--text-mid); }
-.buy-footer-note { margin-top: 24px; font-size: 12px; color: var(--text-light); letter-spacing: 0.03em; line-height: 1.95; }
+.buy-footer-note { margin-top: 24px; font-size: 13px; color: var(--text-mid); letter-spacing: 0.03em; line-height: 1.95; }
 
 /* ─── INLINE LINK ────────────────────────────────── */
 .inline-link {
-  color: var(--green);
+  color: var(--red);
   text-decoration: underline;
   text-underline-offset: 3px;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: opacity 0.2s;
 }
-.inline-link:hover { color: var(--red); }
+.inline-link:hover { opacity: 0.7; }
 
 /* ─── FLOATING CTA ───────────────────────────────── */
 .floating-cta {
@@ -853,7 +965,7 @@ footer {
 @media (max-width: 880px) {
   .about-inner { gap: 52px; }
   .hero-row { gap: 2vw; padding: 0 4vw; }
-  .hero-visual { width: clamp(220px, 32vh, 320px); }
+  .hero-visual-compose { width: clamp(260px, 38vw, 400px); }
 }
 
 /* スマホ共通 */
@@ -870,8 +982,8 @@ footer {
   .hero-bg-upper { height: 34%; }
   .hero-logos { padding: 1.5vh 16px 0.5vh; }
   .hero-logos-row { gap: 10px; padding: 1.2vh 3vw; }
-  .logo-phiten { height: 14vw; min-height: 50px; max-height: 80px; }
-  .logo-aimegane { height: 14vw; min-height: 50px; max-height: 80px; }
+  .logo-phiten { --logo-h: clamp(44px, 12vw, 72px); height: var(--logo-h); }
+  .logo-aimegane { height: 18vw; min-height: 64px; max-height: 100px; }
   .collab-x { font-size: 12px; }
   .hero-logos-product { font-size: 10px; letter-spacing: 0.1em; }
   .hero-row {
@@ -879,11 +991,13 @@ footer {
     gap: 12px; align-items: center;
     max-width: none;
   }
-  .hero-visual { width: clamp(220px, 64vw, 300px); }
+  .hero-visual-compose { width: 90vw; max-width: 380px; }
+  .hero-catch { font-size: clamp(16px, 4.5vw, 20px); }
+  .hero-connect-line { height: 50px; }
   .hero-product-name { font-size: 10px; margin-bottom: 4px; }
   .hero-text { text-align: center; }
   .hero-lead { font-size: clamp(13px, 3.5vw, 15px); text-align: center; }
-  .hero h1 { font-size: clamp(18px, 5vw, 24px); line-height: 1.5; margin-bottom: 12px; white-space: normal; text-align: center; }
+  .hero h1 { font-size: clamp(18px, 5vw, 24px); line-height: 1.5; margin-bottom: 12px; white-space: normal; text-align: center; letter-spacing: 0.04em; }
   .hero-price-row { justify-content: center; margin-bottom: 14px; flex-wrap: wrap; gap: 12px; }
   .hero-price-row .btn-main { width: 100%; }
   .price-num { font-size: clamp(28px, 8vw, 36px); }
@@ -950,12 +1064,14 @@ footer {
 @media (max-width: 400px) {
   .hero-logos { padding: 1.5vh 16px 1vh; }
   .hero-logos-row { gap: 8px; padding: 1.2vh 3vw; }
-  .logo-phiten { height: 44px; min-height: 44px; }
+  .logo-phiten { --logo-h: 44px; height: var(--logo-h); min-height: 44px; }
   .logo-aimegane { height: 44px; min-height: 44px; }
   .collab-x { font-size: 11px; }
   .hero-logos-product { font-size: 9px; }
   .hero-row { padding: 0 16px; gap: 16px; }
-  .hero-visual { width: 160px; }
+  .hero-visual-compose { width: 85vw; }
+  .hero-catch { font-size: 15px; }
+  .hero-connect-line { height: 40px; }
   .hero-hook { font-size: 11px; }
   .hero-lead { font-size: 12px; }
   .hero h1 { font-size: 16px; }

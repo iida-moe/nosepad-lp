@@ -202,7 +202,9 @@ h2.sec-title {
   padding: 1.5vh 5vw;
 }
 .hero-logos-row a { display: flex; }
-.logo-phiten { height: 7vw; min-height: 55px; max-height: 90px; width: auto; }
+/* ファイテンロゴ: アイソレーションエリア C-03準拠 (上下0.2A, 左0.3A, 右0.4A) */
+.logo-phiten { height: 7vw; min-height: 55px; max-height: 90px; width: auto;
+  padding: 0.2em 0.4em 0.2em 0.3em; box-sizing: content-box; }
 .logo-aimegane { height: 7vw; min-height: 55px; max-height: 90px; width: auto; }
 .collab-x {
   font-size: clamp(18px, 2.5vw, 28px);

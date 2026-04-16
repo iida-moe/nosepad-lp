@@ -8,10 +8,10 @@ Template Name: ノーズパッドLP（プレビュー版）
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>メガネ用ノーズパッド | ファイテン×アイメガネ ミクロチタンボール</title>
+<title>メガネ用ノーズパッド | アイメガネ×ファイテン ミクロチタンボール</title>
 <meta name="description" content="ファイテン独自のミクロチタンボール配合。いつものメガネに取り付けるだけ。選べるS・M・Lサイズ、¥990（税込）。アイメガネ各店舗にてお取り扱い中。">
 <meta property="og:type"        content="product">
-<meta property="og:title"       content="メガネ用ノーズパッド | ファイテン×アイメガネ ミクロチタンボール">
+<meta property="og:title"       content="メガネ用ノーズパッド | アイメガネ×ファイテン ミクロチタンボール">
 <meta property="og:description" content="ファイテン独自のミクロチタンボール配合。いつものメガネに取り付けるだけ。¥990（税込）">
 <meta property="og:image"       content="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/unnamed1.jpg">
 <meta property="og:url"         content="https://www.aimegane.com/nosepad-preview/">
@@ -51,9 +51,9 @@ Template Name: ノーズパッドLP（プレビュー版）
 
   <div class="hero-logos">
     <div class="hero-logos-row">
-      <a href="https://www.phiten.com/" target="_blank" rel="noopener"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/FA.svg" alt="phiten" class="logo-phiten"></a>
-      <span class="collab-x">×</span>
       <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/AI.svg" alt="アイメガネ" class="logo-aimegane">
+      <span class="collab-x">×</span>
+      <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/phiten-logo.png" alt="phiten" class="logo-phiten">
     </div>
   </div>
 
@@ -118,9 +118,8 @@ Template Name: ノーズパッドLP（プレビュー版）
     <div class="about-inner">
       <div class="about-img reveal">
         <div class="about-img-photo">
-          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/unnamed1.jpg" alt="ノーズパッド装着イメージ">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/maruM.jpg" alt="ミクロチタンボール ノーズパッド">
         </div>
-        <p class="about-img-caption">※ノーズパッド装着イメージ</p>
       </div>
       <div class="about-text reveal reveal-d1">
         <span class="section-tag">製品について</span>
@@ -278,7 +277,6 @@ Template Name: ノーズパッドLP（プレビュー版）
     <nav class="footer-links">
       <a href="https://www.aimegane.com/shop/" target="_blank" rel="noopener">店舗一覧</a>
       <a href="https://www.aimegane.com/inquiry/" target="_blank" rel="noopener">お問い合わせ</a>
-      <a href="https://www.phiten.com/" target="_blank" rel="noopener">ファイテン公式サイト</a>
     </nav>
     <p class="footer-copy">© アイメガネ</p>
   </div>
