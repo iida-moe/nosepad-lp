@@ -167,7 +167,7 @@ h2.sec-title {
 /* ─── HERO ───────────────────────────────────────── */
 .hero {
   position: relative;
-  background: var(--sand);
+  background: #fff;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -198,8 +198,8 @@ h2.sec-title {
   align-items: center;
   justify-content: center;
   gap: 3vw;
-  border-bottom: 1px solid var(--border);
-  padding: 1.5vh 5vw;
+  border-bottom: none;
+  padding: 0 5vw;
 }
 .hero-logos-row a { display: flex; }
 /* ファイテンロゴ: アイソレーションエリア C-03準拠 (上下0.2A, 左0.3A, 右0.4A) */
