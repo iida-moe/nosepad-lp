@@ -1,10 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(find /c/Users/m-iida/Desktop/nosepad_lp -type f \\\\\\(-name *final* -o -name *決定* \\\\\\))"
+      "Bash(find /c/Users/m-iida/Desktop/nosepad_lp -type f \\\\\\(-name *final* -o -name *決定* \\\\\\))",
+      "Bash(ls \"C:/Users/m-iida/Downloads/\"*jrbp7m*)",
+      "Bash(ls \"C:/Users/m-iida/Desktop/gw-fair-lp/\"*.html)",
+      "WebFetch(domain:www.aimegane.com)"
     ],
     "additionalDirectories": [
-      "C:\\Users\\m-iida\\Desktop\\nosepad_lp"
+      "C:\\Users\\m-iida\\Desktop\\nosepad_lp",
+      "C:\\Users\\m-iida\\Downloads",
+      "C:\\Users\\m-iida\\Desktop\\gw-fair-lp"
     ]
   }
 }

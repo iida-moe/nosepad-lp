@@ -93,7 +93,7 @@ Template Name: ノーズパッドLP（プレビュー版）
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/woman-tired.jpg" alt="メガネ疲れ">
         </div>
         <div class="problem-card-body">
-          <p class="problem-text"><strong>鼻あての黄ばみ</strong>、<br>気になっていませんか？</p>
+          <p class="problem-text"><strong>ノーズパッドの黄ばみ</strong>、<br>気になっていませんか？</p>
         </div>
       </div>
       <div class="problem-card">
@@ -194,7 +194,7 @@ Template Name: ノーズパッドLP（プレビュー版）
           </span>
           <span class="faq-icon">＋</span>
         </button>
-        <div class="faq-a">ネジ穴径1.2mmのネジ式鼻あてに対応しています。ワンタッチタイプ（ネジを使用しないタイプ）のメガネにはご使用いただけません。ご不明な場合は店舗スタッフへお気軽にご相談ください。</div>
+        <div class="faq-a">ネジ穴径1.2mmのネジ式ノーズパッドに対応しています。ワンタッチタイプ（ネジを使用しないタイプ）のメガネにはご使用いただけません。ご不明な場合は店舗スタッフへお気軽にご相談ください。</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
