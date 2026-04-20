@@ -199,7 +199,7 @@ h2.sec-title {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 32px 0 20px;
+  padding: 20px 0 12px;
   width: 100%;
 }
 /* ヒーロー背景が白なのでホワイトスペース自動確保 */
@@ -215,16 +215,16 @@ h2.sec-title {
 /* ファイテンロゴ: アイソレーションエリア C-03準拠 (上下0.2A, 左0.3A, 右0.4A) */
 /* ロゴ高さAを変数化し、padding をAに対する比率で正確に計算 */
 .logo-phiten {
-  --logo-h: clamp(44px, 5vw, 70px);
+  --logo-h: clamp(36px, 3.6vw, 50px);
   height: var(--logo-h);
   width: auto;
   padding: calc(var(--logo-h) * 0.2) calc(var(--logo-h) * 0.4)
            calc(var(--logo-h) * 0.2) calc(var(--logo-h) * 0.3);
   box-sizing: content-box;
 }
-.logo-aimegane { height: 7.5vw; min-height: 64px; max-height: 100px; width: auto; }
+.logo-aimegane { height: 5.2vw; min-height: 48px; max-height: 72px; width: auto; }
 .collab-x {
-  font-size: clamp(30px, 3.6vw, 46px);
+  font-size: clamp(22px, 2.6vw, 34px);
   color: var(--text-mid);
   font-weight: 300;
 }
@@ -250,7 +250,6 @@ h2.sec-title {
   display: flex;
   align-items: center;
   gap: 4vw;
-  flex: 1;
 }
 
 .hero-text {
@@ -281,7 +280,7 @@ h2.sec-title {
   display: flex;
   align-items: baseline;
   gap: 8px;
-  margin-bottom: 36px;
+  margin-bottom: 24px;
 }
 
 .hero-catch {
@@ -334,9 +333,9 @@ h2.sec-title {
   transform: rotate(4deg);
 }
 .hero-circle-sub-caption {
-  font-size: 11px;
-  color: var(--text-mid);
-  margin-top: 8px;
+  font-size: 9px;
+  color: rgba(0,0,0,0.3);
+  margin-top: 4px;
   letter-spacing: 0.04em;
 }
 
@@ -349,15 +348,29 @@ h2.sec-title {
 }
 
 /* 見出し */
+/* FVタグ（NEW / 販売中） */
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--red);
+  background: var(--red-pale);
+  padding: 5px 12px;
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
+
 /* FVリード文（1行目） */
 .hero-lead {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(14px, 1.6vw, 18px);
-  font-weight: 400;
-  color: var(--text-mid);
+  font-size: clamp(15px, 1.8vw, 20px);
+  font-weight: 600;
+  color: rgba(0,0,0,0.7);
   letter-spacing: 0.06em;
   line-height: 1.6;
-  margin-bottom: 2px;
+  margin-bottom: 12px;
   text-align: left;
 }
 
@@ -369,11 +382,9 @@ h2.sec-title {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--text);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   text-align: left;
   white-space: nowrap;
-  padding-bottom: 24px;
-  border-bottom: 1px solid #ddd;
 }
 .hero h1 em {
   font-style: normal;
@@ -787,77 +798,144 @@ h2.sec-title.problem-title {
 .faq-item.open .faq-a { max-height: 300px; padding-bottom: 24px; }
 
 /* ─── BUY ────────────────────────────────────────── */
-.buy { background: #fff; padding: 72px 40px 64px; text-align: center; max-width: none; margin: 0 auto; }
+.buy {
+  background: var(--blue-pale);
+  padding: 96px 40px 80px;
+  text-align: center;
+  max-width: none;
+  margin: 0 auto;
+}
 .buy-cta-banner {
-  max-width: 680px; margin: 0 auto;
-  background: #fff;
-  border-radius: 16px;
-  padding: 40px;
-  box-shadow: 0 8px 32px rgba(0,53,148,0.08);
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
 }
 .buy-cta-banner-inner {
-  display: flex; align-items: center; gap: 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
   text-align: left;
-  margin-bottom: 28px;
+  margin-bottom: 48px;
 }
-.buy-cta-left { flex-shrink: 0; }
-.buy-cta-benefits {
-  display: flex; justify-content: center; gap: 16px;
-  padding-top: 24px;
-  border-top: 1px solid #eee;
-}
-.buy-benefit-item {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: 0.06em;
-  padding: 6px 16px;
-  background: #f5f5f5;
-  border-radius: 50px;
-}
+.buy-cta-left { display: flex; justify-content: center; }
+
 /* 購入セクション商品画像 */
 .buy-product-img {
-  width: 140px; height: 140px;
+  width: 320px; height: 320px;
   border-radius: 50%;
   overflow: hidden;
-  margin: 0 auto 20px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+  margin: 0 auto;
+  background: radial-gradient(circle at 30% 30%, #fff 0%, #e8e2d4 100%);
+  box-shadow: 0 20px 50px rgba(0,53,148,0.15), inset 0 0 0 1px rgba(255,255,255,0.6);
+  position: relative;
+}
+.buy-product-img::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 -12px 28px rgba(0,0,0,0.06);
+  pointer-events: none;
 }
 .buy-product-img img { width: 100%; height: 100%; object-fit: cover; }
+
 .buy-cta-right { flex: 1; }
 .buy-product-name {
-  font-size: 13px; color: var(--text-mid); letter-spacing: 0.12em;
-  margin-bottom: 8px; font-weight: 500;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 22px; color: var(--text); font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0,53,148,0.15);
 }
 .buy-price-row {
   display: flex; align-items: baseline; gap: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
 }
 .buy-price {
-  font-family: 'Noto Sans JP', sans-serif; font-size: 42px; font-weight: 600;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 60px; font-weight: 800;
   color: var(--red); line-height: 1;
+  letter-spacing: 0.01em;
 }
-.buy-price-note { font-size: 13px; color: var(--text-mid); }
+.buy-price-meta {
+  font-size: 13px; color: var(--text-mid);
+  letter-spacing: 0.04em;
+  margin-bottom: 28px;
+}
 .btn-buy-main {
   display: inline-flex; align-items: center; justify-content: center;
   background: var(--red); color: #fff;
-  font-size: 16px; font-weight: 600; letter-spacing: 0.08em;
-  padding: 16px 40px; border-radius: 50px;
-  box-shadow: 0 6px 18px rgba(184,0,10,0.25);
+  font-size: 15px; font-weight: 700; letter-spacing: 0.06em;
+  padding: 13px 28px; border-radius: 50px;
+  box-shadow: 0 8px 24px rgba(184,0,10,0.28);
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.btn-buy-main::after {
+  content: "";
+  display: inline-block;
+  width: 10px; height: 10px;
+  margin-left: 12px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
 }
 .btn-buy-main:hover {
   background: var(--red-soft);
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(184,0,10,0.32);
+  box-shadow: 0 12px 32px rgba(184,0,10,0.35);
+}
+.btn-buy-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+.btn-buy-sub {
+  display: block;
+  font-size: 13px; color: var(--text-mid);
+  letter-spacing: 0.04em;
+  margin-top: 14px;
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+.btn-buy-sub:hover { color: var(--red); }
+
+.buy-cta-features {
+  display: flex; justify-content: flex-start; gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.buy-feature-item {
+  display: inline-flex; align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.06em;
+  padding: 8px 14px 8px 10px;
+  background: #fff;
+  border: 1px solid rgba(0,53,148,0.1);
+  border-radius: 4px;
+}
+.buy-feature-item::before {
+  content: "✓";
+  color: var(--red);
+  font-weight: 700;
+  margin-right: 6px;
+  font-size: 13px;
+}
+.buy-cta-store-note {
+  margin-top: 16px;
+  font-size: 12px; color: var(--text-mid);
+  letter-spacing: 0.04em; text-align: left;
 }
 .buy-store-reason {
   font-size: 12px; color: var(--text-mid);
   margin-top: 14px; letter-spacing: 0.03em; line-height: 1.6;
-}
-.buy-footer-note {
-  margin-top: 32px; font-size: 13px; color: var(--text-mid);
-  letter-spacing: 0.03em; line-height: 1.95; text-align: center;
 }
 
 /* ─── INLINE LINK ────────────────────────────────── */
@@ -913,61 +991,90 @@ h2.sec-title.problem-title {
 /* ─── FOOTER ─────────────────────────────────────── */
 footer {
   background: #fff;
-  padding: 48px 40px 36px;
+  padding: 56px 40px 24px;
   color: var(--text-mid);
+  border-top: 3px solid var(--red);
   max-width: none;
   margin: 0 auto;
-  border-top: 1px solid #eee;
 }
 .footer-inner {
-  max-width: 860px;
+  max-width: 1200px;
   margin: 0 auto;
-  text-align: center;
-}
-.footer-logo {
-  height: 64px;
-  width: auto;
-  margin: 0 auto 20px;
-}
-.footer-collab-logos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #eee;
   margin-bottom: 24px;
 }
-.footer-logo-phiten {
-  height: 40px; width: auto;
-  filter: brightness(3);
-  opacity: 0.5;
+.footer-col { text-align: left; }
+.footer-brand { text-align: left; }
+.footer-logo {
+  width: 360px;
+  margin: 0 0 32px;
+  display: block;
 }
-.footer-logo-ai {
-  height: 40px; width: auto;
-  filter: brightness(3);
-  opacity: 0.5;
+.footer-company {
+  font-size: 14px; font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+  padding-left: 8px;
 }
-.footer-collab-x {
-  font-size: 14px;
-  color: rgba(245,240,232,0.3);
+.footer-address {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.9;
+  padding-left: 8px;
 }
 .footer-links {
   display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 140px;
 }
 .footer-links a {
-  font-size: 12px;
-  letter-spacing: 0.06em;
+  font-size: 14px;
   color: var(--text-mid);
+  text-decoration: none;
   transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
-.footer-links a:hover { color: var(--text); }
+.footer-links a:hover { color: var(--red); }
+.footer-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding-top: 140px;
+}
+.footer-cta-lead {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin: 0;
+}
+.footer-cta-btn {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-weight: 900;
+  font-size: 15px;
+  padding: 14px 32px;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: background 0.2s;
+}
+.footer-cta-btn:hover { background: #A01E24; }
 .footer-copy {
+  text-align: center;
   font-size: 11px;
   color: var(--text-light);
-  letter-spacing: 0.14em;
+  padding-bottom: 60px;
+  letter-spacing: 0.04em;
 }
 
 /* ─── RESPONSIVE ─────────────────────────────────── */
@@ -1058,17 +1165,46 @@ footer {
   .section-divider { max-width: 80%; }
 
   /* Buy SP */
-  .buy { padding: 56px 20px 48px; }
+  .buy { padding: 64px 20px 56px; }
   .buy-box { padding: 36px 20px; }
-  .buy-price { font-size: 44px; }
-  .buy-product-img { width: 110px; height: 110px; }
+  .buy-cta-banner { padding: 0; }
+  .buy-cta-banner-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .buy-product-img { width: 200px; height: 200px; }
+  .buy-product-name { font-size: 18px; text-align: center; padding-bottom: 20px; margin-bottom: 20px; }
+  .buy-price-row { justify-content: center; }
+  .buy-price { font-size: 52px; }
+  .buy-price-meta { text-align: center; }
+  .btn-buy-main { width: 100%; padding: 16px 20px; }
+  .btn-buy-sub { text-align: center; }
+  .buy-cta-features { gap: 8px; justify-content: center; }
+  .buy-feature-item { font-size: 12px; padding: 6px 14px 6px 10px; }
+  .buy-cta-store-note { text-align: center; }
 
   /* Floating CTA SP */
   .floating-cta { bottom: 16px; right: 16px; left: 16px; }
   .floating-cta__btn { width: 100%; justify-content: center; padding: 14px; font-size: 14px; }
 
   /* Footer SP */
-  .footer-links { gap: 14px; }
+  footer { padding: 40px 20px 16px; }
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: left;
+  }
+  .footer-col { text-align: left; }
+  .footer-logo { width: 200px; margin: 0 0 16px; display: block; }
+  .footer-company { font-size: 13px; }
+  .footer-address { font-size: 11px; }
+  .footer-links { align-items: flex-start; gap: 12px; padding-top: 0; }
+  .footer-links a { font-size: 13px; }
+  .footer-cta { align-items: stretch; padding-top: 0; }
+  .footer-cta-btn { text-align: center; width: 100%; max-width: 320px; }
+  .footer-copy { padding-bottom: 72px; font-size: 10px; }
 }
 
 /* 小型スマホ（iPhone SE等） */
