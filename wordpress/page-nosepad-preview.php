@@ -117,13 +117,12 @@ Template Name: ノーズパッドLP（プレビュー版）
   <div class="container">
     <div class="about-inner">
       <div class="about-img reveal">
-        <div class="about-img-photo">
-          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/maruM.jpg" alt="ミクロチタンボール ノーズパッド">
+        <div class="about-img-photo about-img-photo--package">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/m.png" alt="ミクロチタンボール ノーズパッド パッケージ">
         </div>
       </div>
       <div class="about-text reveal reveal-d1">
         <span class="section-tag">製品について</span>
-       <h2 class="sec-title about-title">小さなパッドに<br>ファイテンの技術を</h2>
         <p>ファイテン社の独自技術「ミクロチタンボール」をソフト樹脂パッドに採用したメガネ用ノーズパッドです。</p>
         <div class="titanium-box">
           <div class="titanium-box-label">TECHNOLOGY</div>
@@ -144,7 +143,7 @@ Template Name: ノーズパッドLP（プレビュー版）
   <div class="container">
     <div class="reveal">
       <span class="section-tag">サイズガイド</span>
-      <h2 class="sec-title">メガネに合わせて<br>選べる3サイズ</h2>
+      <h2 class="sec-title">メガネに合わせて選べる3サイズ</h2>
     </div>
     <div class="size-grid reveal">
       <div class="size-card">
