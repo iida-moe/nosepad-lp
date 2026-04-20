@@ -12,7 +12,7 @@
 <meta property="og:url"         content="https://www.aimegane.com/nosepad/">
 <meta property="og:site_name"   content="アイメガネ">
 <meta name="twitter:card"       content="summary_large_image">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>/* font-display swap for faster perceived load */</style>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -38,8 +38,8 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
    <nav class="header-nav">
      <a href="#about" class="header-nav__item">製品について</a>
      <a href="#size" class="header-nav__item">サイズ</a>
-     <a href="#faq" class="header-nav__item">Q&amp;A</a>
-     <a href="#buy" class="header-nav__item header-nav__item--cta">購入する</a>
+     <a href="#faq" class="header-nav__item">よくあるご質問</a>
+     <a href="#buy" class="header-nav__item header-nav__item--cta">お近くの店舗</a>
    </nav>
    <button class="header-hamburger" id="hamburger" aria-label="メニューを開く">
      <span></span><span></span><span></span>
@@ -49,13 +49,18 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about">製品について</a>
   <a href="#size">サイズ</a>
-  <a href="#faq">Q&amp;A</a>
-  <a href="#buy" class="btn-main">購入する →</a>
+  <a href="#faq">よくあるご質問</a>
+  <a href="#buy" class="btn-main">お近くの店舗を探す</a>
 </div>
 
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-deco hero-deco--tl1"></div>
+  <div class="hero-deco hero-deco--tl2"></div>
+  <div class="hero-deco hero-deco--tr1"></div>
+  <div class="hero-deco hero-deco--bl1"></div>
+  <div class="hero-deco hero-deco--br1"></div>
   <div class="hero-bg-upper"></div>
 
   <div class="hero-logos">
@@ -79,18 +84,17 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
       </div>
     </div>
     <div class="hero-text">
-      <p class="hero-catch">鼻あて替えてみませんか？</p>
-      <p class="hero-lead">リラックス＆リカバリーをサポートする</p>
-      <h1>ファイテンの技術をノーズパッドに採用。</h1>
-      <p class="hero-product-name">ミクロチタンボール ノーズパッド</p>
-      <div class="hero-price-row">
-        <div class="hero-price-block">
-          <span class="price-num">¥990</span>
-          <span class="price-unit">（税込）S・M・L</span>
-        </div>
-        <a href="#buy" class="btn-main btn-main--filled">購入する →</a>
+      <!-- キャッチ＋メインコピー -->
+      <p class="hero-catch">ノーズパッド替えてみませんか？</p>
+      <p class="hero-lead">ファイテンのリラックス技術をノーズパッドに採用</p>
+      <h1>かけ心地が、変わる。</h1>
+
+      <!-- 価格 -->
+      <div class="hero-price-line">
+        <span class="price-num">¥990</span>
+        <span class="price-unit">（税込）S・M・L</span>
       </div>
-      <p class="hero-sub-note">アイメガネ全店（本庄南大通り店を除く）にてお取り扱い中</p>
+      <a href="#buy" class="btn-main btn-main--filled">お近くの店舗を探す</a>
     </div>
   <div class="hero-scroll-hint">
     <span class="hero-scroll-arrow"></span>
@@ -103,7 +107,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
 <section class="problem">
   <div class="container">
     <div class="reveal">
-      <h2 class="sec-title problem-title">こんなこと、気になりませんか？</h2>
+      <h2 class="sec-title problem-title"><span class="problem-title-sub">こんな</span>お悩み<span class="problem-title-sub">ありませんか？</span></h2>
     </div>
     <div class="problem-grid reveal">
       <div class="problem-card problem-card--wide">
@@ -111,7 +115,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
           <img src="images/woman-tired.jpg" alt="メガネ疲れ">
         </div>
         <div class="problem-card-body">
-          <p class="problem-text"><strong>鼻あての黄ばみ</strong>、<br>気になっていませんか？</p>
+          <p class="problem-text">長時間かけていると<br><strong>疲れ</strong>を感じませんか？</p>
         </div>
       </div>
       <div class="problem-card">
@@ -119,7 +123,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
           <img src="images/nosepad-close.png" alt="ノーズパッド">
         </div>
         <div class="problem-card-body">
-          <p class="problem-text">ノーズパッドの<strong>汚れや劣化</strong>、<br>そのままにしていませんか？</p>
+          <p class="problem-text"><strong>ノーズパッドの黄ばみ</strong>、<br>気になっていませんか？</p>
         </div>
       </div>
     </div>
@@ -141,7 +145,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
       </div>
       <div class="about-text reveal reveal-d1">
         <span class="section-tag">製品について</span>
-       <h2 class="sec-title about-title">小さなパッドに<br>ファイテンの技術を</h2>
+       <h2 class="sec-title about-title">小さなパッドにファイテンの技術を</h2>
         <p>ファイテン社の独自技術「ミクロチタンボール」をソフト樹脂パッドに採用したメガネ用ノーズパッドです。</p>
         <div class="titanium-box">
           <div class="titanium-box-label">TECHNOLOGY</div>
@@ -200,8 +204,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
 <section class="faq" id="faq">
   <div class="container">
     <div class="reveal">
-      <span class="section-tag">Q&amp;A</span>
-      <h2 class="sec-title">よくある質問</h2>
+      <span class="section-tag">よくあるご質問</span>
     </div>
     <div class="faq-list reveal">
       <div class="faq-item">
@@ -210,9 +213,9 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
             <span class="faq-q-label">Q</span>
             <span class="faq-q-text">どのメガネでも使えますか？</span>
           </span>
-          <span class="faq-icon">＋</span>
+          <span class="faq-icon">▼</span>
         </button>
-        <div class="faq-a">ネジ穴径1.2mmのネジ式鼻あてに対応しています。ワンタッチタイプ（ネジを使用しないタイプ）のメガネにはご使用いただけません。ご不明な場合は店舗スタッフへお気軽にご相談ください。</div>
+        <div class="faq-a">ネジ穴径1.2mmのネジ式ノーズパッドに対応しています。ワンタッチタイプ（ネジを使用しないタイプ）のメガネにはご使用いただけません。ご不明な場合は店舗スタッフへお気軽にご相談ください。</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
@@ -220,7 +223,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
             <span class="faq-q-label">Q</span>
             <span class="faq-q-text">取り付けに何が必要ですか？</span>
           </span>
-          <span class="faq-icon">＋</span>
+          <span class="faq-icon">▼</span>
         </button>
         <div class="faq-a">ネジとドライバーが必要です（ネジは付属しておりません）。店舗スタッフが取り付け・調整まで対応いたしますので、お気軽にご相談ください。</div>
       </div>
@@ -230,7 +233,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
             <span class="faq-q-label">Q</span>
             <span class="faq-q-text">パッドの中に黒い点のようなものが見えますが？</span>
           </span>
-          <span class="faq-icon">＋</span>
+          <span class="faq-icon">▼</span>
         </button>
         <div class="faq-a">これはミクロチタンボールです。不良品ではございませんのでご安心ください。</div>
       </div>
@@ -240,7 +243,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
             <span class="faq-q-label">Q</span>
             <span class="faq-q-text">どのくらいで交換が必要ですか？</span>
           </span>
-          <span class="faq-icon">＋</span>
+          <span class="faq-icon">▼</span>
         </button>
         <div class="faq-a">パッドは消耗品です。経年変化により変色・劣化することがあります。1年を目安に定期的な交換をおすすめします。</div>
       </div>
@@ -250,7 +253,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
             <span class="faq-q-label">Q</span>
             <span class="faq-q-text">金属アレルギーでも使えますか？</span>
           </span>
-          <span class="faq-icon">＋</span>
+          <span class="faq-icon">▼</span>
         </button>
         <div class="faq-a">パッドはソフト樹脂製ですので、金属が直接肌に触れることはありません。ご心配な場合は店舗スタッフにご相談ください。</div>
       </div>
@@ -264,24 +267,29 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
 <!-- BUY -->
 <section class="buy" id="buy">
   <div class="container">
-    <div class="reveal">
-      <span class="section-tag">ご購入</span>
-      <h2 class="sec-title">いつものメガネに<br>小さなこだわりを</h2>
-    </div>
-    <div class="buy-box reveal">
-      <div class="buy-product-img">
-        <img src="images/maruM.jpg" alt="ミクロチタンボール ノーズパッド">
+    <div class="buy-cta-banner reveal">
+      <div class="buy-cta-banner-inner">
+        <div class="buy-cta-left">
+          <div class="buy-product-img">
+            <img src="images/maruM.jpg" alt="ミクロチタンボール ノーズパッド">
+          </div>
+        </div>
+        <div class="buy-cta-right">
+          <p class="buy-product-name">ミクロチタンボール ノーズパッド</p>
+          <div class="buy-price-row">
+            <span class="buy-price">¥990</span>
+            <span class="buy-price-note">（税込）S・M・L</span>
+          </div>
+          <a href="https://www.aimegane.com/shop/" class="btn-buy-main" target="_blank" rel="noopener">来店予約・店舗を探す</a>
+        </div>
       </div>
-      <p class="buy-product-name">ミクロチタンボール ノーズパッド</p>
-      <div class="buy-price">¥990</div>
-      <div class="buy-price-note">税込 / S・M・L 全サイズ共通</div>
-      <hr class="buy-divider">
-      <div class="buy-btns">
-        <a href="https://www.aimegane.com/shop/" class="btn-buy-main" target="_blank" rel="noopener">お近くの店舗を探す →</a>
+      <div class="buy-cta-benefits">
+        <span class="buy-benefit-item">サイズ相談OK</span>
+        <span class="buy-benefit-item">取り付け無料</span>
+        <span class="buy-benefit-item">全店取り扱い中</span>
       </div>
-      <p class="buy-store-reason">店舗ではサイズの確認・取り付けまでスタッフが対応します。</p>
-      <p class="buy-footer-note">アイメガネ全店（本庄南大通り店を除く）にて販売中</p>
     </div>
+    <p class="buy-footer-note reveal">アイメガネ全店（本庄南大通り店を除く）にて販売中</p>
   </div>
 </section>
 
@@ -302,7 +310,7 @@ document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.
 
 <!-- Floating CTA -->
 <div class="floating-cta" id="floatingCta">
-  <a href="#buy" class="floating-cta__btn">購入する</a>
+  <a href="#buy" class="floating-cta__btn">店舗を探す</a>
 </div>
 
 <script>
