@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Post WEB UI 1080×1080 - ノーズパッド</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap');
+  :root {
+    --red:       #B8000A;
+    --red-pale:  #FBF0EE;
+    --blue-pale: #EBF2FA;
+    --ink:       #111;
+    --ink-mid:   #555;
+    --ink-light: #999;
+    --bg:        #F4F4F6;
+    --line:      #E5E5E8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #2a2a2a;
+    display: flex; justify-content: center; align-items: flex-start;
+    padding: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .post {
+    width: 1080px; height: 1080px; position: relative;
+    overflow: hidden;
+    transform-origin: top center; transform: scale(0.55);
+    background: var(--bg);
+    color: var(--ink);
+  }
+
+  /* App bar hint */
+  .top-meta {
+    position: absolute;
+    top: 50px; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--ink-light);
+  }
+  .top-meta .left { display: flex; align-items: center; gap: 8px; }
+  .top-meta .dot {
+    width: 6px; height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+  }
+
+  /* Centered product card */
+  .product-card {
+    position: absolute;
+    top: 115px; left: 60px; right: 60px;
+    bottom: 130px;
+    background: #fff;
+    border-radius: 32px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Image section */
+  .card-image {
+    position: relative;
+    height: 440px;
+    background: var(--blue-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .card-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.6) 0%, transparent 65%);
+  }
+  .card-image img {
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 16px 40px rgba(0,53,148,0.18);
+    position: relative;
+    z-index: 2;
+  }
+  /* Tag on image */
+  .card-image .badge {
+    position: absolute;
+    top: 24px; left: 24px;
+    background: var(--red);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    padding: 8px 14px;
+    border-radius: 3px;
+    z-index: 3;
+  }
+  /* Logos pill */
+  .card-image .logos-pill {
+    position: absolute;
+    top: 24px; right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 100px;
+    box-shadow: 0 4px 16px rgba(0,53,148,0.08);
+    z-index: 3;
+  }
+  .logo-aimegane { height: 28px; width: auto; }
+  .logo-phiten { height: 18px; width: auto; padding: 0 6px; }
+  .times { font-size: 14px; font-weight: 300; color: var(--ink-mid); }
+
+  /* Card body */
+  .card-body {
+    padding: 36px 48px 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink-mid);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .headline {
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.25;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
+  }
+  .headline em {
+    font-style: normal;
+    color: var(--red);
+  }
+  .subline {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* Specs row */
+  .specs {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 24px;
+  }
+  .spec-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .spec-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    color: var(--ink-light);
+    text-transform: uppercase;
+  }
+  .spec-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+  }
+
+  /* Price + CTA row */
+  .buy-row {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+  .price-wrap {
+    display: inline-flex;
+    align-items: baseline;
+  }
+  .price-yen {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--red);
+    margin-right: 3px;
+    line-height: 1;
+  }
+  .price-num {
+    font-size: 60px;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .price-unit {
+    font-size: 13px;
+    color: var(--ink-mid);
+    letter-spacing: 0.06em;
+    margin-left: 6px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    background: var(--red);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 14px 28px;
+    border-radius: 100px;
+    box-shadow: 0 8px 20px rgba(184,0,10,0.28);
+    white-space: nowrap;
+  }
+  .cta-btn::after {
+    content: "";
+    width: 10px; height: 10px;
+    margin-left: 10px;
+    border-top: 2.5px solid #fff;
+    border-right: 2.5px solid #fff;
+    transform: rotate(45deg);
+  }
+
+  /* Bottom note */
+  .bottom-note {
+    position: absolute;
+    bottom: 50px; left: 0; right: 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-light);
+    letter-spacing: 0.08em;
+  }
+</style>
+</head>
+<body>
+
+<div class="post">
+
+  <div class="top-meta">
+    <span class="left"><span class="dot"></span>NEW ARRIVAL</span>
+    <span>AI MEGANE × PHITEN</span>
+  </div>
+
+  <div class="product-card">
+    <div class="card-image">
+      <span class="badge">NEW</span>
+      <div class="logos-pill">
+        <img class="logo-aimegane" src="../images/AI.svg" alt="アイメガネ">
+        <span class="times">×</span>
+        <img class="logo-phiten" src="../images/phiten-logo.png" alt="phiten">
+      </div>
+      <img src="../images/maruM.jpg" alt="ノーズパッド">
+    </div>
+
+    <div class="card-body">
+      <p class="product-name">ミクロチタンボール ノーズパッド</p>
+      <h1 class="headline">かけ心地が、<em>変わる。</em></h1>
+      <p class="subline">リラックス＆リカバリーをサポートする<br>ファイテンの技術をノーズパッドに採用。</p>
+
+      <div class="specs">
+        <div class="spec-item">
+          <span class="spec-label">Size</span>
+          <span class="spec-value">S ／ M ／ L</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Tech</span>
+          <span class="spec-value">Micro Titanium Ball</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Service</span>
+          <span class="spec-value">店頭取付無料</span>
+        </div>
+      </div>
+
+      <div class="buy-row">
+        <div class="price-wrap">
+          <span class="price-yen">¥</span>
+          <span class="price-num">990</span>
+          <span class="price-unit">（税込）全サイズ共通</span>
+        </div>
+        <a class="cta-btn">店舗を探す</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="bottom-note">本庄南大通り店を除く、アイメガネ全店にて販売中</p>
+
+</div>
+
+</body>
+</html>

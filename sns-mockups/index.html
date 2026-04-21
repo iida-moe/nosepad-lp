@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>SNS素材モックアップ一覧 - ノーズパッドLP</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+  :root {
+    --red:     #B8000A;
+    --ink:     #111;
+    --ink-mid: #555;
+    --bg:      #f5f5f7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    padding: 48px 32px 80px;
+    min-height: 100vh;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+  h1 {
+    font-size: 32px; font-weight: 900;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  h1 em { font-style: normal; color: var(--red); }
+  .lead {
+    font-size: 15px; color: var(--ink-mid);
+    margin-bottom: 40px;
+    letter-spacing: 0.04em;
+  }
+  .section-label {
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--red);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transition: transform .2s, box-shadow .2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+  .card-preview {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #eee;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-preview iframe {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%) scale(0.24);
+    transform-origin: top center;
+    border: 0;
+    width: 1080px;
+    height: 1920px;
+    pointer-events: none;
+  }
+  .card-body { padding: 16px 18px 18px; }
+  .card-tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--red);
+    background: rgba(184,0,10,0.08);
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  .card-title {
+    font-size: 16px; font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+  .card-desc {
+    font-size: 12px; color: var(--ink-mid);
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+  }
+  .card-size {
+    margin-top: 10px;
+    font-size: 11px;
+    color: rgba(0,0,0,0.4);
+    letter-spacing: 0.08em;
+  }
+  .hint {
+    background: #fff;
+    border: 1px dashed rgba(0,0,0,0.15);
+    border-radius: 10px;
+    padding: 18px 22px;
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.8;
+  }
+  .hint strong { color: var(--ink); }
+
+  .safe-note {
+    background: rgba(184,0,10,0.05);
+    border-left: 3px solid var(--red);
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    letter-spacing: 0.02em;
+  }
+  .safe-note strong { color: var(--red); }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>SNS素材モックアップ <em>— ノーズパッドLP</em></h1>
+  <p class="lead">クリエイティブチェック対応・LP統一・モダン洗練</p>
+
+  <div class="safe-note">
+    <strong>✓ 設計方針:</strong> 正規ロゴ使用、アイメガネ×phiten順、ファイテンC-03準拠、LPカラー統一（赤#B8000A／blue-pale #EBF2FA／blue-light #6BA3D6）、ネガティブ訴求・誇大表現なし
+  </div>
+
+  <div class="section-label">Instagram Story 1080×1920</div>
+  <div class="grid">
+    <a class="card" href="story-visual.html" target="_blank">
+      <div class="card-preview"><iframe src="story-visual.html"></iframe></div>
+      <div class="card-body">
+        <span class="card-tag">STORY</span>
+        <div class="card-title">Instagram Story（VISUAL）</div>
+        <div class="card-desc">商品写真ドーン＋丸重ね＋曲線トランジション。完成版。</div>
+        <div class="card-size">1080 × 1920</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="section-label">Instagram Post 1080×1080</div>
+  <div class="grid">
+    <a class="card" href="post-visual.html" target="_blank">
+      <div class="card-preview" style="aspect-ratio: 1 / 1;">
+        <iframe src="post-visual.html" style="width:1080px; height:1080px; transform:translateX(-50%) scale(0.24);"></iframe>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">VISUAL</span>
+        <div class="card-title">上下分割（商品ドーン）</div>
+        <div class="card-desc">上に大きな商品、下に情報。ストーリーと統一感◎。視覚インパクト強め。</div>
+        <div class="card-size">1080 × 1080</div>
+      </div>
+    </a>
+
+    <a class="card" href="post-split.html" target="_blank">
+      <div class="card-preview" style="aspect-ratio: 1 / 1;">
+        <iframe src="post-split.html" style="width:1080px; height:1080px; transform:translateX(-50%) scale(0.24);"></iframe>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">SPLIT</span>
+        <div class="card-title">左右分割（マガジン風）</div>
+        <div class="card-desc">左に商品、右に情報。雑誌広告のような読みやすさ、情報がじっくり伝わる。</div>
+        <div class="card-size">1080 × 1080</div>
+      </div>
+    </a>
+
+    <a class="card" href="post-editorial.html" target="_blank">
+      <div class="card-preview" style="aspect-ratio: 1 / 1;">
+        <iframe src="post-editorial.html" style="width:1080px; height:1080px; transform:translateX(-50%) scale(0.24);"></iframe>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">EDITORIAL</span>
+        <div class="card-title">ITEM | 01（エディトリアル・POINT解説型）</div>
+        <div class="card-desc">クリーム背景＋ITEMラベル＋POINT 01-03で商品の魅力を詳しく解説。編集感・情報量◎。</div>
+        <div class="card-size">1080 × 1080</div>
+      </div>
+    </a>
+
+    <a class="card" href="post-cover.html" target="_blank">
+      <div class="card-preview" style="aspect-ratio: 1 / 1;">
+        <iframe src="post-cover.html" style="width:1080px; height:1080px; transform:translateX(-50%) scale(0.24);"></iframe>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">COVER</span>
+        <div class="card-title">マガジン表紙型（フルブリード写真）</div>
+        <div class="card-desc">上60%に商品写真が全幅。下に情報。雑誌の表紙風、インパクト最強。</div>
+        <div class="card-size">1080 × 1080</div>
+      </div>
+    </a>
+
+    <a class="card" href="post-poster.html" target="_blank">
+      <div class="card-preview" style="aspect-ratio: 1 / 1;">
+        <iframe src="post-poster.html" style="width:1080px; height:1080px; transform:translateX(-50%) scale(0.24);"></iframe>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">POSTER</span>
+        <div class="card-title">タイポグラフィ・ポスター型</div>
+        <div class="card-desc">巨大ヘッドライン＝主役。商品と価格は両サイドに配置。映画ポスター風。</div>
+        <div class="card-size">1080 × 1080</div>
+      </div>
+    </a>
+
+    <a class="card" href="post-webui.html" target="_blank">
+      <div class="card-preview" style="aspect-ratio: 1 / 1;">
+        <iframe src="post-webui.html" style="width:1080px; height:1080px; transform:translateX(-50%) scale(0.24);"></iframe>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">WEB UI</span>
+        <div class="card-title">スクリーンショット風カード</div>
+        <div class="card-desc">白カード＋商品＋スペック一覧。モダンなプロダクト詳細ページを切り取った感。テック風。</div>
+        <div class="card-size">1080 × 1080</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="section-label">A5 POP 148×210mm（店頭用）</div>
+  <div class="grid">
+    <a class="card" href="pop-a5.html" target="_blank">
+      <div class="card-preview" style="aspect-ratio: 148 / 210;">
+        <iframe src="pop-a5.html" style="width:1480px; height:2100px; transform:translateX(-50%) scale(0.18);"></iframe>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">POP A5</span>
+        <div class="card-title">店頭POP（A5縦）</div>
+        <div class="card-desc">商品大＋価格大＋POINT 3点＋QRコード付き。店頭で詳細伝わる構成。</div>
+        <div class="card-size">148 × 210 mm</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="hint">
+    <strong>使い方:</strong> カードクリックで新タブに原寸プレビューが開きます。<br>
+    書き出しは各ファイルをブラウザで開いて <strong>Ctrl+Shift+P → 「Capture full size screenshot」</strong>（Chrome DevTools）or スクリーンショットツールで1080×1920領域をキャプチャしてください。
+  </div>
+</div>
+
+</body>
+</html>

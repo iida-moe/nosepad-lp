@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Post EDITORIAL 1080×1080 - ノーズパッド</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap');
+  :root {
+    --red:        #B8000A;
+    --red-pale:   #FBF0EE;
+    --cream:      #F7F1E4;
+    --cream-dark: #EDE3CE;
+    --ink:        #1A1A1A;
+    --ink-mid:    #555;
+    --ink-light:  #999;
+    --line:       rgba(0,0,0,0.12);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #2a2a2a;
+    display: flex; justify-content: center; align-items: flex-start;
+    padding: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .post {
+    width: 1080px; height: 1080px; position: relative;
+    overflow: hidden;
+    transform-origin: top center; transform: scale(0.55);
+    background: var(--cream);
+    color: var(--ink);
+  }
+
+  /* Top editorial header */
+  .head-bar {
+    position: absolute;
+    top: 40px; left: 48px; right: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--ink-mid);
+    text-transform: uppercase;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .head-bar .item-label {
+    color: var(--red);
+  }
+  .head-bar .brand-mini {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .head-bar .logo-aimegane { height: 22px; width: auto; }
+  .head-bar .logo-phiten { height: 14px; width: auto; padding: 0 6px; }
+  .head-bar .times { font-size: 12px; font-weight: 300; color: var(--ink-mid); }
+
+  /* Left: product */
+  .zone-left {
+    position: absolute;
+    top: 110px; left: 0;
+    width: 540px; height: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+  .product-wrap {
+    width: 440px; height: 440px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fff;
+    box-shadow: 0 20px 50px rgba(60,40,15,0.18);
+    background: #fff;
+    position: relative;
+  }
+  .product-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+  .product-caption {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--ink-light);
+    letter-spacing: 0.04em;
+  }
+
+  /* Right: info */
+  .zone-right {
+    position: absolute;
+    top: 110px; right: 0;
+    width: 540px; height: 900px;
+    padding: 50px 56px 40px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* NEW tag */
+  .tag-new {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--red);
+    padding: 5px 12px;
+    background: var(--red-pale);
+    border-radius: 2px;
+    margin-bottom: 18px;
+  }
+
+  /* Accent line */
+  .accent-line {
+    width: 32px; height: 2px;
+    background: var(--red);
+    margin-bottom: 10px;
+  }
+
+  /* Product name */
+  .product-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
+
+  /* Lead */
+  .lead {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    letter-spacing: 0.06em;
+    margin: 4px 0 16px;
+  }
+  /* Headline */
+  .headline {
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1.25;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    margin-bottom: 26px;
+  }
+  .headline em {
+    font-style: normal;
+    color: var(--red);
+  }
+
+  /* POINT sections */
+  .points {
+    margin-bottom: 26px;
+    border-top: 1px solid var(--line);
+  }
+  .point-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .point-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    color: var(--red);
+    flex-shrink: 0;
+    width: 58px;
+    padding-top: 3px;
+  }
+  .point-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .point-text {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .point-desc {
+    font-size: 11px;
+    color: var(--ink-mid);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  /* Price + CTA */
+  .bottom-row {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .price-block {
+    display: flex;
+    flex-direction: column;
+  }
+  .price-wrap {
+    display: inline-flex;
+    align-items: baseline;
+  }
+  .price-yen {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--red);
+    margin-right: 3px;
+    line-height: 1;
+  }
+  .price-num {
+    font-size: 60px;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .price-unit {
+    font-size: 13px;
+    color: var(--ink-mid);
+    letter-spacing: 0.06em;
+    margin-left: 6px;
+  }
+  .price-meta {
+    font-size: 11px;
+    color: var(--ink-mid);
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--red);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 13px 22px;
+    border-radius: 100px;
+    box-shadow: 0 8px 20px rgba(184,0,10,0.28);
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .cta-btn::after {
+    content: "";
+    width: 9px; height: 9px;
+    margin-left: 10px;
+    border-top: 2.5px solid #fff;
+    border-right: 2.5px solid #fff;
+    transform: rotate(45deg);
+  }
+
+  /* Bottom band */
+  .bottom-band {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .store-note {
+    font-size: 12px;
+    color: #fff;
+    letter-spacing: 0.06em;
+    text-align: center;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="post">
+
+  <!-- エディトリアルヘッダー -->
+  <div class="head-bar">
+    <span class="item-label">ITEM | 01</span>
+    <div class="brand-mini">
+      <img class="logo-aimegane" src="../images/AI.svg" alt="アイメガネ">
+      <span class="times">×</span>
+      <img class="logo-phiten" src="../images/phiten-logo.png" alt="phiten">
+    </div>
+  </div>
+
+  <!-- 左: 商品 -->
+  <div class="zone-left">
+    <div class="product-wrap">
+      <img src="../images/maruM.jpg" alt="ノーズパッド">
+    </div>
+    <p class="product-caption">Micro Titanium Ball Nose Pad</p>
+  </div>
+
+  <!-- 右: 情報 -->
+  <div class="zone-right">
+    <span class="tag-new">NEW ／ 店頭にて販売中</span>
+    <span class="accent-line"></span>
+    <p class="product-name">ミクロチタンボール ノーズパッド</p>
+    <p class="lead">リラックス＆リカバリーをサポートする<br>ファイテンの技術をノーズパッドに採用。</p>
+    <h1 class="headline">かけ心地が、<em>変わる。</em></h1>
+
+    <div class="points">
+      <div class="point-item">
+        <span class="point-label">POINT 01</span>
+        <div class="point-body">
+          <span class="point-text">ファイテンの独自技術採用</span>
+          <span class="point-desc">リラックス＆リカバリーをサポート</span>
+        </div>
+      </div>
+      <div class="point-item">
+        <span class="point-label">POINT 02</span>
+        <div class="point-body">
+          <span class="point-text">S・M・L 全サイズ同価格</span>
+          <span class="point-desc">メガネに合わせて選べる 3 サイズ</span>
+        </div>
+      </div>
+      <div class="point-item">
+        <span class="point-label">POINT 03</span>
+        <div class="point-body">
+          <span class="point-text">店頭で取付・調整無料</span>
+          <span class="point-desc">サイズ相談もスタッフが対応</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="price-block">
+        <div class="price-wrap">
+          <span class="price-yen">¥</span>
+          <span class="price-num">990</span>
+          <span class="price-unit">（税込）</span>
+        </div>
+        <p class="price-meta">S・M・L 全サイズ共通</p>
+      </div>
+      <a class="cta-btn">店舗を探す</a>
+    </div>
+  </div>
+
+  <!-- 下: 赤バンド -->
+  <div class="bottom-band">
+    <p class="store-note">本庄南大通り店を除く、アイメガネ全店にて販売中</p>
+  </div>
+
+</div>
+
+</body>
+</html>

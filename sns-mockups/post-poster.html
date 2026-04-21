@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Post POSTER 1080×1080 - ノーズパッド</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap');
+  :root {
+    --red:       #B8000A;
+    --red-pale:  #FBF0EE;
+    --blue-pale: #EBF2FA;
+    --ink:       #111;
+    --ink-mid:   #444;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #2a2a2a;
+    display: flex; justify-content: center; align-items: flex-start;
+    padding: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .post {
+    width: 1080px; height: 1080px; position: relative;
+    overflow: hidden;
+    transform-origin: top center; transform: scale(0.55);
+    background: var(--blue-pale);
+    color: var(--ink);
+  }
+
+  /* Top-left logos */
+  .logos-row {
+    position: absolute;
+    top: 50px; left: 60px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #fff;
+    padding: 12px 26px;
+    border-radius: 100px;
+    box-shadow: 0 6px 18px rgba(0,53,148,0.1);
+  }
+  .logo-aimegane { height: 36px; width: auto; }
+  .logo-phiten { height: 24px; width: auto; padding: 0 8px; }
+  .times { font-size: 18px; font-weight: 300; color: var(--ink-mid); }
+
+  /* Top-right NEW */
+  .tag-new {
+    position: absolute;
+    top: 60px; right: 60px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--red);
+    padding: 8px 16px;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  }
+
+  /* Giant headline — main graphic */
+  .poster-headline {
+    position: absolute;
+    top: 180px; left: 60px; right: 60px;
+    font-size: 136px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .poster-headline em {
+    font-style: normal;
+    color: var(--red);
+  }
+  .poster-headline .lead {
+    display: block;
+    font-size: 24px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.55);
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+  }
+
+  /* Product small bottom-right */
+  .product-accent {
+    position: absolute;
+    bottom: 160px; right: 60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fff;
+    box-shadow: 0 20px 40px rgba(0,53,148,0.2);
+    background: #fff;
+  }
+  .product-accent img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Big price left */
+  .poster-price {
+    position: absolute;
+    bottom: 180px; left: 60px;
+  }
+  .product-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .price-wrap {
+    display: inline-flex;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .price-yen {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--red);
+    margin-right: 4px;
+    line-height: 1;
+  }
+  .price-num {
+    font-size: 116px;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .price-unit {
+    font-size: 18px;
+    color: var(--ink-mid);
+    letter-spacing: 0.06em;
+    margin-left: 6px;
+  }
+  .price-meta {
+    font-size: 13px;
+    color: var(--ink-mid);
+    letter-spacing: 0.06em;
+  }
+
+  /* CTA at bottom */
+  .cta-wrap {
+    position: absolute;
+    bottom: 80px; left: 60px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    background: var(--red);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 16px 32px;
+    border-radius: 100px;
+    box-shadow: 0 8px 22px rgba(184,0,10,0.28);
+  }
+  .cta-btn::after {
+    content: "";
+    width: 10px; height: 10px;
+    margin-left: 12px;
+    border-top: 2.5px solid #fff;
+    border-right: 2.5px solid #fff;
+    transform: rotate(45deg);
+  }
+
+  /* Bottom band */
+  .bottom-band {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 44px;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .store-note {
+    font-size: 11px;
+    color: #fff;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="post">
+
+  <div class="logos-row">
+    <img class="logo-aimegane" src="../images/AI.svg" alt="アイメガネ">
+    <span class="times">×</span>
+    <img class="logo-phiten" src="../images/phiten-logo.png" alt="phiten">
+  </div>
+
+  <span class="tag-new">NEW ／ 店頭にて販売中</span>
+
+  <h1 class="poster-headline">
+    <span class="lead">リラックス＆リカバリーをサポートする<br>ファイテンの技術をノーズパッドに採用。</span>
+    かけ心地が、<em>変わる。</em>
+  </h1>
+
+  <div class="product-accent">
+    <img src="../images/maruM.jpg" alt="ノーズパッド">
+  </div>
+
+  <div class="poster-price">
+    <p class="product-name">ミクロチタンボール ノーズパッド</p>
+    <div class="price-wrap">
+      <span class="price-yen">¥</span>
+      <span class="price-num">990</span>
+      <span class="price-unit">（税込）</span>
+    </div>
+    <p class="price-meta">S・M・L 全サイズ共通</p>
+  </div>
+
+  <div class="cta-wrap">
+    <a class="cta-btn">店舗を探す</a>
+  </div>
+
+  <div class="bottom-band">
+    <p class="store-note">本庄南大通り店を除く、アイメガネ全店にて販売中</p>
+  </div>
+
+</div>
+
+</body>
+</html>

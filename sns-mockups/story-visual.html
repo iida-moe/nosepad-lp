@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Story VISUAL v3 - ノーズパッド</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap');
+  :root {
+    --red:        #B8000A;
+    --red-pale:   #FBF0EE;
+    --blue-line:  #7AA8C5;
+    --blue-pale:  #EBF2FA;
+    --ink:        #111;
+    --ink-mid:    #444;
+    --ink-light:  #888;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #2a2a2a;
+    display: flex; justify-content: center; align-items: flex-start;
+    padding: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .story {
+    width: 1080px; height: 1920px; position: relative;
+    overflow: hidden;
+    transform-origin: top center; transform: scale(0.35);
+    background: var(--blue-pale);
+    color: var(--ink);
+  }
+
+  /* Upper zone: blue-pale */
+  .zone-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1180px;
+    background: var(--blue-pale);
+    padding: 80px 0 0;
+  }
+
+  /* ========== 改善B 微細な光の広がり（blue-paleの奥行き） ========== */
+  .zone-top::before {
+    content: "";
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.1) 55%, transparent 75%);
+    pointer-events: none;
+  }
+
+  /* Logos (white pill chip) */
+  .top-logos {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background: #fff;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 20px 60px;
+    border-radius: 100px;
+    box-shadow: 0 8px 24px rgba(0,53,148,0.08);
+  }
+  .logo-aimegane { height: 60px; width: auto; }
+  .logo-phiten { height: 36px; width: auto; padding: 0 12px; }
+  .times { font-size: 28px; font-weight: 300; color: var(--ink-mid); }
+
+  /* NEW tag */
+  .tag-new {
+    position: absolute;
+    top: 220px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--red);
+    padding: 10px 22px;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+
+  /* ========== 改善A 丸重ね構図（ゾーンを跨ぐ配置） ========== */
+  .product-wrap {
+    position: absolute;
+    top: 320px; left: 50%;
+    transform: translateX(-50%);
+    width: 960px; height: 920px;
+    z-index: 10;
+  }
+  .product-main {
+    position: absolute;
+    top: 0; left: 60px;
+    width: 720px; height: 720px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid #fff;
+    box-shadow: 0 32px 80px rgba(0,53,148,0.22);
+    background: #fff;
+    z-index: 1;
+  }
+  .product-main img { width: 100%; height: 100%; object-fit: cover; }
+  .product-sub {
+    position: absolute;
+    right: 0; top: 540px;
+    width: 380px; height: 380px;
+    z-index: 2;
+    transform: rotate(4deg);
+  }
+  .product-sub img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 7px solid #fff;
+    box-shadow: 0 20px 56px rgba(0,53,148,0.28);
+  }
+  .sub-caption {
+    position: absolute;
+    bottom: -36px; left: 0; right: 0;
+    font-size: 16px;
+    color: rgba(0,0,0,0.38);
+    letter-spacing: 0.04em;
+    text-align: center;
+    transform: rotate(-4deg);
+  }
+
+  /* Lower zone: white with curve */
+  .zone-bottom {
+    position: absolute;
+    top: 1180px; left: 0; right: 0;
+    bottom: 100px;
+    background: #fff;
+    padding: 160px 80px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+  }
+
+  /* ========== 改善C 商品名を格上げ（赤アクセントライン） ========== */
+  .product-name-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .product-name-line {
+    width: 32px;
+    height: 2px;
+    background: var(--red);
+    margin-bottom: 14px;
+  }
+  .product-name {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.08em;
+  }
+
+  .lead {
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    letter-spacing: 0.06em;
+    margin-bottom: 22px;
+  }
+  .headline {
+    font-size: 82px;
+    font-weight: 900;
+    line-height: 1.3;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    margin-bottom: 32px;
+  }
+  .headline em {
+    font-style: normal;
+    color: var(--red);
+  }
+
+  .price-wrap {
+    display: inline-flex;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .price-yen {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--red);
+    margin-right: 4px;
+    line-height: 1;
+  }
+  .price-num {
+    font-size: 112px;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .price-unit {
+    font-size: 22px;
+    color: var(--ink-mid);
+    letter-spacing: 0.06em;
+    margin-left: 8px;
+  }
+  .price-meta {
+    font-size: 20px;
+    color: var(--ink-mid);
+    letter-spacing: 0.08em;
+    margin-bottom: 32px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    background: var(--red);
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 22px 52px;
+    border-radius: 100px;
+    box-shadow: 0 14px 36px rgba(184,0,10,0.28);
+  }
+  .cta-btn::after {
+    content: "";
+    width: 13px; height: 13px;
+    margin-left: 14px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    transform: rotate(45deg);
+  }
+
+  .bottom-band {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 100px;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .store-note {
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: 0.06em;
+    text-align: center;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="story">
+
+  <!-- Upper zone (logos + tag) -->
+  <div class="zone-top">
+    <div class="top-logos">
+      <img class="logo-aimegane" src="../images/AI.svg" alt="アイメガネ">
+      <span class="times">×</span>
+      <img class="logo-phiten" src="../images/phiten-logo.png" alt="phiten">
+    </div>
+    <span class="tag-new">NEW ／ 店頭にて販売中</span>
+  </div>
+
+  <!-- Product wrap (straddles both zones) -->
+  <div class="product-wrap">
+    <div class="product-main">
+      <img src="../images/maruM.jpg" alt="ノーズパッド">
+    </div>
+    <div class="product-sub">
+      <img src="../images/unnamed1.jpg" alt="装着イメージ">
+      <p class="sub-caption">※装着はイメージです</p>
+    </div>
+  </div>
+
+  <!-- Lower zone (info) -->
+  <div class="zone-bottom">
+    <div class="product-name-wrap">
+      <span class="product-name-line"></span>
+      <p class="product-name">ミクロチタンボール ノーズパッド</p>
+    </div>
+    <p class="lead">リラックス＆リカバリーをサポートする<br>ファイテンの技術をノーズパッドに採用。</p>
+    <h1 class="headline">かけ心地が、<em>変わる。</em></h1>
+
+    <div class="price-wrap">
+      <span class="price-yen">¥</span>
+      <span class="price-num">990</span>
+      <span class="price-unit">（税込）</span>
+    </div>
+    <p class="price-meta">S・M・L 全サイズ共通</p>
+    <a class="cta-btn">ここにリンクを貼る</a>
+  </div>
+
+  <div class="bottom-band">
+    <p class="store-note">本庄南大通り店を除く、アイメガネ全店にて販売中</p>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>A5 POP 148×210mm - ノーズパッド</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap');
+  :root {
+    --red:        #B8000A;
+    --red-pale:   #FBF0EE;
+    --blue-line:  #7AA8C5;
+    --blue-pale:  #EBF2FA;
+    --ink:        #111;
+    --ink-mid:    #444;
+    --ink-light:  #888;
+    --line:       rgba(0,0,0,0.1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #2a2a2a;
+    display: flex; justify-content: center; align-items: flex-start;
+    padding: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  /* A5 = 148×210mm, working at 10px/mm scale for crisp preview */
+  .pop {
+    width: 1480px; height: 2100px; position: relative;
+    overflow: hidden;
+    transform-origin: top center; transform: scale(0.33);
+    background: #fff;
+    color: var(--ink);
+  }
+
+  /* Top header bar */
+  .header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 140px;
+    background: #fff;
+    border-bottom: 4px solid var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 70px;
+  }
+  .logos-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  .logo-aimegane { height: 72px; width: auto; }
+  .logo-phiten { height: 44px; width: auto; padding: 0 14px; }
+  .times { font-size: 36px; font-weight: 300; color: var(--ink-mid); }
+  .new-badge {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 0.3em;
+    color: #fff;
+    padding: 12px 24px;
+    background: var(--red);
+    border-radius: 3px;
+  }
+
+  /* Upper: product hero in blue-pale */
+  .product-zone {
+    position: absolute;
+    top: 140px; left: 0; right: 0;
+    height: 960px;
+    background: var(--blue-pale);
+    padding: 60px 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* 光の広がり */
+  .product-zone::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.15) 55%, transparent 75%);
+    pointer-events: none;
+  }
+  .product-wrap {
+    position: relative;
+    width: 1200px; height: 820px;
+    z-index: 2;
+  }
+  .product-main {
+    position: absolute;
+    top: 0; left: 80px;
+    width: 720px; height: 720px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid #fff;
+    box-shadow: 0 30px 70px rgba(0,53,148,0.2);
+    background: #fff;
+    z-index: 1;
+  }
+  .product-main img { width: 100%; height: 100%; object-fit: cover; }
+  .product-sub {
+    position: absolute;
+    right: 0; top: 500px;
+    width: 360px; height: 360px;
+    z-index: 2;
+    transform: rotate(4deg);
+  }
+  .product-sub img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #fff;
+    box-shadow: 0 20px 50px rgba(0,53,148,0.25);
+  }
+  .sub-caption {
+    position: absolute;
+    bottom: -36px; left: 0; right: 0;
+    font-size: 18px;
+    color: rgba(0,0,0,0.4);
+    letter-spacing: 0.04em;
+    text-align: center;
+    transform: rotate(-4deg);
+  }
+
+  /* Info zone: headline + price */
+  .info-zone {
+    position: absolute;
+    top: 1100px; left: 0; right: 0;
+    padding: 50px 70px 20px;
+    text-align: center;
+  }
+  .product-name-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .product-name-line {
+    width: 40px;
+    height: 3px;
+    background: var(--red);
+    margin-bottom: 14px;
+  }
+  .product-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.08em;
+  }
+  .headline {
+    font-size: 100px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    margin-bottom: 18px;
+  }
+  .headline em {
+    font-style: normal;
+    color: var(--red);
+  }
+  .lead {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--ink-mid);
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
+  }
+  .price-wrap {
+    display: inline-flex;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .price-yen {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--red);
+    margin-right: 4px;
+    line-height: 1;
+  }
+  .price-num {
+    font-size: 148px;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .price-unit {
+    font-size: 28px;
+    color: var(--ink-mid);
+    letter-spacing: 0.06em;
+    margin-left: 10px;
+  }
+  .price-meta {
+    font-size: 22px;
+    color: var(--ink-mid);
+    letter-spacing: 0.08em;
+  }
+
+  /* POINT zone */
+  .points-zone {
+    position: absolute;
+    top: 1720px; left: 70px; right: 70px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .point-item {
+    flex: 1;
+    background: var(--blue-pale);
+    padding: 20px 16px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .point-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+  .point-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+  }
+
+  /* Footer band with QR */
+  .footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 220px;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 70px;
+    color: #fff;
+  }
+  .footer-text {
+    flex: 1;
+  }
+  .footer-text .lead-text {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    opacity: 0.85;
+    margin-bottom: 6px;
+  }
+  .footer-text .store-text {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+  }
+  .qr-wrap {
+    background: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .qr-code {
+    width: 140px; height: 140px;
+    background:
+      linear-gradient(45deg, #111 25%, transparent 25%, transparent 75%, #111 75%),
+      linear-gradient(45deg, #111 25%, transparent 25%, transparent 75%, #111 75%);
+    background-size: 24px 24px;
+    background-position: 0 0, 12px 12px;
+    border: 3px solid #fff;
+    position: relative;
+  }
+  .qr-code::before,
+  .qr-code::after {
+    content: "";
+    position: absolute;
+    width: 36px; height: 36px;
+    background: #fff;
+    border: 8px solid #111;
+  }
+  .qr-code::before { top: 4px; left: 4px; }
+  .qr-code::after { top: 4px; right: 4px; }
+  .qr-note {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.08em;
+  }
+</style>
+</head>
+<body>
+
+<div class="pop">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logos-row">
+      <img class="logo-aimegane" src="../images/AI.svg" alt="アイメガネ">
+      <span class="times">×</span>
+      <img class="logo-phiten" src="../images/phiten-logo.png" alt="phiten">
+    </div>
+    <span class="new-badge">NEW</span>
+  </div>
+
+  <!-- Product zone -->
+  <div class="product-zone">
+    <div class="product-wrap">
+      <div class="product-main">
+        <img src="../images/maruM.jpg" alt="ノーズパッド">
+      </div>
+      <div class="product-sub">
+        <img src="../images/unnamed1.jpg" alt="装着イメージ">
+        <p class="sub-caption">※装着はイメージです</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info zone -->
+  <div class="info-zone">
+    <div class="product-name-wrap">
+      <span class="product-name-line"></span>
+      <p class="product-name">ミクロチタンボール ノーズパッド</p>
+    </div>
+    <h1 class="headline">かけ心地が、<em>変わる。</em></h1>
+    <p class="lead">リラックス＆リカバリーをサポートする<br>ファイテンの技術をノーズパッドに採用。</p>
+    <div class="price-wrap">
+      <span class="price-yen">¥</span>
+      <span class="price-num">990</span>
+      <span class="price-unit">（税込）</span>
+    </div>
+    <p class="price-meta">S・M・L 全サイズ共通</p>
+  </div>
+
+  <!-- POINT zone -->
+  <div class="points-zone">
+    <div class="point-item">
+      <p class="point-label">POINT 01</p>
+      <p class="point-text">ファイテンの<br>独自技術採用</p>
+    </div>
+    <div class="point-item">
+      <p class="point-label">POINT 02</p>
+      <p class="point-text">3サイズから<br>選べる</p>
+    </div>
+    <div class="point-item">
+      <p class="point-label">POINT 03</p>
+      <p class="point-text">店頭で取付・<br>調整無料</p>
+    </div>
+  </div>
+
+  <!-- Footer with QR -->
+  <div class="footer">
+    <div class="footer-text">
+      <p class="lead-text">詳しくは特設ページへ</p>
+      <p class="store-text">スタッフまでお気軽に<br>お声がけください</p>
+    </div>
+    <div class="qr-wrap">
+      <div class="qr-code"></div>
+      <p class="qr-note">QR で詳細</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
