@@ -58,21 +58,28 @@ Template Name: ノーズパッドLP（プレビュー版）
   </div>
 
   <div class="hero-row">
-    <div class="hero-visual">
-      <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/maruM.jpg" alt="ミクロチタンボール ノーズパッド">
+    <div class="hero-visual-compose">
+      <div class="hero-circles">
+        <div class="hero-circle-main">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/maruM.jpg" alt="ミクロチタンボール ノーズパッド">
+        </div>
+        <div class="hero-circle-sub">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/unnamed1.jpg" alt="ノーズパッド装着イメージ">
+          <p class="hero-circle-sub-caption">※装着はイメージです</p>
+        </div>
+      </div>
     </div>
     <div class="hero-text">
-      <p class="hero-product-name">ミクロチタンボール ノーズパッド</p>
-      <p class="hero-lead">リラックス＆リカバリーをサポートする</p>
-      <h1>ファイテンの技術をノーズパッドに採用。</h1>
-      <div class="hero-price-row">
-        <div class="hero-price-block">
-          <span class="price-num">¥990</span>
-          <span class="price-unit">（税込）S・M・L</span>
-        </div>
-        <a href="#buy" class="btn-main btn-main--filled">購入する →</a>
+      <span class="hero-tag">NEW ／ 店頭にて販売中</span>
+      <p class="hero-lead">ファイテンのリラックス技術をノーズパッドに採用</p>
+      <h1>かけ心地が、変わる。</h1>
+
+      <!-- 価格 -->
+      <div class="hero-price-line">
+        <span class="price-num">¥990</span>
+        <span class="price-unit">（税込）S・M・L</span>
       </div>
-      <p class="hero-sub-note">アイメガネ全店（本庄南大通り店を除く）にてお取り扱い中</p>
+      <a href="#buy" class="btn-main btn-main--filled">お近くの店舗を探す</a>
     </div>
   <div class="hero-scroll-hint">
     <span class="hero-scroll-arrow"></span>
@@ -85,7 +92,7 @@ Template Name: ノーズパッドLP（プレビュー版）
 <section class="problem">
   <div class="container">
     <div class="reveal">
-      <h2 class="sec-title problem-title">こんなこと、気になりませんか？</h2>
+      <h2 class="sec-title problem-title"><span class="problem-title-sub">こんな</span>お悩み<span class="problem-title-sub">ありませんか？</span></h2>
     </div>
     <div class="problem-grid reveal">
       <div class="problem-card problem-card--wide">
@@ -93,7 +100,7 @@ Template Name: ノーズパッドLP（プレビュー版）
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/woman-tired.jpg" alt="メガネ疲れ">
         </div>
         <div class="problem-card-body">
-          <p class="problem-text"><strong>ノーズパッドの黄ばみ</strong>、<br>気になっていませんか？</p>
+          <p class="problem-text">長時間かけていると<br><strong>疲れ</strong>を感じませんか？</p>
         </div>
       </div>
       <div class="problem-card">
@@ -101,7 +108,7 @@ Template Name: ノーズパッドLP（プレビュー版）
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/nosepad-close.png" alt="ノーズパッド">
         </div>
         <div class="problem-card-body">
-          <p class="problem-text">ノーズパッドの<strong>汚れや劣化</strong>、<br>そのままにしていませんか？</p>
+          <p class="problem-text"><strong>ノーズパッドの黄ばみ</strong>、<br>気になっていませんか？</p>
         </div>
       </div>
     </div>
@@ -245,23 +252,30 @@ Template Name: ノーズパッドLP（プレビュー版）
 <!-- BUY -->
 <section class="buy" id="buy">
   <div class="container">
-    <div class="reveal">
-      <span class="section-tag">ご購入</span>
-      <h2 class="sec-title">いつものメガネに<br>小さなこだわりを</h2>
-    </div>
-    <div class="buy-box reveal">
-      <div class="buy-product-img">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/maruM.jpg" alt="ミクロチタンボール ノーズパッド">
+    <div class="buy-cta-banner reveal">
+      <div class="buy-cta-banner-inner">
+        <div class="buy-cta-left">
+          <div class="buy-product-img">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/maruM.jpg" alt="ミクロチタンボール ノーズパッド">
+          </div>
+        </div>
+        <div class="buy-cta-right">
+          <p class="buy-product-name">ミクロチタンボール ノーズパッド</p>
+          <div class="buy-price-row">
+            <span class="buy-price">¥990</span>
+          </div>
+          <p class="buy-price-meta">税込 / S・M・L 全サイズ共通</p>
+          <div class="btn-buy-group">
+            <a href="https://www.aimegane.com/shop/" class="btn-buy-main" target="_blank" rel="noopener">最寄り店舗を探す</a>
+            <a href="https://www.aimegane.com/shop/" class="btn-buy-sub" target="_blank" rel="noopener">来店予約はこちら →</a>
+          </div>
+          <div class="buy-cta-features">
+            <span class="buy-feature-item">サイズ相談OK</span>
+            <span class="buy-feature-item">取り付け無料</span>
+          </div>
+          <p class="buy-cta-store-note">本庄南大通り店を除く、アイメガネ全店にて販売中</p>
+        </div>
       </div>
-      <p class="buy-product-name">ミクロチタンボール ノーズパッド</p>
-      <div class="buy-price">¥990</div>
-      <div class="buy-price-note">税込 / S・M・L 全サイズ共通</div>
-      <hr class="buy-divider">
-      <div class="buy-btns">
-        <a href="https://www.aimegane.com/shop/" class="btn-buy-main" target="_blank" rel="noopener">お近くの店舗を探す →</a>
-      </div>
-      <p class="buy-store-reason">店舗ではサイズの確認・取り付けまでスタッフが対応します。</p>
-      <p class="buy-footer-note">アイメガネ全店（本庄南大通り店を除く）にて販売中</p>
     </div>
   </div>
 </section>
@@ -270,20 +284,27 @@ Template Name: ノーズパッドLP（プレビュー版）
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/AI.svg" alt="アイメガネ" class="footer-logo">
+    <div class="footer-col footer-brand">
+      <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/nosepad/aimegane_yoko_2.jpg" alt="アイメガネ" class="footer-logo">
+      <p class="footer-company">アイジャパン株式会社</p>
+      <p class="footer-address">〒331-0812<br>埼玉県さいたま市北区宮原町1丁目505番地1</p>
     </div>
-    <nav class="footer-links">
-      <a href="https://www.aimegane.com/shop/" target="_blank" rel="noopener">店舗一覧</a>
-      <a href="https://www.aimegane.com/inquiry/" target="_blank" rel="noopener">お問い合わせ</a>
-    </nav>
-    <p class="footer-copy">© アイメガネ</p>
+    <div class="footer-col footer-links">
+      <a href="https://www.aimegane.com/" target="_blank" rel="noopener">アイメガネ公式サイト ↗</a>
+      <a href="https://www.aimegane.com/inquiry/" target="_blank" rel="noopener">お問い合わせ ↗</a>
+      <a href="https://www.ai-group.net/privacy/" target="_blank" rel="noopener">プライバシーポリシー ↗</a>
+    </div>
+    <div class="footer-col footer-cta">
+      <p class="footer-cta-lead">ノーズパッドのお取り扱いは<br>お近くの店舗へ</p>
+      <a href="https://www.aimegane.com/shop/" class="footer-cta-btn" target="_blank" rel="noopener">お取り扱い店舗を探す</a>
+    </div>
   </div>
+  <p class="footer-copy">&copy; 2026 Ai JAPAN Co., Ltd. All rights reserved.</p>
 </footer>
 
 <!-- Floating CTA -->
 <div class="floating-cta" id="floatingCta">
-  <a href="#buy" class="floating-cta__btn">購入する</a>
+  <a href="#buy" class="floating-cta__btn">店舗を探す</a>
 </div>
 
 <script>
