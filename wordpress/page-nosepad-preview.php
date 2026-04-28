@@ -266,8 +266,8 @@ Template Name: ノーズパッドLP（プレビュー版）
           </div>
           <p class="buy-price-meta">税込 / S・M・L 全サイズ共通</p>
           <div class="btn-buy-group">
-            <a href="https://www.aimegane.com/shop/" class="btn-buy-main" target="_blank" rel="noopener">最寄り店舗を探す</a>
-            <a href="https://www.aimegane.com/shop/" class="btn-buy-sub" target="_blank" rel="noopener">来店予約はこちら →</a>
+            <a href="https://www.aimegane.com/shop/" class="btn-buy-main" target="_blank" rel="noopener">来店予約する</a>
+            <a href="https://www.aimegane.com/shop/" class="btn-buy-sub" target="_blank" rel="noopener">最寄り店舗を探す →</a>
           </div>
           <div class="buy-cta-features">
             <span class="buy-feature-item">サイズ相談OK</span>
