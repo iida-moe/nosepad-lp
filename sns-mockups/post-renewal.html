@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>インスタ投稿用リニューアル 1080×1080</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+  :root {
+    --red:  #B8000A;
+    --ink:  #111111;
+    --gray: #666666;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1e1e1e;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 24px;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  .post {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    transform-origin: top center;
+    transform: scale(0.54);
+    background: #fff;
+    flex-shrink: 0;
+  }
+
+  /* ── 写真ゾーン（上58%） ── */
+  .photo {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 620px;
+    overflow: hidden;
+    background: #111;
+  }
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+  }
+  .photo::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 280px;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.65) 100%);
+  }
+
+  /* ── ロゴピル ── */
+  .logo-pill {
+    position: absolute;
+    top: 40px; left: 44px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: rgba(255,255,255,0.96);
+    padding: 12px 28px;
+    border-radius: 100px;
+    z-index: 20;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  }
+  .logo-ai  { height: 34px; width: auto; }
+  .logo-ph  { height: 22px; width: auto; }
+  .times    { font-size: 18px; color: #999; font-weight: 300; }
+
+  /* ── NEWバッジ ── */
+  .new-badge {
+    position: absolute;
+    top: 44px; right: 44px;
+    background: var(--red);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    padding: 10px 20px;
+    border-radius: 3px;
+    z-index: 20;
+  }
+
+  /* ── 写真上のヘッドライン ── */
+  .photo-headline {
+    position: absolute;
+    bottom: 44px; left: 52px; right: 52px;
+    z-index: 10;
+    color: #fff;
+  }
+  .photo-headline .catch-sub {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    opacity: 0.85;
+    margin-bottom: 12px;
+  }
+  .photo-headline h1 {
+    font-size: 58px;
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.35);
+  }
+
+  /* ── 白コンテンツゾーン（下42%から赤バンドまで） ── */
+  .info {
+    position: absolute;
+    top: 620px; left: 0; right: 0;
+    bottom: 84px;
+    background: #fff;
+    padding: 42px 56px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .info-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .product-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--gray);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .tagline {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    line-height: 1.55;
+  }
+  .price-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 4px;
+  }
+  .price {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+  }
+  .price-yen { font-size: 26px; font-weight: 700; color: var(--red); }
+  .price-num { font-size: 80px; font-weight: 900; color: var(--red); line-height: 0.95; letter-spacing: -0.02em; }
+  .price-tax { font-size: 15px; color: var(--gray); margin-left: 4px; }
+
+  .sizes {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .size-tag {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* ── 赤バンド ── */
+  .bottom-band {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 84px;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bottom-band span {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+</style>
+</head>
+<body>
+
+<div class="post">
+
+  <div class="photo">
+    <img src="../images/nosepad-close.png" alt="ノーズパッド装着イメージ">
+    <div class="photo-headline">
+      <p class="catch-sub">ファイテンの技術で、かけ心地をアップデート</p>
+      <h1>鼻あて、<br>替えてみませんか？</h1>
+    </div>
+  </div>
+
+  <div class="logo-pill">
+    <img class="logo-ai" src="../images/AI.svg" alt="アイメガネ">
+    <span class="times">×</span>
+    <img class="logo-ph" src="../images/phiten-logo.png" alt="phiten">
+  </div>
+
+  <span class="new-badge">NEW</span>
+
+  <div class="info">
+    <div class="info-left">
+      <p class="product-label">Microtitanball Nose Pad</p>
+      <p class="tagline">リラックス＆リカバリーを<br>サポートするノーズパッド</p>
+      <div class="price-row">
+        <div class="price">
+          <span class="price-yen">¥</span>
+          <span class="price-num">990</span>
+          <span class="price-tax">（税込）</span>
+        </div>
+        <div class="sizes">
+          <span class="size-tag">S</span>
+          <span class="size-tag">M</span>
+          <span class="size-tag">L</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-band">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <span>アイメガネ全店にて販売中（本庄南大通り店を除く）</span>
+      <span style="font-size:11px;font-weight:400;opacity:0.85;">※本商品はファイテン社の独自技術を取り入れたコラボレーション商品です</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

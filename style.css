@@ -2,22 +2,15 @@
 :root {
   --red:         #B8000A;
   --red-soft:    #D42010;
-  --red-pale:    #FBF0EE;
-  --blue:        #003594;
+  --blue:        #003594;      /* Phiten blue */
   --blue-light:  #6BA3D6;
   --blue-pale:   #EBF2FA;
-  --green:       #2A7B8E;
-  --green-mid:   #1E5A68;
-  --green-pale:  #E8F2F4;
-  --green-dark:  #142D33;
-  --warm-white:  #FDFAF5;
-  --sand:        #F4EFE4;
-  --sand-mid:    #EDE5D5;
-  --sand-dark:   #E0D5C0;
-  --text:        #111;
-  --text-mid:    #444;
-  --text-light:  #999;
-  --border:      #DDD5C5;
+  --navy:        #0B2240;      /* BUY / Footer */
+  --bg-alt:      #F6F6F6;      /* About / FAQ */
+  --text:        #111111;
+  --text-mid:    #555555;
+  --text-light:  #999999;
+  --border:      #E8E8E8;
   --radius:      10px;
 }
 
@@ -37,23 +30,24 @@ a { color: inherit; text-decoration: none; }
 /* ─── UTILITY ────────────────────────────────────── */
 .container { width: 100%; max-width: 860px; margin: 0 auto; padding: 0 40px; }
 
+/* セクションラベル：小さいブルー uppercase */
 .section-tag {
   display: block;
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(32px, 4vw, 48px);
-  letter-spacing: 0.10em;
-  font-weight: 900;
-  color: var(--text);
-  margin-bottom: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 14px;
 }
 
 h2.sec-title {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(15px, 1.6vw, 20px);
-  font-weight: 400;
-  line-height: 1.6;
+  font-size: clamp(28px, 3.6vw, 44px);
+  font-weight: 900;
+  line-height: 1.3;
   letter-spacing: 0.04em;
-  color: var(--text-mid);
+  color: var(--text);
   margin-bottom: 24px;
 }
 
@@ -75,7 +69,7 @@ h2.sec-title {
 .global-header {
   position: sticky; top: 0; z-index: 100;
   background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
   border-bottom: 2px solid var(--red);
   max-width: none;
   margin: 0 auto;
@@ -169,276 +163,142 @@ h2.sec-title {
 }
 
 /* ─── HERO ───────────────────────────────────────── */
+/* 背景は画像が透けて見える程度のウォームグレー */
 .hero {
   position: relative;
-  background: #fff;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: none;
-  margin: 0;
-  padding-bottom: 0;
   height: calc(100vh - 64px);
   min-height: 600px;
+  overflow: hidden;
+  background: #d0ccc8;
 }
-/* pseudo-elements未使用 */
 
-/* 砂色背景（不要） */
-.hero-bg-upper {
-  display: none;
+/* 背景写真 */
+.hero-bg-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url(images/nosepad-close.png);
+  background-size: cover;
+  background-position: center 38%;
+  z-index: 0;
 }
-/* 装飾なし */
-.hero-deco { display: none; }
 
-/* ロゴ */
-.hero-logos {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 0 12px;
-  width: 100%;
+/* 左→右に白フェード：左で文字を読ませ、右で写真を見せる */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    96deg,
+    rgba(255,255,255,1.0)  0%,
+    rgba(255,255,255,0.97) 28%,
+    rgba(255,255,255,0.80) 48%,
+    rgba(255,255,255,0.25) 68%,
+    rgba(255,255,255,0.00) 100%
+  );
+  z-index: 1;
 }
-/* ヒーロー背景が白なのでホワイトスペース自動確保 */
-.hero-logos-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3vw;
-  border-bottom: none;
-  padding: 0 5vw;
+
+/* ロゴピル（左上） */
+.hero-logo-bar {
+  position: absolute;
+  top: 40px;
+  left: 48px;
+  z-index: 10;
 }
-.hero-logos-row a { display: flex; }
+.hero-logo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff;
+  padding: 10px 24px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+.logo-aimegane { height: clamp(28px, 3vw, 38px); width: auto; }
 /* ファイテンロゴ: アイソレーションエリア C-03準拠 (上下0.2A, 左0.3A, 右0.4A) */
-/* ロゴ高さAを変数化し、padding をAに対する比率で正確に計算 */
 .logo-phiten {
-  --logo-h: clamp(36px, 3.6vw, 50px);
+  --logo-h: clamp(18px, 2vw, 25px);
   height: var(--logo-h);
   width: auto;
   padding: calc(var(--logo-h) * 0.2) calc(var(--logo-h) * 0.4)
            calc(var(--logo-h) * 0.2) calc(var(--logo-h) * 0.3);
   box-sizing: content-box;
 }
-.logo-aimegane { height: 5.2vw; min-height: 48px; max-height: 72px; width: auto; }
 .collab-x {
-  font-size: clamp(22px, 2.6vw, 34px);
-  color: var(--text-mid);
+  font-size: 16px;
+  color: #bbb;
   font-weight: 300;
 }
-/* 商品名：価格の上のラベル */
-.hero-product-name {
-  font-size: 12px;
-  color: var(--text-mid);
-  letter-spacing: 0.16em;
-  margin-top: 0;
-  margin-bottom: 4px;
-  font-weight: 500;
-  text-align: left;
-  display: block;
-}
 
-/* 写真左＋テキスト右 */
-.hero-row {
-  position: relative;
-  z-index: 2;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 32px;
-  display: flex;
-  align-items: center;
-  gap: 4vw;
-}
-
-.hero-text {
-  flex: 1;
-  min-width: 0;
-  text-align: left;
-  padding-top: 0;
-}
-.hero-price-row,
-.hero-cta-group {
-  text-align: left;
-}
-.hero-cta-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* ─── FVビジュアル構成（2つの丸が斜めに重なる） ─── */
-.hero-visual-compose {
-  position: relative;
-  flex-shrink: 0;
-  width: clamp(280px, 34vw, 400px);
-  padding: 0 0 30px;
-}
-/* 価格行（横並び） */
-.hero-price-line {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.hero-catch {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(18px, 2vw, 24px);
-  font-weight: 700;
-  color: var(--red);
-  margin-bottom: 20px;
-  letter-spacing: 0.06em;
-  text-align: left;
-}
-.hero-circles {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 0.9;
-}
-/* 大きい丸：商品写真 */
-.hero-circle-main {
-  width: 85%;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid var(--blue-light);
-  box-shadow: 0 12px 40px rgba(0,53,148,0.10);
-  background: #fff;
+/* メインコンテンツ（垂直中央・左寄せ） */
+.hero-content {
   position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 1;
-}
-.hero-circle-main img {
-  width: 100%; height: 100%; object-fit: cover;
-}
-/* 小さい丸：装着イメージ */
-.hero-circle-sub {
-  position: absolute;
-  right: -8%;
-  bottom: -5%;
-  width: 50%;
-  text-align: center;
-  z-index: 2;
-}
-.hero-circle-sub img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #fff;
-  box-shadow: 0 8px 28px rgba(0,53,148,0.18);
-  transform: rotate(4deg);
-}
-.hero-circle-sub-caption {
-  font-size: 9px;
-  color: rgba(0,0,0,0.3);
-  margin-top: 4px;
-  letter-spacing: 0.04em;
+  left: 8vw;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  max-width: 520px;
+  color: var(--text);
 }
 
-/* フック（共感コピー） */
-.hero-hook {
-  font-size: 13px;
-  color: var(--text-light);
-  letter-spacing: 0.08em;
-  margin-bottom: 8px;
-}
-
-/* 見出し */
-/* FVタグ（NEW / 販売中） */
+/* FVタグ */
 .hero-tag {
   display: inline-flex;
   align-items: center;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--red);
-  background: var(--red-pale);
-  padding: 5px 12px;
+  letter-spacing: 0.22em;
+  color: #fff;
+  background: var(--red);
+  padding: 5px 14px;
   border-radius: 3px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
-/* FVリード文（1行目） */
+/* リード文 */
 .hero-lead {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(15px, 1.8vw, 20px);
-  font-weight: 600;
-  color: rgba(0,0,0,0.7);
-  letter-spacing: 0.06em;
-  line-height: 1.6;
-  margin-bottom: 12px;
+  font-size: clamp(13px, 1.5vw, 16px);
+  font-weight: 500;
+  color: var(--text-mid);
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+  margin-bottom: 14px;
   text-align: left;
 }
 
-/* FV見出し（2行目） */
+/* メインキャッチ */
 .hero h1 {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(22px, 2.3vw, 30px);
+  font-size: clamp(38px, 5vw, 62px);
   font-weight: 900;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
   color: var(--text);
-  margin-bottom: 20px;
-  text-align: left;
+  margin-bottom: 28px;
   white-space: nowrap;
 }
 .hero h1 em {
   font-style: normal;
-  color: var(--red);
+  color: var(--text);
 }
 
 /* 価格行 */
-.hero-price-row {
+.hero-price-line {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 24px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  width: 100%;
-}
-.hero-price-block {
-  display: flex;
-  flex-direction: row;
   align-items: baseline;
   gap: 8px;
+  margin-bottom: 32px;
 }
-.hero-price-block .price-num {
-  display: block;
-  line-height: 1;
-}
-.hero-price-block .price-unit {
-  display: block;
-  text-align: left;
-  line-height: 1;
-}
-.hero-price-row .btn-main {
-  margin-bottom: 0;
-}
-.hero-cta {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--red);
-  letter-spacing: 0.04em;
-  border-bottom: 1px solid var(--red);
-  padding-bottom: 2px;
-  margin-left: 8px;
-  transition: opacity 0.2s;
-}
-.hero-cta:hover { opacity: 0.7; }
 .price-num {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(34px, 3.6vw, 44px);
-  font-weight: 600;
+  font-size: clamp(32px, 3.8vw, 48px);
+  font-weight: 900;
   color: var(--red);
   letter-spacing: -0.01em;
   line-height: 1;
 }
-.price-unit { font-size: 12px; color: var(--text-mid); letter-spacing: 0.08em; }
+.price-unit { font-size: 13px; color: var(--text-mid); letter-spacing: 0.08em; }
 
 /* ボタン */
 .btn-main {
@@ -453,12 +313,11 @@ h2.sec-title {
 .btn-main:hover { background: var(--red); color: #fff; }
 .btn-main--filled {
   background: var(--red); color: #fff; border: none;
-  padding: 18px 32px; font-size: 16px; border-radius: 50px;
-  letter-spacing: 0.1em; font-weight: 600;
-  box-shadow: 0 6px 18px rgba(184,0,10,0.25);
+  padding: 18px 48px; font-size: 16px; border-radius: 50px;
+  letter-spacing: 0.1em; font-weight: 700;
+  box-shadow: 0 6px 20px rgba(184,0,10,0.32);
   transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-  width: 100%; max-width: 360px;
-  display: flex; justify-content: center; align-items: center;
+  display: inline-flex; justify-content: center; align-items: center;
   position: relative;
 }
 .btn-main--filled::after {
@@ -473,7 +332,7 @@ h2.sec-title {
 .btn-main--filled:hover {
   background: var(--red-soft); color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(184,0,10,0.32);
+  box-shadow: 0 12px 28px rgba(184,0,10,0.40);
 }
 .btn-sub {
   display: inline-flex; align-items: center; justify-content: center;
@@ -485,12 +344,8 @@ h2.sec-title {
 }
 .btn-sub:hover { border-color: var(--text-mid); }
 
-.hero-group .btn-main {
-  margin-bottom: 0;
-}
 .hero-sub-note {
   font-size: 12px; color: var(--text-mid); letter-spacing: 0.04em;
-  text-align: left;
   margin-top: 10px;
 }
 
@@ -508,7 +363,7 @@ h2.sec-title {
 
 /* ─── PROBLEM ────────────────────────────────────── */
 .problem {
-  background: var(--blue-pale);
+  background: #fff;
   padding: 80px 40px 80px;
   text-align: center;
   max-width: none;
@@ -525,7 +380,9 @@ h2.sec-title {
   border-radius: 14px;
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+  border-top: 3px solid var(--blue-light);
+  text-align: left;
 }
 .problem-card-img {
   height: 220px;
@@ -544,42 +401,33 @@ h2.sec-title {
   font-size: 16px;
   color: var(--text);
   line-height: 1.9;
-  text-align: center;
+  text-align: left;
 }
 .problem-text strong {
-  color: var(--red);
+  color: var(--blue);
   font-weight: inherit;
 }
 h2.sec-title.problem-title {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 900;
-  color: var(--text);
   margin-bottom: 48px;
-  letter-spacing: 0.10em;
-  line-height: 1.5;
 }
 .problem-title-sub {
-  font-size: 0.6em;
+  font-size: 0.75em;
   font-weight: 700;
 }
 
 .problem-lead {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(17px, 2.2vw, 22px);
+  font-size: clamp(16px, 2vw, 20px);
   color: var(--text);
   line-height: 1.8;
-  letter-spacing: 0.06em;
-  max-width: 640px;
+  letter-spacing: 0.04em;
+  max-width: 600px;
   margin: 48px auto 0;
-  position: relative;
   font-weight: 700;
-  z-index: 1;
-  font-weight: 500;
 }
 .problem-lead strong {
   color: var(--red);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* 共感フック */
@@ -595,7 +443,7 @@ h2.sec-title.problem-title {
   display: inline-block;
   margin-top: 20px;
   font-size: 14px;
-  color: var(--red);
+  color: var(--blue);
   letter-spacing: 0.04em;
   font-weight: 500;
   transition: opacity 0.2s;
@@ -604,7 +452,7 @@ h2.sec-title.problem-title {
 
 /* ─── ABOUT ──────────────────────────────────────── */
 .about {
-  background: #fff;
+  background: var(--bg-alt);
   padding: 80px 40px;
   display: flex;
   align-items: center;
@@ -644,30 +492,30 @@ h2.sec-title.problem-title {
   letter-spacing: 0.06em; margin-top: 8px;
 }
 
-/* ABOUTタイトル：nowrapで2行に固定 */
 .about-title {
-  font-size: clamp(16px, 1.8vw, 20px);
-  font-weight: 400;
-  color: var(--text-mid);
-  white-space: nowrap;
+  font-size: clamp(22px, 2.8vw, 34px);
+  font-weight: 900;
+  color: var(--text);
   margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border);
+  letter-spacing: 0.04em;
+  line-height: 1.3;
 }
 .about-text p { font-size: 14px; color: var(--text-mid); line-height: 1.9; margin-bottom: 24px; overflow-wrap: break-word; }
 
 .titanium-box {
-  background: var(--blue-pale);
+  background: #fff;
   border: none;
-  border-left: 3px solid var(--blue-light);
+  border-left: 3px solid var(--blue);
   border-radius: 0 var(--radius) var(--radius) 0;
   padding: 20px 24px; margin-top: 8px; margin-bottom: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 .titanium-box-label { font-size: 10px; letter-spacing: 0.28em; color: var(--blue); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; }
-.titanium-box-title { font-family: 'Noto Sans JP', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.titanium-box-title { font-family: 'Noto Sans JP', sans-serif; font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
 .titanium-box-desc  { font-size: 13px; color: var(--text-mid); line-height: 1.9; }
 
-/* About ハイライトボックス */
 .about-highlight {
   background: #fff;
   border: none;
@@ -700,23 +548,24 @@ h2.sec-title.problem-title {
 }
 
 /* ─── SIZE ───────────────────────────────────────── */
-.size { background: var(--blue-pale); padding: 96px 40px 88px; text-align: center; max-width: none; margin: 0 auto; }
+.size { background: #fff; padding: 96px 40px 88px; text-align: center; max-width: none; margin: 0 auto; }
 .size-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 20px; max-width: 640px; margin: 0 auto 40px;
 }
 .size-card {
-  background: #fff; border: 2px solid transparent;
+  background: #fff; border: 2px solid var(--border);
   border-radius: 12px; padding: 24px 16px 20px;
   position: relative;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   text-align: center;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
   cursor: default;
 }
 .size-card:hover {
-  border-color: var(--blue-light);
+  border-color: var(--blue);
   transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,53,148,0.12);
 }
 .size-visual-wrap {
   height: 140px; display: flex; align-items: center;
@@ -728,46 +577,45 @@ h2.sec-title.problem-title {
 .size-card:nth-child(3) .size-img { height: 130px; }
 .size-letter {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 32px; font-weight: 900; color: var(--text);
+  font-size: 30px; font-weight: 900; color: var(--text);
   letter-spacing: 0.05em; margin-bottom: 4px;
 }
-.size-mm { font-size: 12px; color: var(--text-mid); letter-spacing: 0.06em; }
+.size-mm { font-size: 12px; color: var(--text-light); letter-spacing: 0.06em; }
 
 .size-guide {
   max-width: 600px; margin: 0 auto;
   background: #fff; border: 1px solid var(--border);
   border-radius: 12px; padding: 40px 44px;
 }
-.size-guide-title { font-size: 18px; font-weight: 900; letter-spacing: 0.10em; color: var(--text); margin-bottom: 28px; }
-.size-guide-list { list-style: none; display: flex; flex-direction: column; gap: 24px; margin-bottom: 28px; }
+.size-guide-title { font-size: 17px; font-weight: 900; letter-spacing: 0.10em; color: var(--text); margin-bottom: 28px; }
+.size-guide-list { list-style: none; display: flex; flex-direction: column; gap: 22px; margin-bottom: 28px; }
 .size-guide-list li { display: flex; align-items: center; gap: 20px; font-size: 16px; }
-.sg-size { font-family: 'Noto Sans JP', sans-serif; font-size: 28px; font-weight: 900; color: var(--text); width: 30px; flex-shrink: 0; }
+.sg-size { font-family: 'Noto Sans JP', sans-serif; font-size: 26px; font-weight: 900; color: var(--text); width: 28px; flex-shrink: 0; }
 .sg-arrow { color: var(--border); flex-shrink: 0; font-size: 16px; }
-.sg-desc  { color: var(--text-mid); line-height: 1.65; font-size: 15px; word-break: keep-all; overflow-wrap: anywhere; }
-.size-guide-note { font-size: 14px; color: var(--text-mid); border-top: 1px solid var(--border); padding-top: 20px; }
+.sg-desc  { color: var(--text-mid); line-height: 1.65; font-size: 14px; word-break: keep-all; overflow-wrap: anywhere; }
+.size-guide-note { font-size: 13px; color: var(--text-mid); border-top: 1px solid var(--border); padding-top: 20px; }
 
 /* ─── FAQ ────────────────────────────────────────── */
 .faq {
-  background: #fff;
+  background: var(--bg-alt);
   padding: 96px 40px 88px; position: relative; overflow: hidden;
   max-width: none; margin: 0 auto;
 }
 .faq .container { text-align: center; position: relative; }
-.faq .section-tag { color: var(--text); }
-.faq h2.sec-title { color: var(--text-mid); margin-bottom: 48px; }
-.faq-list { max-width: 700px; margin: 0 auto; text-align: left; display: flex; flex-direction: column; gap: 0; }
+.faq-list { max-width: 700px; margin: 48px auto 0; text-align: left; display: flex; flex-direction: column; gap: 0; }
 .faq-item {
-  background: none;
-  border-bottom: 1px solid #eee;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
   border-radius: 0;
   overflow: hidden;
 }
-.faq-item:last-child { border-bottom: none; }
-.faq-item.open { background: none; }
+.faq-item:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+.faq-item:last-child { border-bottom: none; border-radius: 0 0 var(--radius) var(--radius); }
+.faq-item.open { background: #fff; }
 .faq-q {
   width: 100%; background: none; border: none; cursor: pointer;
   font-size: 15px; font-weight: 500; color: var(--text);
-  letter-spacing: 0.03em; padding: 22px 8px;
+  letter-spacing: 0.03em; padding: 22px 24px;
   display: flex; align-items: center; justify-content: space-between;
   gap: 16px; text-align: left;
   font-family: 'Noto Sans JP', sans-serif; transition: opacity 0.2s;
@@ -776,22 +624,22 @@ h2.sec-title.problem-title {
 .faq-q-left { display: flex; align-items: center; gap: 14px; }
 .faq-q-label {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 14px; font-weight: 700;
+  font-size: 13px; font-weight: 700;
   color: #fff;
-  background: var(--red);
+  background: var(--blue);
   border-radius: 50%;
-  width: 32px; height: 32px;
+  width: 30px; height: 30px;
   display: flex; align-items: center; justify-content: center;
   letter-spacing: 0;
   flex-shrink: 0;
   line-height: 1;
 }
 .faq-q-text { flex: 1; }
-.faq-icon { font-size: 12px; color: var(--red); flex-shrink: 0; transition: transform 0.3s ease; line-height: 1; }
+.faq-icon { font-size: 11px; color: var(--blue); flex-shrink: 0; transition: transform 0.3s ease; line-height: 1; }
 .faq-item.open .faq-icon { transform: rotate(180deg); }
 .faq-a {
   font-size: 14px; color: var(--text-mid); line-height: 1.95;
-  padding: 0 8px 0 54px;
+  padding: 0 24px 0 68px;
   max-height: 0; overflow: hidden;
   transition: max-height 0.4s ease, padding 0.3s ease;
 }
@@ -799,58 +647,46 @@ h2.sec-title.problem-title {
 
 /* ─── BUY ────────────────────────────────────────── */
 .buy {
-  background: var(--blue-pale);
-  padding: 96px 40px 80px;
+  background: var(--navy);
+  padding: 100px 40px 88px;
   text-align: center;
   max-width: none;
   margin: 0 auto;
 }
 .buy-cta-banner {
   position: relative;
-  max-width: 960px;
+  max-width: 880px;
   margin: 0 auto;
-  background: transparent;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
 }
 .buy-cta-banner-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 64px;
+  gap: 72px;
   text-align: left;
-  margin-bottom: 48px;
+  margin-bottom: 0;
 }
 .buy-cta-left { display: flex; justify-content: center; }
 
-/* 購入セクション商品画像 */
 .buy-product-img {
-  width: 320px; height: 320px;
+  width: 300px; height: 300px;
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto;
-  background: radial-gradient(circle at 30% 30%, #fff 0%, #e8e2d4 100%);
-  box-shadow: 0 20px 50px rgba(0,53,148,0.15), inset 0 0 0 1px rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.15), 0 20px 48px rgba(0,0,0,0.4);
   position: relative;
-}
-.buy-product-img::after {
-  content: "";
-  position: absolute; inset: 0;
-  border-radius: 50%;
-  box-shadow: inset 0 -12px 28px rgba(0,0,0,0.06);
-  pointer-events: none;
 }
 .buy-product-img img { width: 100%; height: 100%; object-fit: cover; }
 
 .buy-cta-right { flex: 1; }
 .buy-product-name {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 22px; color: var(--text); font-weight: 700;
+  font-size: 20px; color: rgba(255,255,255,0.9); font-weight: 700;
   letter-spacing: 0.04em;
   margin-bottom: 24px;
   padding-bottom: 24px;
-  border-bottom: 1px solid rgba(0,53,148,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 .buy-price-row {
   display: flex; align-items: baseline; gap: 8px;
@@ -858,28 +694,30 @@ h2.sec-title.problem-title {
 }
 .buy-price {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 60px; font-weight: 800;
-  color: var(--red); line-height: 1;
-  letter-spacing: 0.01em;
+  font-size: 68px; font-weight: 900;
+  color: #fff; line-height: 1;
+  letter-spacing: -0.02em;
 }
 .buy-price-meta {
-  font-size: 13px; color: var(--text-mid);
+  font-size: 13px; color: rgba(255,255,255,0.45);
   letter-spacing: 0.04em;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 .btn-buy-main {
   display: inline-flex; align-items: center; justify-content: center;
   background: var(--red); color: #fff;
-  font-size: 15px; font-weight: 700; letter-spacing: 0.06em;
-  padding: 13px 28px; border-radius: 50px;
-  box-shadow: 0 8px 24px rgba(184,0,10,0.28);
+  font-size: 15px; font-weight: 700; letter-spacing: 0.08em;
+  padding: 16px 36px; border-radius: 50px;
+  box-shadow: 0 8px 24px rgba(184,0,10,0.4);
+  position: relative;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 4px;
 }
 .btn-buy-main::after {
   content: "";
   display: inline-block;
-  width: 10px; height: 10px;
-  margin-left: 12px;
+  position: absolute; right: 20px;
+  width: 8px; height: 8px;
   border-top: 2px solid #fff;
   border-right: 2px solid #fff;
   transform: rotate(45deg);
@@ -887,7 +725,7 @@ h2.sec-title.problem-title {
 .btn-buy-main:hover {
   background: var(--red-soft);
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(184,0,10,0.35);
+  box-shadow: 0 12px 32px rgba(184,0,10,0.45);
 }
 .btn-buy-group {
   display: inline-flex;
@@ -895,7 +733,7 @@ h2.sec-title.problem-title {
 }
 .btn-buy-sub {
   display: block;
-  font-size: 13px; color: var(--text-mid);
+  font-size: 13px; color: rgba(255,255,255,0.4);
   letter-spacing: 0.04em;
   margin-top: 14px;
   text-align: center;
@@ -903,44 +741,45 @@ h2.sec-title.problem-title {
   text-underline-offset: 3px;
   transition: color 0.2s;
 }
-.btn-buy-sub:hover { color: var(--red); }
+.btn-buy-sub:hover { color: rgba(255,255,255,0.8); }
 
 .buy-cta-features {
-  display: flex; justify-content: flex-start; gap: 12px;
+  display: flex; justify-content: flex-start; gap: 10px;
   margin-top: 28px;
   flex-wrap: wrap;
 }
 .buy-feature-item {
   display: inline-flex; align-items: center;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  color: var(--text);
+  color: rgba(255,255,255,0.7);
   letter-spacing: 0.06em;
-  padding: 8px 14px 8px 10px;
-  background: #fff;
-  border: 1px solid rgba(0,53,148,0.1);
+  padding: 7px 14px 7px 10px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 4px;
 }
 .buy-feature-item::before {
   content: "✓";
-  color: var(--red);
+  color: var(--blue-light);
   font-weight: 700;
   margin-right: 6px;
-  font-size: 13px;
+  font-size: 12px;
 }
 .buy-cta-store-note {
   margin-top: 16px;
-  font-size: 12px; color: var(--text-mid);
+  font-size: 12px; color: rgba(255,255,255,0.3);
   letter-spacing: 0.04em; text-align: left;
+  line-height: 1.8;
 }
 .buy-store-reason {
-  font-size: 12px; color: var(--text-mid);
+  font-size: 12px; color: rgba(255,255,255,0.3);
   margin-top: 14px; letter-spacing: 0.03em; line-height: 1.6;
 }
 
 /* ─── INLINE LINK ────────────────────────────────── */
 .inline-link {
-  color: var(--red);
+  color: var(--blue);
   text-decoration: underline;
   text-underline-offset: 3px;
   font-weight: 500;
@@ -975,7 +814,7 @@ h2.sec-title.problem-title {
   letter-spacing: 0.06em;
   padding: 14px 28px;
   border-radius: 6px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 16px rgba(184,0,10,0.35);
   transition: background 0.2s;
 }
 .floating-cta__btn:hover {
@@ -990,10 +829,10 @@ h2.sec-title.problem-title {
 
 /* ─── FOOTER ─────────────────────────────────────── */
 footer {
-  background: #fff;
-  padding: 56px 40px 24px;
-  color: var(--text-mid);
-  border-top: 3px solid var(--red);
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 56px 40px 28px;
+  color: rgba(255,255,255,0.5);
   max-width: none;
   margin: 0 auto;
 }
@@ -1005,54 +844,51 @@ footer {
   gap: 56px;
   align-items: start;
   padding-bottom: 40px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
   margin-bottom: 24px;
 }
 .footer-col { text-align: left; }
 .footer-brand { text-align: left; }
 .footer-logo {
-  width: 360px;
-  margin: 0 0 32px;
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  margin: 0 0 24px;
   display: block;
 }
 .footer-company {
-  font-size: 14px; font-weight: 700;
-  color: var(--text);
+  font-size: 13px; font-weight: 600;
+  color: rgba(255,255,255,0.8);
   margin-bottom: 10px;
-  padding-left: 8px;
 }
 .footer-address {
-  font-size: 13px;
-  color: var(--text-mid);
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
   line-height: 1.9;
-  padding-left: 8px;
 }
 .footer-links {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding-top: 140px;
+  padding-top: 8px;
 }
 .footer-links a {
-  font-size: 14px;
-  color: var(--text-mid);
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
   text-decoration: none;
   transition: color 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
 }
-.footer-links a:hover { color: var(--red); }
+.footer-links a:hover { color: rgba(255,255,255,0.85); }
 .footer-cta {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 14px;
-  padding-top: 140px;
+  padding-top: 8px;
 }
 .footer-cta-lead {
   font-size: 13px;
-  color: var(--text-mid);
+  color: rgba(255,255,255,0.5);
   line-height: 1.7;
   margin: 0;
 }
@@ -1060,19 +896,19 @@ footer {
   display: inline-block;
   background: var(--red);
   color: #fff;
-  font-weight: 900;
-  font-size: 15px;
-  padding: 14px 32px;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 28px;
   border-radius: 6px;
   text-decoration: none;
   letter-spacing: 0.04em;
   transition: background 0.2s;
 }
-.footer-cta-btn:hover { background: #A01E24; }
+.footer-cta-btn:hover { background: var(--red-soft); }
 .footer-copy {
   text-align: center;
   font-size: 11px;
-  color: var(--text-light);
+  color: rgba(255,255,255,0.2);
   padding-bottom: 60px;
   letter-spacing: 0.04em;
 }
@@ -1082,8 +918,6 @@ footer {
 /* タブレット */
 @media (max-width: 880px) {
   .about-inner { gap: 52px; }
-  .hero-row { gap: 2vw; padding: 0 4vw; }
-  .hero-visual-compose { width: clamp(260px, 38vw, 400px); }
 }
 
 /* スマホ共通 */
@@ -1095,53 +929,52 @@ footer {
   .header-hamburger { display: flex; }
   .header-back { font-size: 14px; }
 
-  /* Hero SP */
-  .hero { height: auto; min-height: 0; padding-bottom: 3vh; }
-  .hero-bg-upper { height: 34%; }
-  .hero-logos { padding: 1.5vh 16px 0.5vh; }
-  .hero-logos-row { gap: 10px; padding: 1.2vh 3vw; }
-  .logo-phiten { --logo-h: clamp(44px, 12vw, 72px); height: var(--logo-h); }
-  .logo-aimegane { height: 18vw; min-height: 64px; max-height: 100px; }
-  .collab-x { font-size: 12px; }
-  .hero-logos-product { font-size: 10px; letter-spacing: 0.1em; }
-  .hero-row {
-    flex-direction: column; padding: 0 24px;
-    gap: 12px; align-items: center;
+  /* Hero SP：縦方向の白フェード、コンテンツは画面下部 */
+  .hero { height: 90svh; min-height: 560px; }
+  .hero-bg-photo { background-position: 70% center; }
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.88) 0%,
+      rgba(255,255,255,0.92) 55%,
+      rgba(255,255,255,0.96) 100%
+    );
+  }
+  .hero-logo-bar { top: 20px; left: 20px; }
+  .hero-logo-pill { padding: 8px 16px; gap: 10px; }
+  .logo-aimegane { height: 26px; }
+  .logo-phiten { --logo-h: 17px; height: var(--logo-h); }
+  .collab-x { font-size: 13px; }
+  .hero-content {
+    left: 24px; right: 24px;
+    top: auto; bottom: 48px;
+    transform: none;
     max-width: none;
   }
-  .hero-visual-compose { width: 90vw; max-width: 380px; }
-  .hero-catch { font-size: clamp(16px, 4.5vw, 20px); }
-  .hero-connect-line { height: 50px; }
-  .hero-product-name { font-size: 10px; margin-bottom: 4px; }
-  .hero-text { text-align: center; }
-  .hero-lead { font-size: clamp(13px, 3.5vw, 15px); text-align: center; }
-  .hero h1 { font-size: clamp(18px, 5vw, 24px); line-height: 1.5; margin-bottom: 12px; white-space: normal; text-align: center; letter-spacing: 0.04em; }
-  .hero-price-row { justify-content: center; margin-bottom: 14px; flex-wrap: wrap; gap: 12px; }
-  .hero-price-row .btn-main { width: 100%; }
-  .price-num { font-size: clamp(28px, 8vw, 36px); }
+  .hero-lead { font-size: 13px; text-align: left; }
+  .hero h1 { font-size: clamp(28px, 8vw, 38px); white-space: normal; text-align: left; margin-bottom: 16px; }
+  .hero-price-line { margin-bottom: 20px; }
+  .price-num { font-size: clamp(28px, 7.5vw, 36px); }
   .price-unit { font-size: 12px; }
   .btn-main {
     width: 100%; background: var(--red); color: #fff;
     border: none; padding: 14px; font-size: 16px;
   }
   .btn-main:hover { background: var(--red-soft); color: #fff; }
-  .btn-main--filled { padding: 14px; font-size: 16px; }
-  .hero-sub-note { font-size: 9px; text-align: center; }
+  .btn-main--filled { width: 100%; padding: 14px 20px; font-size: 15px; }
+  .hero-scroll-hint { display: none; }
 
   /* Problem SP */
   .problem { padding: 56px 20px 48px; }
   .problem-grid { grid-template-columns: 1fr; max-width: 360px; gap: 16px; }
   .problem-card-img { height: 160px; }
 
-  /* Hero SP scroll hint */
-  .hero-scroll-hint { display: none; }
-
   /* About SP */
   .about { padding: 48px 20px; }
   .about .container { padding-top: 0; padding-bottom: 0; }
   .about-inner { grid-template-columns: 1fr; gap: 32px; }
   .about-img { max-width: 100%; margin: 0 auto; }
-  .about-title { white-space: normal; font-size: clamp(18px, 4.8vw, 24px); }
+  .about-title { font-size: clamp(20px, 5vw, 26px); }
 
   /* Size SP */
   .size { padding: 56px 20px 48px; }
@@ -1157,27 +990,26 @@ footer {
 
   /* FAQ SP */
   .faq { padding: 56px 20px 48px; }
-  .faq-q { font-size: 14px; padding: 16px 16px; gap: 12px; }
+  .faq-q { font-size: 14px; padding: 20px 16px; gap: 12px; }
   .faq-q-left { gap: 10px; }
-  .faq-a { padding-left: 46px; font-size: 13px; }
+  .faq-a { padding-left: 60px; font-size: 13px; }
 
   /* Section Dividers SP */
   .section-divider { max-width: 80%; }
 
   /* Buy SP */
-  .buy { padding: 64px 20px 56px; }
-  .buy-box { padding: 36px 20px; }
+  .buy { padding: 72px 20px 64px; }
   .buy-cta-banner { padding: 0; }
   .buy-cta-banner-inner {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 40px;
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 0;
   }
   .buy-product-img { width: 200px; height: 200px; }
   .buy-product-name { font-size: 18px; text-align: center; padding-bottom: 20px; margin-bottom: 20px; }
   .buy-price-row { justify-content: center; }
-  .buy-price { font-size: 52px; }
+  .buy-price { font-size: 56px; }
   .buy-price-meta { text-align: center; }
   .btn-buy-main { width: 100%; padding: 16px 20px; }
   .btn-buy-sub { text-align: center; }
@@ -1197,7 +1029,7 @@ footer {
     text-align: left;
   }
   .footer-col { text-align: left; }
-  .footer-logo { width: 200px; margin: 0 0 16px; display: block; }
+  .footer-logo { height: 32px; margin: 0 0 16px; }
   .footer-company { font-size: 13px; }
   .footer-address { font-size: 11px; }
   .footer-links { align-items: flex-start; gap: 12px; padding-top: 0; }
@@ -1209,23 +1041,11 @@ footer {
 
 /* 小型スマホ（iPhone SE等） */
 @media (max-width: 400px) {
-  .hero-logos { padding: 1.5vh 16px 1vh; }
-  .hero-logos-row { gap: 8px; padding: 1.2vh 3vw; }
-  .logo-phiten { --logo-h: 44px; height: var(--logo-h); min-height: 44px; }
-  .logo-aimegane { height: 44px; min-height: 44px; }
-  .collab-x { font-size: 11px; }
-  .hero-logos-product { font-size: 9px; }
-  .hero-row { padding: 0 16px; gap: 16px; }
-  .hero-visual-compose { width: 85vw; }
-  .hero-catch { font-size: 15px; }
-  .hero-connect-line { height: 40px; }
-  .hero-hook { font-size: 11px; }
-  .hero-lead { font-size: 12px; }
-  .hero h1 { font-size: 16px; }
-  .hero-benefit { font-size: 12px; }
+  .hero-content { bottom: 36px; }
+  .hero h1 { font-size: 24px; }
   .price-num { font-size: 24px; }
   h2.sec-title { font-size: clamp(20px, 5.5vw, 26px); }
-  .buy-price { font-size: 36px; }
+  .buy-price { font-size: 44px; }
   .size-grid { gap: 8px; }
   .size-card { padding: 20px 6px 16px; }
   .size-mm { font-size: 10px; }
@@ -1233,9 +1053,7 @@ footer {
 
 /* 大型スマホ（iPhone Pro Max等） */
 @media (min-width: 401px) and (max-width: 480px) {
-  .hero-visual { width: 200px; }
   .hero-lead { font-size: 13px; }
-  .hero h1 { font-size: 20px; }
-  .price-num { font-size: 28px; }
+  .hero h1 { font-size: clamp(26px, 7.5vw, 34px); }
+  .price-num { font-size: clamp(28px, 7vw, 34px); }
 }
-
