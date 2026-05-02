@@ -102,34 +102,33 @@ a { color:inherit; text-decoration:none; }
    HERO — white-from-left / dark text
 ════════════════════════════════════════ */
 .hero {
-  position:relative;
-  height:calc(100vh - 64px);
-  min-height:580px;
+  display:flex;
+  align-items:stretch;
+  min-height:calc(100vh - 64px);
   overflow:hidden;
   background:#ffffff;
 }
 /* 左側：メガネ写真 */
 .hero-bg {
-  position:absolute; left:0; top:0; bottom:0;
-  width:54%;
+  flex:0 0 54%;
+  position:relative;
   background-image:url(images/nose1.png);
   background-size:cover;
   background-position:55% center;
+  min-height:500px;
 }
 .hero-ov { display:none; }
 .hero-bg-right { display:none; }
 .hero-col {
-  position:absolute;
-  right:clamp(40px, 6vw, 96px);
-  top:0; bottom:0;
+  flex:1;
+  min-width:0;
   z-index:10;
   display:flex; flex-direction:column;
   align-items:flex-start;
-  max-width:420px;
+  padding:48px clamp(32px,5vw,72px);
 }
 .hero-logo-pill {
   display:inline-flex; align-items:center; gap:20px;
-  padding-top:64px;
 }
 .hero-logo-pill img.ai { height:54px; }
 .hero-logo-pill img.ph {
@@ -142,7 +141,6 @@ a { color:inherit; text-decoration:none; }
   color:var(--ink);
   margin-top:auto;
   margin-bottom:auto;
-  transform:translateY(-40px);
 }
 .hero-tag {
   display:inline-block;
@@ -432,9 +430,10 @@ footer {
 
   /* ─ FV：写真→テキスト縦積み ─ */
   .hero { height:auto; min-height:0; display:flex; flex-direction:column; overflow:hidden; }
-  .hero-bg { position:relative; left:auto; top:auto; bottom:auto; width:100%; height:56vw; min-height:220px; background-position:55% 30%; flex-shrink:0; }
+  .hero-bg { flex:none; position:relative; left:auto; top:auto; bottom:auto; width:100%; height:56vw; min-height:220px; background-position:55% 30%; }
+
   .hero-ov { display:none; }
-  .hero-col { position:relative; left:auto; right:auto; top:auto; bottom:auto; width:100%; padding:32px 20px 48px; max-width:none; justify-content:flex-start; gap:28px; }
+  .hero-col { flex:none; position:relative; left:auto; right:auto; top:auto; bottom:auto; width:100%; padding:32px 20px 48px; max-width:none; justify-content:flex-start; gap:28px; }
   .hero-logo-pill { flex-direction:row; align-items:center; padding-top:0; gap:12px; }
   .hero-logo-pill img.ai { height:26px; }
   .hero-logo-pill img.ph { --lh:17px; height:var(--lh); padding:calc(var(--lh)*.2) calc(var(--lh)*.4) calc(var(--lh)*.2) calc(var(--lh)*.3); }
