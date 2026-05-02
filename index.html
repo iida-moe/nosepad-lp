@@ -34,11 +34,11 @@
   --r:      10px;
 }
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
+html { scroll-behavior:smooth; overflow-x:hidden; width:100%; }
 body {
   font-family:'Noto Sans JP',sans-serif;
   color:var(--ink); background:var(--bg);
-  line-height:1.85; overflow-x:hidden;
+  line-height:1.85; overflow-x:hidden; width:100%;
 }
 img { display:block; max-width:100%; }
 a { color:inherit; text-decoration:none; }
@@ -49,6 +49,8 @@ a { color:inherit; text-decoration:none; }
   letter-spacing:0.3em; text-transform:uppercase;
   color:var(--blue); margin-bottom:14px;
 }
+.sec-head { text-align:center; }
+.sp-br { display:none; }
 .sec-title {
   font-size:clamp(28px,3.6vw,44px); font-weight:900;
   letter-spacing:0.04em; line-height:1.3;
@@ -116,12 +118,18 @@ a { color:inherit; text-decoration:none; }
 }
 .hero-ov { display:none; }
 .hero-bg-right { display:none; }
-.hero-logo-pill {
+.hero-col {
   position:absolute;
-  top:40px;
   right:clamp(40px, 6vw, 96px);
+  top:0; bottom:0;
   z-index:10;
+  display:flex; flex-direction:column;
+  align-items:flex-start;
+  max-width:420px;
+}
+.hero-logo-pill {
   display:inline-flex; align-items:center; gap:20px;
+  padding-top:64px;
 }
 .hero-logo-pill img.ai { height:54px; }
 .hero-logo-pill img.ph {
@@ -131,12 +139,10 @@ a { color:inherit; text-decoration:none; }
 }
 .hero-logo-pill .x { font-size:24px; color:#555; font-weight:500; }
 .hero-body {
-  position:absolute;
-  right:clamp(40px, 6vw, 96px);
-  top:50%;
-  transform:translateY(-50%);
-  z-index:10; max-width:400px;
   color:var(--ink);
+  margin-top:auto;
+  margin-bottom:auto;
+  transform:translateY(-40px);
 }
 .hero-tag {
   display:inline-block;
@@ -206,8 +212,16 @@ a { color:inherit; text-decoration:none; }
    ABOUT
 ════════════════════════════════════════ */
 .about { background:var(--bg-alt); padding:96px 40px; }
-.about-inner { display:grid; grid-template-columns:1fr 1.3fr; gap:56px; align-items:center; }
-.about-img-wrap { display:flex; justify-content:center; }
+.about-inner {
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  grid-template-areas:"img head" "img body";
+  gap:8px 56px;
+  align-items:start;
+}
+.about-head { grid-area:head; padding-bottom:20px; border-bottom:1px solid var(--border); }
+.about-img-wrap { grid-area:img; align-self:center; display:flex; justify-content:center; }
+.about-body { grid-area:body; }
 .about-img-box { width:200px; border-radius:12px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.10); }
 .about-img-box img { width:100%; height:auto; }
 .about-body p { font-size:14px; color:var(--ink-m); line-height:1.95; margin-bottom:24px; }
@@ -256,7 +270,7 @@ a { color:inherit; text-decoration:none; }
 /* ════════════════════════════════════════
    FAQ
 ════════════════════════════════════════ */
-.faq { background:var(--bg-alt); padding:96px 40px; }
+.faq { background:var(--bg-alt); padding:96px 40px; text-align:center; }
 .faq-list { max-width:680px; margin:48px auto 0; }
 .faq-item { border-bottom:1px solid var(--border); background:var(--bg); }
 .faq-item:first-child { border-radius:var(--r) var(--r) 0 0; }
@@ -296,18 +310,22 @@ a { color:inherit; text-decoration:none; }
   padding:100px 40px 88px;
 }
 .buy-inner {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:72px; align-items:center;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-areas:"img head" "img body";
+  gap:8px 72px;
+  align-items:start;
   max-width:880px; margin:0 auto;
 }
-.buy-img-wrap { display:flex; justify-content:center; }
+.buy-head { grid-area:head; padding-bottom:16px; border-bottom:1px solid var(--border); }
+.buy-img-wrap { grid-area:img; align-self:center; display:flex; justify-content:center; }
+.buy-text { grid-area:body; color:var(--ink); }
 .buy-circle {
   width:300px; height:300px; border-radius:12px; overflow:hidden;
   background:var(--border);
   box-shadow:0 0 0 1px var(--border), 0 20px 48px rgba(0,0,0,.08);
 }
 .buy-circle img { width:100%; height:100%; object-fit:cover; }
-.buy-text { color:var(--ink); }
 .buy-name {
   font-size:26px; font-weight:700; color:var(--ink);
   letter-spacing:0.04em; white-space:nowrap;
@@ -412,51 +430,72 @@ footer {
   .header-nav { display:none; }
   .hamburger { display:flex; }
 
-  .hero { height:90svh; min-height:580px; }
-  .hero-bg { background-position:60% center; }
-  .hero-ov {
-    background:linear-gradient(
-      to bottom,
-      rgba(215,213,210,0.00) 0%,
-      rgba(215,213,210,0.10) 50%,
-      rgba(215,213,210,0.75) 80%,
-      rgba(215,213,210,0.95) 100%
-    );
-  }
-  .hero-logo-pill { top:20px; right:24px; gap:10px; }
-  .hero-logo-pill img.ai { height:30px; }
-  .hero-logo-pill img.ph { --lh:19px; height:var(--lh); }
-  .hero-logo-pill .x { font-size:15px; color:#555; font-weight:500; }
-  .hero-body { position:absolute; left:24px; right:24px; top:auto; bottom:40px; transform:none; max-width:none; }
-  .hero-lead { font-size:14px; margin-bottom:2px; }
-  .hero h1 { font-size:clamp(26px,7.5vw,34px); margin-bottom:32px; }
+  /* ─ FV：写真→テキスト縦積み ─ */
+  .hero { height:auto; min-height:0; display:flex; flex-direction:column; overflow:hidden; }
+  .hero-bg { position:relative; left:auto; top:auto; bottom:auto; width:100%; height:56vw; min-height:220px; background-position:55% 30%; flex-shrink:0; }
+  .hero-ov { display:none; }
+  .hero-col { position:relative; left:auto; right:auto; top:auto; bottom:auto; width:100%; padding:32px 20px 48px; max-width:none; justify-content:flex-start; gap:28px; }
+  .hero-logo-pill { flex-direction:row; align-items:center; padding-top:0; gap:12px; }
+  .hero-logo-pill img.ai { height:26px; }
+  .hero-logo-pill img.ph { --lh:17px; height:var(--lh); padding:calc(var(--lh)*.2) calc(var(--lh)*.4) calc(var(--lh)*.2) calc(var(--lh)*.3); }
+  .hero-logo-pill .x { font-size:13px; color:#555; font-weight:500; }
+  .hero-body { transform:none; margin:0; }
+  .hero h1 { font-size:clamp(24px,7vw,32px); white-space:normal; margin-bottom:12px; }
+  .hero-lead { font-size:13px; line-height:1.7; margin-bottom:32px; }
   .btn-hero { width:100%; padding:14px 20px; font-size:15px; border-radius:6px; }
 
-  .problem { padding:64px 20px; }
-  .problem-grid { grid-template-columns:1fr; max-width:320px; gap:16px; }
-  .problem-card { padding:28px 20px; gap:14px; }
+  /* ─ セクションタイトル左揃え ─ */
+  .sec-head { text-align:left; }
+  .problem { text-align:left; }
+  .size { text-align:left; }
+  .faq { text-align:left; }
+  .problem-close { margin:0; text-align:left; }
+  .sp-br { display:inline; }
 
-  .about { padding:64px 20px; }
-  .about-inner { grid-template-columns:1fr; gap:32px; }
+  /* ─ Problem ─ */
+  .problem { padding:48px 20px; }
+  .problem-grid { grid-template-columns:1fr; max-width:none; gap:8px; }
+  .problem-card { padding:12px 14px; flex-direction:row; align-items:center; gap:14px; border-radius:0; }
+  .problem-icon { font-size:20px; flex-shrink:0; align-self:center; }
+  .problem-card-label { font-size:13px; margin-bottom:2px; }
+  .problem-card-highlight { font-size:15px; }
 
-  .size { padding:64px 20px; }
-  .size-grid { max-width:100%; gap:12px; }
-  .size-guide { padding:24px 20px; }
-  .size-img-wrap { height:80px; }
+  /* ─ About ─ */
+  .about { padding:56px 20px; }
+  .about-inner { display:flex; flex-direction:column; gap:0; }
+  .about-head { order:1; padding-bottom:16px; margin-bottom:20px; }
+  .about-img-wrap { order:2; margin-bottom:24px; }
+  .about-body { order:3; }
 
-  .faq { padding:64px 20px; }
-  .faq-q { padding:20px 16px; }
+  /* ─ Size：縦積み＋横レイアウト ─ */
+  .size { padding:56px 20px; }
+  .size-grid { grid-template-columns:1fr; max-width:none; gap:10px; }
+  .size-card { display:flex; flex-direction:row; align-items:center; padding:14px 16px; gap:16px; border-radius:0; }
+  .size-img-wrap { height:52px; width:52px; min-width:52px; margin-bottom:0; flex-shrink:0; }
+  .size-letter { font-size:24px; margin-bottom:0; min-width:28px; }
+  .size-mm { font-size:12px; white-space:nowrap; }
+  .size-guide { padding:20px 16px; }
+
+  /* ─ FAQ ─ */
+  .faq { padding:56px 20px; }
+  .faq-q { padding:18px 16px; font-size:12px; }
   .faq-a { padding-left:60px; }
 
-  .buy { padding:72px 20px 64px; }
-  .buy-inner { grid-template-columns:1fr; gap:40px; text-align:center; }
-  .buy-circle { width:200px; height:200px; border-radius:8px; }
-  .buy-name,.buy-pmeta { text-align:center; }
-  .buy-pnum { justify-content:center; }
-  .buy-pnum .num { font-size:56px; }
+  /* ─ Buy ─ */
+  .buy { padding:56px 20px 56px; }
+  .buy-inner { display:flex; flex-direction:column; align-items:stretch; gap:0; }
+  .buy-head { order:1; width:100%; text-align:left; padding-bottom:0; margin-bottom:20px; }
+  .buy-img-wrap { order:2; margin-bottom:24px; }
+  .buy-text { order:3; width:100%; text-align:left; }
+  .buy-circle { width:220px; height:220px; border-radius:8px; }
+  .buy-name { white-space:normal; font-size:20px; text-align:left; }
+  .buy-pmeta { text-align:left; }
+  .buy-tagline { text-align:left; }
+  .buy-pnum { justify-content:flex-start; }
+  .buy-pnum .num { font-size:52px; }
   .btn-buy { width:100%; }
-  .buy-feats { justify-content:center; }
-  .buy-note { text-align:center; }
+  .buy-feats { justify-content:flex-start; }
+  .buy-note { text-align:left; }
 
   footer { padding:48px 20px 20px; }
   .footer-inner { grid-template-columns:1fr; gap:28px; }
@@ -467,8 +506,8 @@ footer {
 }
 
 @media (max-width:400px) {
-  .hero-body { bottom:36px; }
-  .hero h1 { font-size:24px; }
+  .hero-col { padding:20px 16px 32px; }
+  .hero h1 { font-size:22px; }
   .hero-price .pnum { font-size:24px; }
   .buy-pnum .num { font-size:44px; }
 }
@@ -512,20 +551,23 @@ document.getElementById('pw').addEventListener('keydown',function(e){if(e.key===
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <p style="position:absolute;bottom:10px;left:12px;z-index:10;font-size:10px;color:rgba(255,255,255,0.75);letter-spacing:0.04em;">※画像はイメージです</p>
+  </div>
   <div class="hero-ov"></div>
   <div class="hero-bg-right"></div>
-  <p style="position:absolute;bottom:14px;left:20px;z-index:10;font-size:10px;color:rgba(255,255,255,0.75);letter-spacing:0.04em;">※画像はイメージです</p>
-  <div class="hero-logo-pill">
-    <img class="ai" src="images/AI.svg" alt="アイメガネ">
-    <span class="x">×</span>
-    <img class="ph" src="images/phiten-logo.png" alt="phiten">
-  </div>
-  <div class="hero-body">
-    <h1>かけ心地が、変わる。</h1>
-    <p class="hero-lead">リラックス＆リカバリーをサポートする<br>ファイテンの技術をノーズパッドに採用。</p>
-    <a href="#buy" class="btn-hero">お近くの店舗を探す</a>
-    <p style="margin-top:14px;font-size:13px;font-weight:600;color:var(--ink);letter-spacing:0.04em;">※本庄南大通り店を除くアイメガネ全店にて販売中</p>
+  <div class="hero-col">
+    <div class="hero-logo-pill">
+      <img class="ai" src="images/AI.svg" alt="アイメガネ">
+      <span class="x">×</span>
+      <img class="ph" src="images/phiten-logo.png" alt="phiten">
+    </div>
+    <div class="hero-body">
+      <h1>かけ心地が、変わる。</h1>
+      <p class="hero-lead">リラックス＆リカバリーをサポートする<br>ファイテンの技術をノーズパッドに採用。</p>
+      <a href="#buy" class="btn-hero">お近くの店舗を探す</a>
+      <p style="margin-top:20px;font-size:13px;font-weight:600;color:var(--ink);letter-spacing:0.04em;">※本庄南大通り店を除くアイメガネ全店にて販売中</p>
+    </div>
   </div>
 </section>
 
@@ -533,9 +575,9 @@ document.getElementById('pw').addEventListener('keydown',function(e){if(e.key===
 <!-- ═══ PROBLEM ═══ -->
 <section class="problem">
   <div class="container">
-    <div class="reveal" style="text-align:center;">
+    <div class="reveal sec-head">
       <span class="sec-label">Problem</span>
-      <h2 class="sec-title">こんなお悩みありませんか？</h2>
+      <h2 class="sec-title">こんなお悩み<br class="sp-br">ありませんか？</h2>
     </div>
     <div class="problem-grid reveal">
       <div class="problem-card">
@@ -560,8 +602,8 @@ document.getElementById('pw').addEventListener('keydown',function(e){if(e.key===
         </div>
       </div>
     </div>
-    <p class="problem-close reveal" style="text-align:center;">
-      その違和感、<strong>鼻あて交換</strong>で変わるかもしれません。
+    <p class="problem-close reveal">
+      その違和感、<br class="sp-br"><strong>鼻あて交換</strong>で変わるかもしれません。
     </p>
   </div>
 </section>
@@ -573,14 +615,16 @@ document.getElementById('pw').addEventListener('keydown',function(e){if(e.key===
 <section class="about" id="about">
   <div class="container">
     <div class="about-inner">
+      <div class="about-head reveal">
+        <span class="sec-label">About</span>
+        <h2 class="sec-title">製品について</h2>
+      </div>
       <div class="about-img-wrap reveal">
         <div class="about-img-box">
           <img src="images/m.png" alt="ミクロチタンボール ノーズパッド パッケージ">
         </div>
       </div>
       <div class="about-body reveal d1">
-        <span class="sec-label">About</span>
-        <h2 class="sec-title" style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border);">製品について</h2>
         <p>ファイテン社の独自技術「ミクロチタンボール」をソフト樹脂パッドに採用したメガネ用ノーズパッドです。</p>
         <div class="tech-box">
           <div class="tech-label">Technology</div>
@@ -599,9 +643,9 @@ document.getElementById('pw').addEventListener('keydown',function(e){if(e.key===
 <!-- ═══ SIZE ═══ -->
 <section class="size" id="size">
   <div class="container">
-    <div class="reveal" style="text-align:center;">
+    <div class="reveal sec-head">
       <span class="sec-label">Size Guide</span>
-      <h2 class="sec-title">メガネに合わせて選べる3サイズ</h2>
+      <h2 class="sec-title">メガネに合わせて<br class="sp-br">選べる3サイズ</h2>
     </div>
     <div class="size-grid reveal">
       <div class="size-card">
@@ -634,8 +678,8 @@ document.getElementById('pw').addEventListener('keydown',function(e){if(e.key===
 
 <!-- ═══ FAQ ═══ -->
 <section class="faq" id="faq">
-  <div class="container" style="text-align:center;">
-    <div class="reveal">
+  <div class="container">
+    <div class="reveal sec-head">
       <span class="sec-label">FAQ</span>
       <h2 class="sec-title">よくあるご質問</h2>
     </div>
@@ -668,18 +712,20 @@ document.getElementById('pw').addEventListener('keydown',function(e){if(e.key===
 <!-- ═══ BUY（navy） ═══ -->
 <section class="buy" id="buy">
   <div class="buy-inner">
+    <div class="buy-head reveal">
+      <p class="buy-name">ミクロチタンボール ノーズパッド</p>
+    </div>
     <div class="buy-img-wrap reveal">
-      <div class="buy-circle"><img src="images/maruM.jpg" alt="ミクロチタンボール ノーズパッド"></div>
+      <div class="buy-circle"><img src="images/m2-TOUMEI.png" alt="ミクロチタンボール ノーズパッド"></div>
     </div>
     <div class="buy-text reveal d1">
-      <p class="buy-name">ミクロチタンボール ノーズパッド</p>
-      <p class="buy-tagline">リラックス＆リカバリーをサポートするファイテンの技術を<br>ノーズパッドに採用。</p>
+      <p class="buy-tagline">リラックス＆リカバリーをサポートする<br>ファイテンの技術をノーズパッドに採用。</p>
       <div class="buy-price-row">
         <div class="buy-pnum"><span class="yen">¥</span><span class="num">990</span></div>
         <p class="buy-pmeta">税込 / S・M・L</p>
       </div>
       <a href="https://www.aimegane.com/shop/" class="btn-buy" target="_blank" rel="noopener">来店予約する</a>
-      <p class="buy-coverage">本庄南大通り店を除く、アイメガネ全店にて販売中</p>
+      <p class="buy-coverage">本庄南大通り店を除く、<br class="sp-br">アイメガネ全店にて販売中</p>
       <p class="buy-sub-feats">✓ サイズ相談OK　✓ 取り付け無料</p>
     </div>
   </div>
